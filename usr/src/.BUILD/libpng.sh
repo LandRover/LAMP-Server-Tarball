@@ -8,8 +8,7 @@ cd ../${APP_NAME};
 
 make clean;
 
-#export LDFLAGS='-L/opt/local/sbin/zlib/lib/ -I/opt/local/sbin/zlib/include/'
-#export CFLAGS='-I/opt/local/sbin/zlib/include/'
+export CPPFLAGS='-I/opt/local/sbin/zlib/include/';
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
