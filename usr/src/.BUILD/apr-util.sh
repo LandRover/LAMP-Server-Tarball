@@ -1,13 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-cd ../apr-util;
+VERSION="1.5.4";
+APP_NAME="apr-util";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
 
 ./configure \
---prefix=/opt/local/sbin/apr-util-1.5.4 \
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
 --with-apr=/opt/local/sbin/apr;
-
-rm -rf /opt/local/sbin/apr-util;
-ln -s /opt/local/sbin/apr-util-1.5.4 /opt/local/sbin/apr-util;
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

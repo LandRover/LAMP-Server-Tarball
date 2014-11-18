@@ -1,9 +1,18 @@
 #!/bin/bash
 
-cd ../zlib;
+VERSION="1.2.8";
+APP_NAME="zlib";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
+
+make clean;
 
 ./configure \
---prefix=/usr/local/sbin/zlib-1.2.7;
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION);
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

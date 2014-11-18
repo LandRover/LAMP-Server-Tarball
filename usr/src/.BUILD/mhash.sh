@@ -1,9 +1,18 @@
 #!/bin/bash
 
-cd ../mhash;
+VERSION="0.9.9.9";
+APP_NAME="mhash";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
+
+make clean;
 
 ./configure \
---prefix=/opt/local/sbin/mhash-0.9.9.9;
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION);
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

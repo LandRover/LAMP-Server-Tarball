@@ -1,6 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-cd ../APC/;
+VERSION="3.1.13";
+APP_NAME="APC";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
 
 make clean;
 

@@ -1,9 +1,18 @@
 #!/bin/bash
 
-cd ../libxml2;
+VERSION="2.9.2";
+APP_NAME="libxml2";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
+
+make clean;
 
 ./configure \
---prefix=/opt/local/sbin/libxml2-2.9.0;
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION);
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

@@ -1,10 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-cd ../jpeg;
+VERSION="9a";
+APP_NAME="jpeg";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
+
+make clean;
 
 ./configure \
---prefix=/opt/local/sbin/jpeg-9a \
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
 --enable-shared;
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

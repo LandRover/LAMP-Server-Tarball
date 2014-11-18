@@ -1,13 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-cd ../httpd;
+VERSION="2.4.10";
+APP_NAME="httpd";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
 
 #apt-get install make autoconf automake1.9 libmysqlclient15-dev libtool libssl-dev gcc-4.1 g++ libnet1 libpcap0.8 libpcap0.8-dev
 
 make clean;
 
 ./configure \
---prefix=/local/sbin/httpd-2.4.3 \
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
 --enable-so \
 --enable-ssl \
 --enable-info \
@@ -34,10 +38,10 @@ make clean;
 --with-suexec-userdir=public_html \
 --with-suexec-uidmin=100 \
 --with-suexec-gidmin=100 \
---with-ssl=/local/sbin/openssl \
---with-apr=/local/sbin/apr \
---with-apr-util=/local/sbin/apr-util \
---with-pcre=/local/sbin/pcre \
+--with-ssl=/opt/local/sbin/openssl \
+--with-apr=/opt/local/sbin/apr \
+--with-apr-util=/opt/local/sbin/apr-util \
+--with-pcre=/opt/local/sbin/pcre \
 --with-expat=builtin \
 --sysconfdir=/etc/apache;
 
@@ -45,3 +49,6 @@ make;
 make install;
 
 ##chkconfig httpd on --level 2,3,5
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

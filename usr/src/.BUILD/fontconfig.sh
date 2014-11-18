@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 VERSION="2.11.1";
 APP_NAME="fontconfig";
 OPT="/opt/local/sbin";
@@ -23,8 +24,8 @@ FREETYPE_LIBS='-L/opt/local/sbin/freetype/lib -lfreetype' \
 LIBXML2_CFLAGS='-I/opt/local/sbin/libxml2/include/libxml2' \
 LIBXML2_LIBS='-L/opt/local/sbin/libxml2/lib -lxml2 -lm';
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
-
 make V=1;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);

@@ -1,9 +1,18 @@
 #!/bin/bash
 
-cd ../pcre;
+VERSION="8.36";
+APP_NAME="pcre";
+OPT="/opt/local/sbin";
+
+cd ../$(APP_NAME);
+
+make clean;
 
 ./configure \
---prefix=/opt/local/sbin/pcre-8.31;
+--prefix=$(OPT)/$(APP_NAME)-$(VERSION);
 
 make;
 make install;
+
+rm -rf $(OPT)/$(APP_NAME);
+ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
