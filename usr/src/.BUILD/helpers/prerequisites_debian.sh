@@ -1,6 +1,7 @@
 #!/bin/bash
 
 apt-get install \
+python-dev \
 build-essential \
 pkg-config \
 make \
