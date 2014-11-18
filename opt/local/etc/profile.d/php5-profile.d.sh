@@ -1,2 +1,2 @@
 #!/bin/sh
-export PATH=$PATH:/usr/local/sbin/php/bin
+export PATH=$PATH:/opt/local/sbin/php/bin

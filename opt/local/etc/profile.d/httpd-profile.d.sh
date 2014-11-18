@@ -1,2 +1,2 @@
 #!/bin/sh
-export PATH=$PATH:/usr/local/sbin/httpd/bin
+export PATH=$PATH:/opt/local/sbin/httpd/bin
