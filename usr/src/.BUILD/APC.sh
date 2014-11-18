@@ -4,7 +4,7 @@ VERSION="3.1.13";
 APP_NAME="APC";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 make clean;
 

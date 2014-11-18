@@ -4,14 +4,14 @@ VERSION="0.72";
 APP_NAME="suphp";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 make clean;
 
 ## version 0.7.1 does not support apache 2.4.X
 
 ./configure \
---prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
+--prefix=${OPT}/${APP_NAME}-${VERSION} \
 #--with-apxs=/opt/local/sbin/httpd/bin/apxs \
 --with-apache-user=daemon \
 --with-logfile=/opt/local/sbin/httpd/logs/suphp_log \
@@ -23,5 +23,6 @@ make clean;
 make;
 make install;
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
+rm -rf ${OPT}/${APP_NAME};
+ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME}
+;

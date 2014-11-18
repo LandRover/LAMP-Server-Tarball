@@ -4,7 +4,7 @@ VERSION="2.11.1";
 APP_NAME="fontconfig";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 make clean;
 
@@ -16,7 +16,7 @@ make clean;
 #export LIBXML2_LIBS='-L/opt/local/sbin/libxml2';
 
 ./configure \
---prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
+--prefix=${OPT}/${APP_NAME}-${VERSION} \
 --enable-libxml2 \
 --with-arch=arm \
 FREETYPE_CFLAGS='-I/opt/local/sbin/freetype/include/freetype2' \
@@ -27,5 +27,5 @@ LIBXML2_LIBS='-L/opt/local/sbin/libxml2/lib -lxml2 -lm';
 make V=1;
 make install;
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
+rm -rf ${OPT}/${APP_NAME};
+ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

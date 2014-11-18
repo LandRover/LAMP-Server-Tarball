@@ -4,14 +4,14 @@ VERSION="2.4.10";
 APP_NAME="httpd";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 #apt-get install make autoconf automake1.9 libmysqlclient15-dev libtool libssl-dev gcc-4.1 g++ libnet1 libpcap0.8 libpcap0.8-dev
 
 make clean;
 
 ./configure \
---prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
+--prefix=${OPT}/${APP_NAME}-${VERSION} \
 --enable-so \
 --enable-ssl \
 --enable-info \
@@ -50,5 +50,5 @@ make install;
 
 ##chkconfig httpd on --level 2,3,5
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
+rm -rf ${OPT}/${APP_NAME};
+ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

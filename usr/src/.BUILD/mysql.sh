@@ -4,7 +4,7 @@ VERSION="5.6.21";
 APP_NAME="mysql";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 make clean;
 
@@ -16,9 +16,9 @@ make clean;
 
 rm -rf CMakeCache.txt;
 
-cmake -DCMAKE_INSTALL_PREFIX=$(OPT)/$(APP_NAME)-$(VERSION);
+cmake -DCMAKE_INSTALL_PREFIX=${OPT}/${APP_NAME}-${VERSION};
 make;
 make install;
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
+rm -rf ${OPT}/${APP_NAME};
+ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

@@ -4,14 +4,14 @@ VERSION="5.6.3";
 APP_NAME="php";
 OPT="/opt/local/sbin";
 
-cd ../$(APP_NAME);
+cd ../${APP_NAME};
 
 make clean;
 
 /sbin/ldconfig;
 
 ./configure \
---prefix=$(OPT)/$(APP_NAME)-$(VERSION) \
+--prefix=${OPT}/${APP_NAME}-${VERSION} \
 --disable-all \
 --enable-cgi \
 --enable-zip \
@@ -49,5 +49,5 @@ make clean;
 make;
 make install;
 
-rm -rf $(OPT)/$(APP_NAME);
-ln -s $(OPT)/$(APP_NAME)-$(VERSION) $(OPT)/$(APP_NAME);
+rm -rf ${OPT}/${APP_NAME};
+ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
