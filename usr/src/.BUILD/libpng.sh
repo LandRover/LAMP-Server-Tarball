@@ -12,6 +12,7 @@ export CPPFLAGS='-I/opt/local/sbin/zlib/include/';
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
+--disable-static \
 --disable-shared;
 
 make;
