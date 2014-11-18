@@ -53,3 +53,6 @@ make install;
 
 rm -rf ${OPT}/${APP_NAME};
 ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+
+rm -rf /opt/local/etc/init.d/${APP_NAME}
+ln -s ${OPT}/${APP_NAME}/bin/apachectl /opt/local/etc/init.d/${APP_NAME};
