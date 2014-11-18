@@ -43,7 +43,7 @@ make clean;
 --with-apr-util=/opt/local/sbin/apr-util \
 --with-pcre=/opt/local/sbin/pcre \
 --with-expat=builtin \
---sysconfdir=/etc/apache;
+--sysconfdir=/opt/local/etc;
 
 make;
 make install;
