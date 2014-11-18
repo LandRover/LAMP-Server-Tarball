@@ -8,9 +8,6 @@ cd ../${APP_NAME};
 
 make clean;
 
-## http://www.linuxforums.org/forum/programming-scripting/47173-make-error-giving-gd-2-0-33-a.html
-## modify gd_png.c and replace 'png.h' to: '/opt/local/sbin/libpng/include/png.h'
-
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
 --with-jpeg=/opt/local/sbin/jpeg \
