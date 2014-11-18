@@ -6,9 +6,10 @@ OPT="/opt/local/sbin";
 
 cd ../${APP_NAME};
 
-#apt-get install make autoconf automake1.9 libmysqlclient15-dev libtool libssl-dev gcc-4.1 g++ libnet1 libpcap0.8 libpcap0.8-dev
-
 make clean;
+
+groupadd apache;
+useradd -d /var/www/ -g apache -s /bin/false apache;
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
