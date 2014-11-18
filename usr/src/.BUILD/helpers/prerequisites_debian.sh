@@ -6,5 +6,5 @@ pkg-config \
 make \
 autoconf \
 automake1.9 \
-gcc-4.1 \
+gcc \
 g++;
