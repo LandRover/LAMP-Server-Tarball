@@ -16,3 +16,4 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Unpack and map phpMyAdmin to htdocs
   - Install apc web-view to htdocs
   - Reinstall VM and test all scripts
+  - Create sample user and with PHP-FPM for a phpinfo page.
