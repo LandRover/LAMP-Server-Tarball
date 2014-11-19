@@ -38,7 +38,4 @@ cmake \
 make;
 make install;
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
-
-chown -R ${USER}:${USER} ${DESTINATION}
-#scripts/mysql_install_db --user=${APP_NAME}
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};
