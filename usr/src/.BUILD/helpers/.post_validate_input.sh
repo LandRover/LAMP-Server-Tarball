@@ -1,3 +1,7 @@
+#!/bin/bash
+
+[ "$0" = "${BASH_SOURCE}" ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
+
 # Validation object, shared between all components. Also provides 3 commonly used vars: BIN_DIR, APP_NAME and VERSION
 # file is loaded via SOURCE and must NOT BE executed directly.
 

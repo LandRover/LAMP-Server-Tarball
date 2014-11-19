@@ -1,3 +1,7 @@
+#!/bin/bash
+
+[ "$0" = "${BASH_SOURCE}" ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
+
 # Used as a shared focal point for running generic shared between all components
 # file is loaded via SOURCE and must NOT BE executed directly.
 
