@@ -3,13 +3,14 @@
 VERSION="2.4.10";
 APP_NAME="httpd";
 OPT="/opt/local/sbin";
+USER="apache";
 
 cd ../${APP_NAME};
 
 make clean;
 
-groupadd apache;
-useradd -d /opt/local/sbin/httpd/htdocs -g apache -s /bin/false apache;
+groupadd ${USER};
+useradd -d /opt/local/sbin/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
@@ -42,7 +43,7 @@ useradd -d /opt/local/sbin/httpd/htdocs -g apache -s /bin/false apache;
 --with-pcre=/opt/local/sbin/pcre \
 --with-ssl=/opt/local/sbin/openssl \
 --with-suexec \
---with-suexec-caller=apache \
+--with-suexec-caller=${USER} \
 --with-suexec-docroot=/opt/local/sbin/httpd/htdocs \
 --with-suexec-gidmin=100 \
 --with-suexec-logfile=/var/log/httpd/suexec_log \
@@ -60,7 +61,7 @@ ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
 rm -rf /opt/local/etc/init.d/${APP_NAME}
 ln -s ${OPT}/${APP_NAME}/bin/apachectl /opt/local/etc/init.d/${APP_NAME};
 
-chown -R apache:apache ${OPT}/${APP_NAME}
+chown -R ${USER}:${USER} ${OPT}/${APP_NAME}
 chmod -R go-rwx ${OPT}/${APP_NAME}
 chmod -R r-w ${OPT}/${APP_NAME}
 chmod o+x ${OPT}/${APP_NAME} ${OPT}/${APP_NAME}/htdocs ${OPT}/${APP_NAME}/cgi-bin
