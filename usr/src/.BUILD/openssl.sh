@@ -11,7 +11,7 @@ make clean;
 
 ./config \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
-zlib-dynamic --openssldir=/etc/ssl zlib enable-tlsext shared;
+zlib-dynamic --openssldir=/opt/local/etc/ssl zlib enable-tlsext shared;
 
 make depend;
 make;

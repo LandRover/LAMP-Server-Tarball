@@ -11,7 +11,7 @@ cd ../${APP_NAME};
 make clean;
 
 groupadd ${USER};
-useradd -d /opt/local/sbin/httpd/htdocs -g ${USER} -s /bin/false ${USER};
+useradd -d ${OPT}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
@@ -38,14 +38,14 @@ useradd -d /opt/local/sbin/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 --enable-unixd \
 --enable-vhost-alias \
 --sysconfdir=/opt/local/etc/apache \
---with-apr-util=/opt/local/sbin/apr-util \
---with-apr=/opt/local/sbin/apr \
+--with-apr-util=${OPT}/apr-util \
+--with-apr=${OPT}/apr \
 --with-expat=builtin \
---with-pcre=/opt/local/sbin/pcre \
---with-ssl=/opt/local/sbin/openssl \
+--with-pcre=${OPT}/pcre \
+--with-ssl=${OPT}/openssl \
 --with-suexec \
 --with-suexec-caller=${USER} \
---with-suexec-docroot=/opt/local/sbin/httpd/htdocs \
+--with-suexec-docroot=${OPT}/httpd/htdocs \
 --with-suexec-gidmin=100 \
 --with-suexec-logfile=/var/log/httpd/suexec_log \
 --with-suexec-uidmin=100 \

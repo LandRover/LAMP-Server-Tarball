@@ -9,7 +9,7 @@ cd ../${APP_NAME};
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
---with-apr=/opt/local/sbin/apr;
+--with-apr=${OPT}/apr;
 
 make;
 make install;

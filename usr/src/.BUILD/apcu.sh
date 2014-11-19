@@ -14,8 +14,8 @@ make clean;
 ./configure \
 --enable-apc \
 --enable-apc-mmap \
---with-apxs=/opt/local/sbin/httpd/bin/apxs \
---with-php-config=/opt/local/sbin/php/bin/php-config
+--with-apxs=${OPT}/httpd/bin/apxs \
+--with-php-config=${OPT}/bin/php-config
 
 make;
 make install;

@@ -11,10 +11,10 @@ make clean;
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
---with-jpeg=/opt/local/sbin/jpeg \
---with-png=/opt/local/sbin/libpng \
---with-freetype=/opt/local/sbin/freetype \
---with-fontconfig=/opt/local/sbin/fontconfig;
+--with-jpeg=${OPT}/jpeg \
+--with-png=${OPT}/libpng \
+--with-freetype=${OPT}/freetype \
+--with-fontconfig=${OPT}/fontconfig;
 
 make;
 make install;

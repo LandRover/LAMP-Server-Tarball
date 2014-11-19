@@ -9,13 +9,13 @@ cd ../${APP_NAME};
 
 make clean;
 
-export LD_LIBRARY_PATH=/opt/local/sbin/libmcrypt/lib:/opt/local/sbin/mhash/lib
-export LDFLAGS='-L/opt/local/sbin/mhash/lib/ -I/opt/local/sbin/mhash/include/'
-export CFLAGS='-I/opt/local/sbin/mhash/include/'
+export LD_LIBRARY_PATH=${OPT}/libmcrypt/lib:${OPT}/mhash/lib;
+export LDFLAGS="-L${OPT}/mhash/lib/ -I${OPT}/mhash/include/";
+export CFLAGS="-I${OPT}/mhash/include/";
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
---with-libmcrypt-prefix=/opt/local/sbin/libmcrypt;
+--with-libmcrypt-prefix=${OPT}/libmcrypt;
 
 make;
 make install;

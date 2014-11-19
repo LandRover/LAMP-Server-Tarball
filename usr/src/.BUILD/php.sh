@@ -32,25 +32,25 @@ make clean;
 --enable-gd-native-ttf \
 --enable-inline-optimization \
 --with-iconv \
---with-mcrypt=/opt/local/sbin/libmcrypt \
+--with-mcrypt=${OPT}/libmcrypt \
 --with-gettext \
 --with-fpm-user=apache \
 --with-fpm-group=apache \
 --with-pcre-regex \
 --with-config-file-path=/opt/local/etc/php \
 --with-config-file-scan-dir=/opt/local/etc/php/php.d \
---with-apxs2=/opt/local/sbin/httpd/bin/apxs \
---with-libxml-dir=/opt/local/sbin/libxml2 \
---with-zlib-dir=/opt/local/sbin/zlib \
---with-openssl=/opt/local/sbin/openssl \
---with-mysql=/opt/local/sbin/mysql \
---with-mysqli=/opt/local/sbin/mysql/bin/mysql_config \
+--with-apxs2=${OPT}/httpd/bin/apxs \
+--with-libxml-dir=${OPT}/libxml2 \
+--with-zlib-dir=${OPT}/zlib \
+--with-openssl=${OPT}/openssl \
+--with-mysql=${OPT}/mysql \
+--with-mysqli=${OPT}/mysql/bin/mysql_config \
 --with-mysql-sock=/var/run/mysql.sock \
---with-curl=/opt/local/sbin/curl \
+--with-curl=${OPT}/curl \
 --with-gd \
---with-freetype-dir=/opt/local/sbin/freetype \
---with-png-dir=/opt/local/sbin/libpng \
---with-jpeg-dir=/opt/local/sbin/jpeg;
+--with-freetype-dir=${OPT}/freetype \
+--with-png-dir=${OPT}/libpng \
+--with-jpeg-dir=${OPT}/jpeg;
 
 make;
 make install;

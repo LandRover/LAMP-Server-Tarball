@@ -13,12 +13,12 @@ make clean;
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
-#--with-apxs=/opt/local/sbin/httpd/bin/apxs \
+#--with-apxs=${OPT}/httpd/bin/apxs \
 --with-apache-user=apache \
---with-logfile=/opt/local/sbin/httpd/logs/suphp_log \
+--with-logfile=${OPT}/httpd/logs/suphp_log \
 --with-setid-mode=paranoid \
 --sysconfdir=/etc \
---with-apr=/opt/local/sbin/apr \
+--with-apr=${OPT}/apr \
 --enable-suphp_USE_USERGROUP=yes;
 
 make;

@@ -9,7 +9,7 @@ cd ../${APP_NAME};
 
 make clean;
 
-export CPPFLAGS='-I/opt/local/sbin/zlib/include/';
+export CPPFLAGS='-I${OPT}/zlib/include/';
 
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
