@@ -10,6 +10,12 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - for i in `ls -d */`; do ln -s $i `echo $i | cut -d '-' -f1`; done
 
 ## @todo
+  - mysql post_build
+    - change owner of /opt/local/sbin/mysql (and ln)
+    - create symlink for init.d/mysql
+    - change owner of /home/mysql
+    - verify something exists in /home/mysql || execute scripts/mysql_install_db --user=mysql
+    - finalize my.cnf default config @ /opt/local/etc/mysql
   - Prevent sourced bash files to be executed directly.
   - Create apache default configs.
   - Attached profile.d and ld to post_build to relevant builds.
