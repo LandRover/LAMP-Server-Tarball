@@ -3,6 +3,7 @@
 apt-get install \
 mc \
 screen \
+dstat \
 python-dev \
 build-essential \
 pkg-config \
