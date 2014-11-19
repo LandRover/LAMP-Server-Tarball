@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="0.72";
 APP_NAME="suphp";
 OPT="/opt/local/sbin";
@@ -13,7 +14,7 @@ make clean;
 ./configure \
 --prefix=${OPT}/${APP_NAME}-${VERSION} \
 #--with-apxs=/opt/local/sbin/httpd/bin/apxs \
---with-apache-user=daemon \
+--with-apache-user=apache \
 --with-logfile=/opt/local/sbin/httpd/logs/suphp_log \
 --with-setid-mode=paranoid \
 --sysconfdir=/etc \
@@ -23,6 +24,4 @@ make clean;
 make;
 make install;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME}
-;
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

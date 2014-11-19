@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="2.6.8";
 APP_NAME="mcrypt";
 OPT="/opt/local/sbin";
@@ -19,5 +20,4 @@ export CFLAGS='-I/opt/local/sbin/mhash/include/'
 make;
 make install;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

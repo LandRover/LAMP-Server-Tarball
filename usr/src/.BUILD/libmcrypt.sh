@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="2.5.8";
 APP_NAME="libmcrypt";
 OPT="/opt/local/sbin";
@@ -14,5 +15,4 @@ make clean;
 make;
 make install;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

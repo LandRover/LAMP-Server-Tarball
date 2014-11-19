@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="1.0.1j";
 APP_NAME="openssl";
 OPT="/opt/local/sbin";
@@ -18,5 +19,4 @@ make install;
 
 /sbin/ldconfig -v /opt/local/sbin/openssl/lib;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

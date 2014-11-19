@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="5.6.21";
 APP_NAME="mysql";
 OPT="/opt/local/sbin";
@@ -31,8 +32,7 @@ cmake \
 make;
 make install;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
 
 chown -R ${USER}:${USER} ${OPT}/${APP_NAME}
 #scripts/mysql_install_db --user=${APP_NAME}

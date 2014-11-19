@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="2.4.10";
 APP_NAME="httpd";
 OPT="/opt/local/sbin";
@@ -55,11 +56,8 @@ make install;
 
 ##chkconfig httpd on --level 2,3,5
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
-
-rm -rf /opt/local/etc/init.d/${APP_NAME}
-ln -s ${OPT}/${APP_NAME}/bin/apachectl /opt/local/etc/init.d/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}/bin/apachectl /opt/local/etc/init.d/${APP_NAME};
 
 chown -R ${USER}:${USER} ${OPT}/${APP_NAME}
 chmod -R go-rwx ${OPT}/${APP_NAME}

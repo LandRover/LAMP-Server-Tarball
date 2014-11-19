@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="1.6.14";
 APP_NAME="libpng";
 OPT="/opt/local/sbin";
@@ -17,5 +18,4 @@ export CPPFLAGS='-I/opt/local/sbin/zlib/include/';
 make;
 make install;
 
-rm -rf ${OPT}/${APP_NAME};
-ln -s ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};

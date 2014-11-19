@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD="../${PWD##*/}";
 VERSION="4.0.7";
 APP_NAME="apcu";
 OPT="/opt/local/sbin";
