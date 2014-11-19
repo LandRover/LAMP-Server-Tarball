@@ -44,6 +44,7 @@ make clean;
 --with-openssl=/opt/local/sbin/openssl \
 --with-mysql=/opt/local/sbin/mysql \
 --with-mysqli=/opt/local/sbin/mysql/bin/mysql_config \
+--with-mysql-sock=/var/run/mysql.sock \
 --with-curl=/opt/local/sbin/curl \
 --with-gd \
 --with-freetype-dir=/opt/local/sbin/freetype \
