@@ -18,3 +18,8 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Install apc web-view to htdocs.
   - Reinstall VM and test all scripts.
   - Create sample user and with PHP-FPM for a phpinfo page.
+  - Create mailgun default email relay
+  - Think of logging solution, file or other logger
+  - Setup logrotate with default settings
+  - Script configuring automysqlbackup
+  - Script configuring Google Drive up-on change
