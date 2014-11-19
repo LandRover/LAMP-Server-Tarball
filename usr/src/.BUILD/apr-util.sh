@@ -1,17 +1,23 @@
 #!/bin/bash
 
+# build data
 BUILD="../${PWD##*/}";
 VERSION="1.5.4";
 APP_NAME="apr-util";
-OPT="/opt/local/sbin";
+
+# destination build info
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
 ./configure \
---prefix=${OPT}/${APP_NAME}-${VERSION} \
---with-apr=${OPT}/apr;
+--prefix=${DESTINATION} \
+--with-apr=${BIN_DIR}/apr;
 
 make;
 make install;
 
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};

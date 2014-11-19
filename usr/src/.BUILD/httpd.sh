@@ -1,20 +1,26 @@
 #!/bin/bash
 
+# build data
 BUILD="../${PWD##*/}";
 VERSION="2.4.10";
 APP_NAME="httpd";
-OPT="/opt/local/sbin";
 USER="apache";
+
+# destination build info
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
 make clean;
 
 groupadd ${USER};
-useradd -d ${OPT}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
+useradd -d ${BIN_DIR}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 
 ./configure \
---prefix=${OPT}/${APP_NAME}-${VERSION} \
+--prefix=${DESTINATION} \
 --disable-alias \
 --disable-setenvif \
 --enable-deflate \
@@ -37,17 +43,17 @@ useradd -d ${OPT}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 --enable-unique-id \
 --enable-unixd \
 --enable-vhost-alias \
---sysconfdir=/opt/local/etc/apache \
---with-apr-util=${OPT}/apr-util \
---with-apr=${OPT}/apr \
+--sysconfdir=${ETC_DIR}/apache \
+--with-apr-util=${BIN_DIR}/apr-util \
+--with-apr=${BIN_DIR}/apr \
 --with-expat=builtin \
---with-pcre=${OPT}/pcre \
---with-ssl=${OPT}/openssl \
+--with-pcre=${BIN_DIR}/pcre \
+--with-ssl=${BIN_DIR}/openssl \
 --with-suexec \
 --with-suexec-caller=${USER} \
---with-suexec-docroot=${OPT}/httpd/htdocs \
+--with-suexec-docroot=${BIN_DIR}/httpd/htdocs \
 --with-suexec-gidmin=100 \
---with-suexec-logfile=/var/log/httpd/suexec_log \
+--with-suexec-logfile=${BIN_DIR}/httpd/logs/suexec_log \
 --with-suexec-uidmin=100 \
 --with-suexec-userdir=public_html;
 
@@ -56,12 +62,4 @@ make install;
 
 ##chkconfig httpd on --level 2,3,5
 
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}/bin/apachectl /opt/local/etc/init.d/${APP_NAME};
-
-chown -R ${USER}:${USER} ${OPT}/${APP_NAME}
-chmod -R go-rwx ${OPT}/${APP_NAME}
-chmod -R r-w ${OPT}/${APP_NAME}
-chmod o+x ${OPT}/${APP_NAME} ${OPT}/${APP_NAME}/htdocs ${OPT}/${APP_NAME}/cgi-bin
-chmod -R o+r ${OPT}/${APP_NAME}/htdocs
-chmod -R u+w ${OPT}/${APP_NAME}/logs
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};

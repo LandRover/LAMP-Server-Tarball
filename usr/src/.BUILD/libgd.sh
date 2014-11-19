@@ -1,22 +1,28 @@
 #!/bin/bash
 
+# build data
 BUILD="../${PWD##*/}";
 VERSION="2.1.0";
 APP_NAME="libgd";
-OPT="/opt/local/sbin";
+
+# destination build info
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
 make clean;
 
 ./configure \
---prefix=${OPT}/${APP_NAME}-${VERSION} \
---with-jpeg=${OPT}/jpeg \
---with-png=${OPT}/libpng \
---with-freetype=${OPT}/freetype \
---with-fontconfig=${OPT}/fontconfig;
+--prefix=${DESTINATION} \
+--with-jpeg=${BIN_DIR}/jpeg \
+--with-png=${BIN_DIR}/libpng \
+--with-freetype=${BIN_DIR}/freetype \
+--with-fontconfig=${BIN_DIR}/fontconfig;
 
 make;
 make install;
 
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};

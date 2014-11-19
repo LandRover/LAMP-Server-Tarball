@@ -1,6 +1,8 @@
 #!/bin/bash
 
 apt-get install \
+mc \
+screen \
 python-dev \
 build-essential \
 pkg-config \

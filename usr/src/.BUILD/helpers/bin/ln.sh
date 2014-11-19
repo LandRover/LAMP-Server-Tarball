@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ln.sh is a wrapper for ln
+# creates soft link, if exists removes the old one too. Including path verification.
+
 SRC="$1";
 DST="$2";
 
@@ -20,9 +23,9 @@ function usage {
 
 # validation on input
 [[ -z "${SRC}" || -z "${DST}" ]] && usage;
-[ ! -d "${SRC}" ] && usage "[error] Soruce dir, ${SRC}, not found. Fix it and try again.";
+[ ! -e "${SRC}" ] && usage "[error] Soruce path, ${SRC}, not found. Fix it and try again.";
 
-if [ -d "${DST}" ]; then
+if [ -e "${DST}" ]; then
     echo "[info] Existing symlink detected at ${DST}. Removing old link..";
     rm -rf ${DST};
     echo "[info] ${DST} Removed old link.";

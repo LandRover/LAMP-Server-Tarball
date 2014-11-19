@@ -1,27 +1,33 @@
 #!/bin/bash
 
+# build data
 BUILD="../${PWD##*/}";
 VERSION="0.72";
 APP_NAME="suphp";
-OPT="/opt/local/sbin";
+
+# destination build info
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
 make clean;
 
-## version 0.7.1 does not support apache 2.4.X
+## version 0.7.2 does not support apache 2.4.X
 
 ./configure \
---prefix=${OPT}/${APP_NAME}-${VERSION} \
-#--with-apxs=${OPT}/httpd/bin/apxs \
+--prefix=${DESTINATION} \
+#--with-apxs=${BIN_DIR}/httpd/bin/apxs \
 --with-apache-user=apache \
---with-logfile=${OPT}/httpd/logs/suphp_log \
+--with-logfile=${BIN_DIR}/httpd/logs/suphp_log \
 --with-setid-mode=paranoid \
---sysconfdir=/etc \
---with-apr=${OPT}/apr \
+--sysconfdir={$ETC_DIR} \
+--with-apr=${BIN_DIR}/apr \
 --enable-suphp_USE_USERGROUP=yes;
 
 make;
 make install;
 
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};

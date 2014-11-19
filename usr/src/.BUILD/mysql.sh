@@ -1,17 +1,23 @@
 #!/bin/bash
 
+# build data
 BUILD="../${PWD##*/}";
 VERSION="5.6.21";
 APP_NAME="mysql";
-OPT="/opt/local/sbin";
 USER="mysql";
+
+# destination build info
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
 make clean;
 
 groupadd ${USER};
-useradd -d /home/mysql -g ${USER} -s /bin/false ${USER};
+useradd -d /home/{$USER} -g ${USER} -s /bin/false ${USER};
 
 #http://zetcode.com/databases/mysqltutorial/installation/
 #http://alinux.web.id/2011/08/14/compiling-mysql-5.5.12-with-cmake-on-centos.html
@@ -22,17 +28,17 @@ useradd -d /home/mysql -g ${USER} -s /bin/false ${USER};
 rm -rf CMakeCache.txt;
 
 cmake \
--DCMAKE_INSTALL_PREFIX=${OPT}/${APP_NAME}-${VERSION} \
--DWITH_INNOBASE_STORAGE_ENGINE=1 \
+-DCMAKE_INSTALL_PREFIX=${DESTINATION} \
 -DDEFAULT_CHARSET=utf8 \
 -DDEFAULT_COLLATION=utf8_general_ci \
--DMYSQL_UNIX_ADDR=/var/run/mysql.sock \
--DSYSCONFDIR=/opt/local/etc;
+-DMYSQL_UNIX_ADDR=/var/run/mysqld/mysql.sock \
+-DSYSCONFDIR=${ETC_DIR}/${APP_NAME} \
+-DWITH_INNOBASE_STORAGE_ENGINE=1;
 
 make;
 make install;
 
-${BUILD}/helpers/bin/ln.sh ${OPT}/${APP_NAME}-${VERSION} ${OPT}/${APP_NAME};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
 
-chown -R ${USER}:${USER} ${OPT}/${APP_NAME}
+chown -R ${USER}:${USER} ${DESTINATION}
 #scripts/mysql_install_db --user=${APP_NAME}
