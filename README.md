@@ -16,7 +16,6 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - change owner of /home/mysql
     - verify something exists in /home/mysql || execute scripts/mysql_install_db --user=mysql
     - finalize my.cnf default config @ /opt/local/etc/mysql
-  - Prevent sourced bash files to be executed directly.
   - Create apache default configs.
   - Attached profile.d and ld to post_build to relevant builds.
   - Script to Unpack and map phpMyAdmin to htdocs.
