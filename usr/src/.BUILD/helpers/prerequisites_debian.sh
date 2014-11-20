@@ -8,6 +8,7 @@ htop \
 python-dev \
 build-essential \
 pkg-config \
+logrotate \
 libncurses5-dev \
 cmake \
 make \
