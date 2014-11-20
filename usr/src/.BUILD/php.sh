@@ -61,6 +61,7 @@ make clean;
 --with-zlib-dir=${BIN_DIR}/zlib;
 
 make;
+make test;
 make install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
