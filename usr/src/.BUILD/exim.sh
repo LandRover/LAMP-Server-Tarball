@@ -18,7 +18,7 @@ make clean;
 ./configure \
 --prefix=${DESTINATION};
 
-make;
+make -C ${ETC_DIR}/mail;
 make install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
