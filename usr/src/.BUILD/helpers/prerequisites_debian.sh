@@ -6,7 +6,6 @@ apt-get install \
 mc \
 screen \
 htop \
-
 python-dev \
 build-essential \
 pkg-config \
