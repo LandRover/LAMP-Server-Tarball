@@ -18,6 +18,12 @@ USER="$4";
 ## profile.d
 ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 
+## logs
+../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/httpd;
+
+## logrorate.d
+../helpers/post_etc_ln.sh "${ETC_DIR}" "logrorate.d" "${APP_NAME}";
+
 ## security modes and owner changes from root
 chown -R ${USER}:${USER} ${BIN_DIR}/${APP_NAME};
 chown -R ${USER}:${USER} ${APP_DIR};

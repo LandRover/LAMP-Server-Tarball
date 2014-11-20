@@ -29,7 +29,7 @@ useradd -d ${BIN_DIR}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
 --enable-headers \
 --enable-info \
 --enable-mime-magic \
---enable-mods-shared='authz_core authz_host authz_basic suexec headers proxy status info mime deflate rewrite dir slotmem_shm ssl unique_id' \
+--enable-mods-shared='authz_core authz_host auth_basic suexec headers proxy status info mime deflate rewrite dir slotmem_shm ssl unique_id filter request expires log_config' \
 --enable-mods-static='unixd' \
 --enable-modules='none' \
 --enable-mpms-shared='event worker' \
