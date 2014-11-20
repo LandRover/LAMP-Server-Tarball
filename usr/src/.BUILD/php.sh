@@ -52,7 +52,7 @@ make clean;
 --with-jpeg-dir=${BIN_DIR}/jpeg \
 --with-libxml-dir=${BIN_DIR}/libxml2 \
 --with-mcrypt=${BIN_DIR}/libmcrypt \
---with-mysql-sock=/var/run/mysqld/mysql.sock \
+--with-mysql-sock=/var/run/mysql/mysql.sock \
 --with-mysql=${BIN_DIR}/mysql \
 --with-mysqli=${BIN_DIR}/mysql/bin/mysql_config \
 --with-openssl=${BIN_DIR}/openssl \
@@ -61,7 +61,6 @@ make clean;
 --with-zlib-dir=${BIN_DIR}/zlib;
 
 make;
-make test;
 make install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
