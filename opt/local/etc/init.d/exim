@@ -16,7 +16,7 @@
 ### END INIT INFO
 
 
-BINARY=/usr/sbin/exim
+BINARY=/opt/local/sbin/exim/bin/exim
 PID=/var/run/exim.pid
 EXIM_OPTS=
 DAEMON="yes"
@@ -64,4 +64,3 @@ case "$1" in
 esac
 
 exit 0
-
