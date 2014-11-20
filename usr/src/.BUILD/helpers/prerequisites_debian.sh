@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Tested and deployed on Debian wheezy 64bit
+
 apt-get install \
 mc \
 screen \
