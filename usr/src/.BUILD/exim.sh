@@ -7,12 +7,16 @@ apt-get install libperl-dev
 BUILD="../${PWD##*/}";
 VERSION="4.84";
 APP_NAME="exim";
+USER="exim";
 
 # destination build info
 LOCAL="/opt/local";
 BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
+
+groupadd ${USER};
+useradd -d /dev/null -g ${USER} -s /bin/false ${USER};
 
 cd ../${APP_NAME};
 

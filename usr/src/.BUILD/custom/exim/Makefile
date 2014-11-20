@@ -624,7 +624,7 @@ FIXED_NEVER_USERS=root
 # AUTH_GSASL_PC=libgsasl
 # AUTH_HEIMDAL_GSSAPI=yes
 # AUTH_HEIMDAL_GSSAPI_PC=heimdal-gssapi
-# AUTH_PLAINTEXT=yes
+AUTH_PLAINTEXT=yes
 # AUTH_SPA=yes
 
 
@@ -810,7 +810,7 @@ TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
 # %s. This will be replaced by one of the strings "main", "panic", or "reject"
 # to form the final file names. Some installations may want something like this:
 
-# LOG_FILE_PATH=/var/log/exim_%slog
+LOG_FILE_PATH=/var/log/exim/%slog
 
 # which results in files with names /var/log/exim_mainlog, etc. The directory
 # in which the log files are placed must exist; Exim does not try to create
@@ -1268,7 +1268,7 @@ TMPDIR="/tmp"
 # (process id) to a file so that it can easily be identified. The path of the
 # file can be specified here. Some installations may want something like this:
 
-# PID_FILE_PATH=/var/lock/exim.pid
+PID_FILE_PATH=/var/run/exim.pid
 
 # If PID_FILE_PATH is not defined, Exim writes a file in its spool directory
 # using the name "exim-daemon.pid".
