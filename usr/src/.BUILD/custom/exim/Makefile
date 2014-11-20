@@ -876,7 +876,7 @@ ZCAT_COMMAND=/usr/bin/zcat
 # (version 5.004 or later) installed, set EXIM_PERL to perl.o. Using embedded
 # Perl costs quite a lot of resources. Only do this if you really need it.
 
-# EXIM_PERL=perl.o
+EXIM_PERL=perl.o
 
 
 #------------------------------------------------------------------------------
