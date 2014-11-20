@@ -1,11 +1,9 @@
 #!/bin/bash
 
-#apt-get install libxt-dev libxaw7-dev libxt-dev
-
 # build data
 BUILD="../${PWD##*/}";
-VERSION="4.84";
-APP_NAME="exim";
+VERSION="6.1.19";
+APP_NAME="db";
 
 # destination build info
 LOCAL="/opt/local";
@@ -15,9 +13,14 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
-make clean;
-make makefile;
-make -C ${ETC_DIR}/${APP_NAME};
-make DESTDIR=${DESTINATION} install;
+./dist/configure \
+--prefix=${DESTINATION} \
+--enable-compat185 \
+--enable-dbm \
+--disable-static \
+--enable-cxx;
+
+make;
+make install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
