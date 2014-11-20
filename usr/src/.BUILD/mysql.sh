@@ -6,6 +6,7 @@ VERSION="5.6.21";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";
+PASSWORD="new-password-here";
 
 # destination build info
 LOCAL="/opt/local";
@@ -34,4 +35,4 @@ cmake \
 make;
 make install;
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR} {$PASSWORD};
