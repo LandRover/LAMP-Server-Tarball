@@ -15,7 +15,7 @@ cd ../${APP_NAME};
 
 make clean;
 
-export CPPFLAGS='-I${BIN_DIR}/zlib/include';
+export CPPFLAGS="-I${BIN_DIR}/zlib/include";
 
 ./configure \
 --prefix=${DESTINATION} \
