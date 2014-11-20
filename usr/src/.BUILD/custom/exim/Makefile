@@ -98,7 +98,7 @@
 # /usr/local/sbin. The installation script will try to create this directory,
 # and any superior directories, if they do not exist.
 
-BIN_DIRECTORY=/opt/local/sbin/exim-4.84
+BIN_DIRECTORY=/opt/local/sbin/exim-4.84/bin
 
 #------------------------------------------------------------------------------
 # CONFIGURE_FILE defines where Exim's run time configuration file is to be
