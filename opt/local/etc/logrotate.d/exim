@@ -1,0 +1,9 @@
+/var/log/exim/mainlog /var/log/exim/rejectlog /var/log/exim/paniclog {
+	daily
+	missingok
+	rotate 10
+	compress
+	delaycompress
+	notifempty
+	create 640 mail mail
+}
