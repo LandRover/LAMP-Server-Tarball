@@ -11,7 +11,6 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
 
 ## @todo
   - Create apache default configs and vhosts
-  - Script to Unpack and map phpMyAdmin to htdocs.
   - Install apc web-view to htdocs.
   - Create sample user and with PHP-FPM for a phpinfo page.
   - Create mailgun default email relay
