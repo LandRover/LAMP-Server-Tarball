@@ -10,14 +10,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - for i in `ls -d */`; do ln -s $i `echo $i | cut -d '-' -f1`; done
 
 ## @todo
-  - mysql post_build
-    - change owner of /opt/local/sbin/mysql (and ln)
-    - create symlink for init.d/mysql
-    - change owner of /home/mysql
-    - verify something exists in /home/mysql || execute scripts/mysql_install_db --user=mysql
-    - finalize my.cnf default config @ /opt/local/etc/mysql
-  - Create apache default configs.
-  - Attached profile.d and ld to post_build to relevant builds.
+  - Create apache default configs and vhosts
   - Script to Unpack and map phpMyAdmin to htdocs.
   - Install apc web-view to htdocs.
   - Create sample user and with PHP-FPM for a phpinfo page.
@@ -28,3 +21,5 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Script configuring Google Drive up-on change
   - Install rc.d - start on reboot
   - Reinstall VM and test all scripts.
+  - make scripts for mariaDB
+  - add logs ref at /usr/log/httpd to point the actual logs of apache
