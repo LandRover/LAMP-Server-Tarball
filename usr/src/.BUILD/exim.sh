@@ -14,11 +14,8 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 cd ../${APP_NAME};
 
 make clean;
-
-./configure \
---prefix=${DESTINATION};
-
-make -C ${ETC_DIR}/mail;
-make install;
+make makefile;
+make -C ${ETC_DIR}/${APP_NAME};
+make DESTDIR=${DESTINATION} install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
