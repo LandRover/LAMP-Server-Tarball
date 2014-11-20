@@ -13,10 +13,8 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Install apc web-view to htdocs part of apcu build script.
   - Create sample user and with PHP-FPM for a phpinfo page.
   - Compile latest exim with mailgun relay
-  - repack automysqlbackup src to a new .tgz with sub folder! whaa?
   - Script configuring automysqlbackup
   - Script configuring Google Drive up-on change
-  - Install rc.d - start on reboot
   - Reinstall VM and test all scripts.
   - make scripts for mariaDB
-  - generator for phpinfo();
+  - setup automysql backup
