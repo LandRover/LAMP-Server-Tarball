@@ -10,7 +10,10 @@ USER="$4";
 
 ## general init.d settings
 ../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
-../helpers/bin/ln.sh ${ETC_DIR}/init.d/${APP_NAME} /etc/init.d/${APP_NAME};
+../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
+
+## system stop/start on boot
+update-rc.d ${APP_NAME} defaults
 
 ## I like getting there faster..
 ../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;

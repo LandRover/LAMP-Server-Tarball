@@ -13,7 +13,10 @@ ETC_DIR="/opt/local/etc";
 
 ## init.d symlinks
 ../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/support-files/mysql.server ${ETC_DIR}/init.d/${APP_NAME};
-../helpers/bin/ln.sh ${ETC_DIR}/init.d/${APP_NAME} /etc/init.d/${APP_NAME};
+../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
+
+## system stop/start on boot
+update-rc.d ${APP_NAME} defaults
 
 ## create user and group
 groupadd ${USER};
