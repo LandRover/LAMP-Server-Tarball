@@ -22,3 +22,4 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Install rc.d - start on reboot
   - Reinstall VM and test all scripts.
   - make scripts for mariaDB
+  - add logs ref at /usr/log/httpd to point the actual logs of apache
