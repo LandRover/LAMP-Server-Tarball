@@ -114,7 +114,7 @@ BIN_DIRECTORY=/opt/local/sbin/exim/bin
 # don't exist. It will also install a default runtime configuration if this
 # file does not exist.
 
-CONFIGURE_FILE=/opt/local/sbin/exim/configure
+CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 
 # It is possible to specify a colon-separated list of files for CONFIGURE_FILE.
 # In this case, Exim will use the first of them that exists when it is run.
