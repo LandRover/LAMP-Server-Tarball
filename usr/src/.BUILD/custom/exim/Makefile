@@ -349,6 +349,7 @@ LOOKUP_DNSDB=yes
 PCRE_CONFIG=/opt/local/sbin/pcre/bin/pcre-config
 PCRE_LIBS=-lpcre -L/opt/local/sbin/pcre/lib
 INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/db/include
+DBMLIB=-L/opt/local/sbin/db/lib -ldb
 
 #------------------------------------------------------------------------------
 # Additional libraries and include directories may be required for some
