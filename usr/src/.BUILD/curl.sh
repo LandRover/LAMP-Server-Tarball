@@ -13,6 +13,9 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 cd ../${APP_NAME};
 
+export CPPFLAGS='-I${BIN_DIR}/openssl/include';
+export LDFLAGS='-L${BIN_DIR}/openssl/lib';
+
 ./configure \
 --prefix=${DESTINATION};
 
