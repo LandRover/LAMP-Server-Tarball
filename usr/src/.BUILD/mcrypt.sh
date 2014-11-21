@@ -11,9 +11,7 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
-cd ../${APP_NAME};
-
-make clean;
+source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 export LD_LIBRARY_PATH=${BIN_DIR}/libmcrypt/lib:${BIN_DIR}/mhash/lib;
 export LDFLAGS="-L${BIN_DIR}/mhash/lib/ -I${BIN_DIR}/mhash/include/";

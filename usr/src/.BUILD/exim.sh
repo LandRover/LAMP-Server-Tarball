@@ -22,9 +22,8 @@ useradd -d /dev/null -g ${USER} -s /bin/false ${USER};
 ${BUILD}/helpers/bin/ln.sh ${PWD}/custom/${APP_NAME}/Makefile ../${APP_NAME}/Local/Makefile;
 ${BUILD}/helpers/bin/ln.sh ${PWD}/custom/${APP_NAME}/eximon.conf ../${APP_NAME}/Local/eximon.conf;
 
-cd ../${APP_NAME};
+source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-make clean;
 make makefile;
 make;
 make install;

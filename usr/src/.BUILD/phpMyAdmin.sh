@@ -12,7 +12,8 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
-cp -RLf ../${APP_NAME}/* ${DESTINATION};
+source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-cd ../${APP_NAME};
+cp -RLf ./* ${DESTINATION};
+
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};

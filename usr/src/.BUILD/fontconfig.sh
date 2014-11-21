@@ -11,9 +11,7 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
-cd ../${APP_NAME};
-
-make clean;
+source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 #export FREETYPE_CFLAGS='-I${BIN_DIR}/freetype/include/freetype2';
 #export FREETYPE_LIBS='-L${BIN_DIR}/freetype/lib';

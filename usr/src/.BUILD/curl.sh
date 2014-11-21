@@ -11,7 +11,7 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
-cd ../${APP_NAME};
+source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 export CPPFLAGS="-I${BIN_DIR}/openssl/include";
 export LDFLAGS="-L${BIN_DIR}/openssl/lib";
