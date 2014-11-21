@@ -5,7 +5,7 @@
 # Unpacks source packages at /usr/src
 # file is loaded via SOURCE and must NOT BE executed directly.
 
-OVERWRITE="1";## $1
+OVERWRITE="$1"; ## first arg, 1 is overwrite on.
 PACKAGE="../${APP_NAME}-${VERSION}.tgz";
 
 function error {
