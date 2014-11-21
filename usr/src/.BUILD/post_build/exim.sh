@@ -13,6 +13,9 @@ USER="$4";
 ## logrotate.d
 ../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
+## profile.d
+../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
+
 ## system stop/start on boot
 update-rc.d ${APP_NAME} defaults
 
