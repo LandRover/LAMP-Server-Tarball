@@ -6,6 +6,7 @@ VERSION="5.6.21";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";
+RANDOM_PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w8 | head -n1);
 PASSWORD="new-password-here";
 
 # destination build info
