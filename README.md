@@ -17,3 +17,5 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - httpd
     - mysql
     - php-fpm
+  - exim
+    - custom route for each php-fpm user
