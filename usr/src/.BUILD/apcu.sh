@@ -15,13 +15,13 @@ cd ../${APP_NAME};
 
 make clean;
 
-/opt/local/sbin/php/bin/phpize
+${BIN_DIR}/php/bin/phpize;
 
 ./configure \
 --enable-apc \
 --enable-apc-mmap \
 --with-apxs=${BIN_DIR}/httpd/bin/apxs \
---with-php-config=${BIN_DIR}/bin/php-config
+--with-php-config=${BIN_DIR}/php/bin/php-config;
 
 make;
 make install;
