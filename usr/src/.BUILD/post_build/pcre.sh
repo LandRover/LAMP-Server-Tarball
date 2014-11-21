@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ource ../helpers/.post_validate_input.sh;
+source ../helpers/.post_validate_input.sh;
 source ./.shared.sh;
 
 ## add ld.so to global
