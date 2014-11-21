@@ -18,9 +18,6 @@ make clean;
 ${BIN_DIR}/php/bin/phpize;
 
 ./configure \
---enable-apc \
---enable-apc-mmap \
---with-apxs=${BIN_DIR}/httpd/bin/apxs \
 --with-php-config=${BIN_DIR}/php/bin/php-config;
 
 make;
