@@ -20,5 +20,4 @@ USER="$4";
 update-rc.d ${APP_NAME} defaults
 
 ## create logs dir
-mkdir /var/log/${APP_NAME};
-chown ${USER}:${USER} /var/log/${APP_NAME};
+[ ! -d "/var/log/${APP_NAME}" ] && mkdir "/var/log/${APP_NAME}" && chown -R ${USER}:${USER} /var/log/${APP_NAME};
