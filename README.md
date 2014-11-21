@@ -10,6 +10,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - for i in `ls -d */`; do ln -s $i `echo $i | cut -d '-' -f1`; done
 
 ## @todo
+  - auto unpack up-on build run
   - Install apc web-view to htdocs part of apcu build script.
   - Create new vhost generator bash, template based
   - Script configuring automysqlbackup
