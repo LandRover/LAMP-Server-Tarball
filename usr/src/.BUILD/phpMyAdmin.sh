@@ -14,6 +14,7 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
+[ ! -d "${DESTINATION}" ] && mkdir ${DESTINATION};
 cp -RLf ./* ${DESTINATION};
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};
