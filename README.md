@@ -11,8 +11,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
 
 ## @todo
   - Install apc web-view to htdocs part of apcu build script.
-  - Create sample user and with PHP-FPM for a phpinfo page.
-  - Compile latest exim with mailgun relay
+  - Create new vhost generator bash, template based
   - Script configuring automysqlbackup
   - Script configuring Google Drive up-on change
   - Reinstall VM and test all scripts.
