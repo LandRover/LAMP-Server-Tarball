@@ -27,6 +27,9 @@ update-rc.d ${APP_NAME} defaults
 ## logrotate.d
 ../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
+## create and own logs for vhosts
+[ ! -d "/var/log/${USER}" ] && mkdir /var/log/${USER} && chown ${USER}:${USER} /var/log/${USER};
+
 ## security modes and owner changes from root
 chown -R ${USER}:${USER} ${BIN_DIR}/${APP_NAME};
 chown -R ${USER}:${USER} ${APP_DIR};
