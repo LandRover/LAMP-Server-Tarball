@@ -41,3 +41,6 @@ chmod -R a-w ${APP_DIR};
 chmod o+x ${APP_DIR} ${APP_DIR}/htdocs ${APP_DIR}/cgi-bin;
 chmod -R o+r ${APP_DIR}/htdocs;
 chmod -R u+w ${APP_DIR}/logs;
+
+## restart service
+/etc/init.d/${APP_NAME} restart

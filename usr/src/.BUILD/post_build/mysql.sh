@@ -52,3 +52,6 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
     fi
 fi
+
+## restart service
+/etc/init.d/${APP_NAME} restart

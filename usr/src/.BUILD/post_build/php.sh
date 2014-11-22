@@ -10,3 +10,6 @@ ETC_DIR="/opt/local/etc";
 
 ## system stop/start on boot
 update-rc.d ${PHP_FPM} defaults
+
+## restart service
+/etc/init.d/${PHP_FPM} restart
