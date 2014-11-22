@@ -10,11 +10,13 @@ HTDOCS="${4:-$DEFAULT_HTDOCS}";
 PORT="${5:-$DEFAULT_PORT}";
 IS_SSL="${6:-$DEFAULT_IS_SSL}";
 BUILD="$(dirname ${BASH_SOURCE[0]})/..";
-TEMPLATE_PHPFPM="{BUILD}/templates/php/php-fpm-template.conf";
-TEMPLATE_APACHE="{BUILD}/templates/apache/vhost-template.conf";
 ETC_DIR="/opt/local/etc";
 ETC_PHPFPMD="${ETC_DIR}/php/fpm.d";
 ETC_HTTPD_VHOST="${ETC_DIR}/apache/vhosts";
+
+TEMPLATE_PHPFPM="{BUILD}/templates/php/php-fpm-template.conf";
+TEMPLATE_APACHE="{BUILD}/templates/apache/vhost-template.conf";
+
 TARGET_PHPFPM_FILE="${ETC_PHPFPMD}/${USER}.conf";
 TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/${PRIORITY}-${USER}.conf";
 
