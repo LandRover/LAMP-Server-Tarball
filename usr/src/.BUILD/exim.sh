@@ -15,8 +15,7 @@ ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 ## Create user for exim
-groupadd ${USER};
-useradd -d /dev/null -g ${USER} -s /bin/false ${USER};
+[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d /dev/null;
 
 ## Settings for build
 ${BUILD}/helpers/bin/ln.sh ${PWD}/templates/${APP_NAME}/Makefile ../${APP_NAME}/Local/Makefile;

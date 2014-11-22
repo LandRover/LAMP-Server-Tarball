@@ -14,8 +14,7 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-groupadd ${USER};
-useradd -d ${BIN_DIR}/httpd/htdocs -g ${USER} -s /bin/false ${USER};
+[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d ${BIN_DIR}/httpd/htdocs;
 
 ./configure \
 --prefix=${DESTINATION} \
