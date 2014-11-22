@@ -25,7 +25,8 @@ update-rc.d ${APP_NAME} defaults
 [ ! -d "${HOME_DIR}" ] && mkdir -p "${HOME_DIR}";
 
 # Verify /var/run/mysql
-[ ! -d "/var/run/${APP_NAME}" ] && mkdir "/var/run/${APP_NAME}" && chown -R ${USER}:${USER} /var/run/${APP_NAME};
+[ ! -d "/var/run/${APP_NAME}" ] && mkdir "/var/run/${APP_NAME}";
+chown -R ${USER}:${USER} /var/run/${APP_NAME}; ##change sock dir owner
 
 # If no data, means it's a fresh install and not an update so create initial setup - happens only once
 # wont be triggered during rebuilds
