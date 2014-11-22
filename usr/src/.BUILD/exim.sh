@@ -15,7 +15,7 @@ ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 ## Create user for exim
-[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d /dev/null;
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
 
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
