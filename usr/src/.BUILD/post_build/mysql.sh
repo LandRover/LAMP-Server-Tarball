@@ -19,11 +19,10 @@ ETC_DIR="/opt/local/etc";
 update-rc.d ${APP_NAME} defaults
 
 ## create user and group
-groupadd ${USER};
-useradd -d ${HOME_DIR} -g ${USER} -s /bin/false ${USER};
+[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d ${HOME_DIR};
 
 # Verify home dir for user exists.
-[ ! -d "${HOME_DIR}" ] && mkdir "${HOME_DIR}";
+[ ! -d "${HOME_DIR}" ] && mkdir -p "${HOME_DIR}";
 
 # Verify /var/run/mysql
 [ ! -d "/var/run/${APP_NAME}" ] && mkdir "/var/run/${APP_NAME}" && chown -R ${USER}:${USER} /var/run/${APP_NAME};
@@ -49,7 +48,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
 
     if [ ! -z "${PASSWORD}" ]; then
         ## change default password
-        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root password '${PASSWORD}';
-        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password '${PASSWORD}';
+        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root password "${PASSWORD}";
+        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
     fi
 fi
