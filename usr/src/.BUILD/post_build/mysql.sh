@@ -55,7 +55,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
 
         ## set generated password to keep in file. allows auto login via mysql command and mysqldump
-        sed -i "s/\$\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
+        sed -i "s/\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
     fi
 fi
 
