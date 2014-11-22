@@ -10,15 +10,22 @@ HTDOCS="${4:-$DEFAULT_HTDOCS}";
 PORT="${5:-$DEFAULT_PORT}";
 IS_SSL="${6:-$DEFAULT_IS_SSL}";
 BUILD="$(dirname ${BASH_SOURCE[0]})/..";
+
+CGI_PORT="9000"; ## todo: some math here..
+
 ETC_DIR="/opt/local/etc";
 ETC_PHPFPMD="${ETC_DIR}/php/fpm.d";
 ETC_HTTPD_VHOST="${ETC_DIR}/apache/vhosts";
 
-TEMPLATE_PHPFPM="{BUILD}/templates/php/php-fpm-template.conf";
-TEMPLATE_APACHE="{BUILD}/templates/apache/vhost-template.conf";
+APACHE_LOGS_DIR="/var/log/apache/${USER}";
+
+TEMPLATE_PHPFPM="${BUILD}/templates/php/php-fpm-template.conf";
+TEMPLATE_APACHE="${BUILD}/templates/apache/vhost-template.conf";
 
 TARGET_PHPFPM_FILE="${ETC_PHPFPMD}/${USER}.conf";
 TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/${PRIORITY}-${USER}.conf";
+
+VARLIST=(USER HTDOCS DOMAIN PORT CGI_PORT);
 
 ## if ssl, renames to -ssl.conf
 [ "1" -eq "${IS_SSL}" ] && TARGET_APACHE_FILE="${TARGET_APACHE_FILE/.conf/-ssl.conf}";
@@ -45,4 +52,20 @@ function usage {
 ## validation inputs
 [[ -z "${USER}" || -z "${DOMAIN}" || $PRIORITY != ?(-)+([0-9.]) || $PORT != ?(-)+([0-9.]) || $IS_SSL != ?(-)+([0-1.]) ]] && usage;
 
-echo "ok";
+[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HTDOCS};
+[ ! -d "${HTDOCS}" ] && mkdir ${HTDOCS} && chown -R ${USER}:${USER} ${HTDOCS} && chmod -R o+r ${HTDOCS};
+[ ! -d "${APACHE_LOGS_DIR}" ] && mkdir -p ${APACHE_LOGS_DIR} && chown -R ${USER}:${USER} ${APACHE_LOGS_DIR} && chmod -R u+w ${APACHE_LOGS_DIR};
+
+echo "[info] Copy PHP-FPM Template ${TARGET_PHPFPM_FILE}";
+cp -Lf ${TEMPLATE_PHPFPM} ${TARGET_PHPFPM_FILE};
+
+echo "[info] Copy Apache Template ${TARGET_APACHE_FILE}";
+cp -Lf ${TEMPLATE_APACHE} ${TARGET_APACHE_FILE};
+
+echo "[info] Start making template params";
+for i in ${VARLIST[@]}; do
+    echo "Replacing \$$i -> ${!i}";
+    sed -i "s/\$$i/${!i//\//\\/}/g" ${TARGET_PHPFPM_FILE};
+    sed -i "s/\$$i/${!i//\//\\/}/g" ${TARGET_APACHE_FILE};
+done
+echo "[info] Done making the template";
