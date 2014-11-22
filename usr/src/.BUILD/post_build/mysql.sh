@@ -51,6 +51,8 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     /etc/init.d/${APP_NAME} restart
 
     if [ ! -z "${PASSWORD}" ]; then
+        echo "[info] Reseting password to: ${PASSWORD}";
+
         ## change default password
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root password "${PASSWORD}";
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
