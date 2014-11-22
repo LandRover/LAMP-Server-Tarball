@@ -11,7 +11,8 @@ PORT="${5:-$DEFAULT_PORT}";
 IS_SSL="${6:-$DEFAULT_IS_SSL}";
 BUILD="$(dirname ${BASH_SOURCE[0]})/..";
 
-CGI_PORT="9000"; ## todo: some math here..
+BASE_PORT="9000";
+CGI_PORT="$(expr ${BASE_PORT} + ${PRIORITY})"; ## calc fcgi port
 
 ETC_DIR="/opt/local/etc";
 ETC_PHPFPMD="${ETC_DIR}/php/fpm.d";
@@ -23,7 +24,7 @@ TEMPLATE_PHPFPM="${BUILD}/templates/php/php-fpm-template.conf";
 TEMPLATE_APACHE="${BUILD}/templates/apache/vhost-template.conf";
 
 TARGET_PHPFPM_FILE="${ETC_PHPFPMD}/${USER}.conf";
-TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/${PRIORITY}-${USER}.conf";
+TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/$(printf '%03d' ${PRIORITY})-${USER}.conf";
 
 VARLIST=(USER HTDOCS DOMAIN PORT CGI_PORT);
 
