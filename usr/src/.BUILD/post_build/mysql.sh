@@ -9,6 +9,7 @@ DATA_DIR="$5";
 PASSWORD="$6"; ## mysql root password
 HOME_DIR="/home/${USER}";
 ETC_DIR="/opt/local/etc";
+TMP_INIT_FILE='/tmp/.reset-mysql-pw.sql';
 [[ -z "${USER}" || -z "${DATA_DIR}" ]] && usage "[error] User was not set. Halt. As mysql setup requires a user.";
 
 ## init.d symlinks
@@ -36,6 +37,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
 
     ## Copy template of .my.cnf to ~
     cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
+    cp -Lf ../templates/mysql/.init-file ${TMP_INIT_FILE};
 
     ## bash must be in dir before running mysql_install_db since ./bin/my_print_defaults is called relatively, blah.
     cd ${BIN_DIR}/${APP_NAME};
@@ -48,17 +50,17 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     chown -R ${USER}:${USER} ${HOME_DIR};
 
     ## start the server..
-    /etc/init.d/${APP_NAME} restart
+    /etc/init.d/${APP_NAME} stop
 
     if [ ! -z "${PASSWORD}" ]; then
         echo "[info] Reseting password to: ${PASSWORD}";
-
-        ## change default password
-        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root password "${PASSWORD}";
-        ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
-
         ## set generated password to keep in file. allows auto login via mysql command and mysqldump
         sed -i "s/\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
+        sed -i "s/\$PASSWORD/${PASSWORD}/g" ${TMP_INIT_FILE};
+
+        ${BIN_DIR}/${APP_NAME}/bin/mysqld_safe --skip-grant-tables --skip-networking --init-file=${TMP_INIT_FILE} &
+        sleep 7;
+        rm -rf ${TMP_INIT_FILE};
     fi
 fi
 
