@@ -53,7 +53,7 @@ function usage {
 ## validation inputs
 [[ -z "${USER}" || -z "${DOMAIN}" || $PRIORITY != ?(-)+([0-9.]) || $PORT != ?(-)+([0-9.]) || $IS_SSL != ?(-)+([0-1.]) ]] && usage;
 
-[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HTDOCS};
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HTDOCS};
 [ ! -d "${HTDOCS}" ] && mkdir ${HTDOCS} && chown -R ${USER}:${USER} ${HTDOCS} && chmod -R o+r ${HTDOCS};
 [ ! -d "${APACHE_LOGS_DIR}" ] && mkdir -p ${APACHE_LOGS_DIR} && chown -R ${USER}:${USER} ${APACHE_LOGS_DIR} && chmod -R u+w ${APACHE_LOGS_DIR};
 

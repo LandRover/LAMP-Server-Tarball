@@ -19,7 +19,7 @@ ETC_DIR="/opt/local/etc";
 update-rc.d ${APP_NAME} defaults
 
 ## create user and group
-[ ! id -u $USER > /dev/null 2>&1 ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d ${HOME_DIR};
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && groupadd ${USER} && useradd -M -s /bin/false -d ${HOME_DIR};
 
 # Verify home dir for user exists.
 [ ! -d "${HOME_DIR}" ] && mkdir -p "${HOME_DIR}";
