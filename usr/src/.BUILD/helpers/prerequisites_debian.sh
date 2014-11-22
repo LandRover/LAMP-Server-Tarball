@@ -1,8 +1,10 @@
 #!/bin/bash
 
 ## Tested and deployed on Debian wheezy 64bit
+apt-get update;
+apt-get upgrade;
 
-apt-get install \
+apt-get -y install \
 mc \
 screen \
 htop \
