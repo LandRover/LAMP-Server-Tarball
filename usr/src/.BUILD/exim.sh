@@ -20,8 +20,8 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 ## Settings for build
-${BUILD}/helpers/bin/ln.sh ${PWD}/templates/${APP_NAME}/Makefile ../${APP_NAME}/Local/Makefile;
-${BUILD}/helpers/bin/ln.sh ${PWD}/templates/${APP_NAME}/eximon.conf ../${APP_NAME}/Local/eximon.conf;
+${BUILD}/helpers/bin/ln.sh /usr/src/.BUILD/templates/${APP_NAME}/Makefile /usr/src/${APP_NAME}/Local/Makefile;
+${BUILD}/helpers/bin/ln.sh /usr/src/.BUILD/templates/${APP_NAME}/eximon.conf /usr/src/${APP_NAME}/Local/eximon.conf;
 
 make makefile;
 make;
