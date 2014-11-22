@@ -19,8 +19,8 @@ groupadd ${USER};
 useradd -d /dev/null -g ${USER} -s /bin/false ${USER};
 
 ## Settings for build
-${BUILD}/helpers/bin/ln.sh ${PWD}/custom/${APP_NAME}/Makefile ../${APP_NAME}/Local/Makefile;
-${BUILD}/helpers/bin/ln.sh ${PWD}/custom/${APP_NAME}/eximon.conf ../${APP_NAME}/Local/eximon.conf;
+${BUILD}/helpers/bin/ln.sh ${PWD}/templates/${APP_NAME}/Makefile ../${APP_NAME}/Local/Makefile;
+${BUILD}/helpers/bin/ln.sh ${PWD}/templates/${APP_NAME}/eximon.conf ../${APP_NAME}/Local/eximon.conf;
 
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
