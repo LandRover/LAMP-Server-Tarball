@@ -32,6 +32,9 @@ update-rc.d ${APP_NAME} defaults
 if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ## profile.d
     ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
+    
+    ## Copy template of .my.cnf to ~
+    cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
 
     ## bash must be in dir before running mysql_install_db since ./bin/my_print_defaults is called relatively, blah.
     cd ${BIN_DIR}/${APP_NAME};
@@ -50,6 +53,9 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         ## change default password
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root password "${PASSWORD}";
         ${BIN_DIR}/${APP_NAME}/bin/mysqladmin -u root -h 127.0.0.1 password "${PASSWORD}";
+
+        ## set generated password to keep in file. allows auto login via mysql command and mysqldump
+        sed -i "s/\$\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
     fi
 fi
 
