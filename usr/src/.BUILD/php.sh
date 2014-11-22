@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#TODO: change build path to use latest pcre
-
 # build data
 BUILD="../${PWD##*/}";
 VERSION="5.6.3";

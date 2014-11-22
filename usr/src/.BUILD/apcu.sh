@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install libpcre3-dev;
+apt-get -y install libpcre3-dev;
 
 # build data
 BUILD="../${PWD##*/}";

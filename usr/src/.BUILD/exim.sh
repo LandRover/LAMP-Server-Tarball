@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install libperl-dev libxaw7-dev libxt-dev;
+apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 
 # build data
 BUILD="../${PWD##*/}";
