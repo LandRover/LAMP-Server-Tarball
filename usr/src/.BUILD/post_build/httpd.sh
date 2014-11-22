@@ -28,7 +28,7 @@ update-rc.d ${APP_NAME} defaults
 ../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
 ## create vhost + php-fpm settings for first hold
-../helpers/apache_adduser.sh ${USER} localhost 000 ${APP_DIR}/htdocs;
+../helpers/apache_adduser.sh ${USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;
 
 ## create and own logs for vhosts
 [ ! -d "/var/log/${USER}" ] && mkdir /var/log/${USER} && chown ${USER}:${USER} /var/log/${USER};
