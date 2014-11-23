@@ -15,6 +15,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 /sbin/ldconfig;
 
+#--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
+
 ./configure \
 --prefix=${DESTINATION} \
 --disable-all \
@@ -35,7 +37,6 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --enable-xml \
 --enable-xmlreader \
 --enable-zip \
-#--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
 --with-config-file-path=${ETC_DIR}/php \
 --with-config-file-scan-dir=${ETC_DIR}/php/php.d \
 --with-curl=${BIN_DIR}/curl \
