@@ -5,10 +5,9 @@
 # Unpacks source packages at /usr/src
 # file is loaded via SOURCE and must NOT BE executed directly.
 
-function error {
+function deps_error {
     echo $1;
     echo "";
 
     exit 0;
 }
-
