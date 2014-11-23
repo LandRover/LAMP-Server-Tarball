@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(jpeg libpng freetype libxml2 libmcrypt pcre openssl zlib mysql);
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="5.6.3";
@@ -11,12 +14,12 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
+source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 /sbin/ldconfig;
 
 #--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
-
 ./configure \
 --prefix=${DESTINATION} \
 --disable-all \
