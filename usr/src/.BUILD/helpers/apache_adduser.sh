@@ -71,6 +71,6 @@ for i in ${VARLIST[@]}; do
 done
 
 ## for localhost no need to add servername and alias.
-[ ${DOMAIN} == "localhost" ] && sed -i "s/ServerName localhost//g" ${TARGET_APACHE_FILE} && sed -i "s/ServerAlias localhost www\.localhost//g" ${TARGET_APACHE_FILE};
+[ ${DOMAIN} == "localhost" ] && sed -i "s/ServerAlias localhost www\.localhost//g" ${TARGET_APACHE_FILE};
 
 echo "[info] Done making the template";
