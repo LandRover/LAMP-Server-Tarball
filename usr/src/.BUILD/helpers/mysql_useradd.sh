@@ -27,7 +27,7 @@ function usage {
 [[ -z "${DBNAME}" || -z "${DBUSER}" || -z "${DBPASS}" ]] && usage;
 
 Q1="CREATE DATABASE IF NOT EXISTS ${DBNAME};";
-Q2="GRANT ALL ON *.* TO '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';";
+Q2="GRANT ALL ON ${DBNAME}.* TO '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';";
 Q3="FLUSH PRIVILEGES;";
 SQL="${Q1}${Q2}${Q3}";
 
