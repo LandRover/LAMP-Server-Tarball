@@ -15,6 +15,13 @@ source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 ./configure \
+--enable-utf8 \
+--enable-unicode-properties \
+--enable-newline-is-lf \
+--with-link-size=2 \
+--with-posix-malloc-threshold=10 \
+--with-match-limit=10000000 \
+--with-match-limit-recursion=10000000 \
 --prefix=${DESTINATION};
 
 make;
