@@ -32,7 +32,6 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --enable-inline-optimization \
 --enable-json \
 --enable-libxml \
---enable-magic-quotes \
 --enable-mbstring \
 --enable-opcache \
 --enable-pcntl \
