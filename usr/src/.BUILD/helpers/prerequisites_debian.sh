@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ulimit -c unlimited;
+
 ## Tested and deployed on Debian wheezy 64bit
 apt-get update;
 apt-get upgrade;
