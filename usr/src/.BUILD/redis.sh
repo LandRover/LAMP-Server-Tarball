@@ -17,10 +17,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /home/${USER}/ ${USER};
 
-./configure \
---prefix=${DESTINATION};
-
 make;
-make install;
+make PREFIX=${DESTINATION} install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
