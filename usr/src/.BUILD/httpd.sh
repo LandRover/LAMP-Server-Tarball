@@ -23,14 +23,13 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 ./configure \
 --prefix=${DESTINATION} \
 --disable-alias \
---disable-setenvif \
 --enable-deflate \
 --enable-dir \
 --enable-expires \
 --enable-headers \
 --enable-info \
 --enable-mime-magic \
---enable-mods-shared='authn_core authn_file authz_core authz_host authz_user auth_basic suexec headers proxy status info mime deflate rewrite dir slotmem_shm ssl unique_id filter request expires log_config' \
+--enable-mods-shared='authn_core authn_file authz_core authz_host authz_user auth_basic suexec headers proxy status info mime deflate rewrite dir slotmem_shm ssl setenvif unique_id filter request expires log_config' \
 --enable-mods-static='unixd' \
 --enable-modules='none' \
 --enable-mpms-shared='event worker' \
