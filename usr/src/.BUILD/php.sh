@@ -35,6 +35,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --enable-mbstring \
 --enable-opcache \
 --enable-pcntl \
+--enable-tokenizer \
 --enable-session \
 --enable-simplexml \
 --enable-xml \
