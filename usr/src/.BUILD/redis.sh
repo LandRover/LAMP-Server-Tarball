@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.8.17";
+VERSION="2.8.19";
 USER="redis";
 APP_NAME="redis";
 
