@@ -5,7 +5,7 @@ DEPENDENCIES=(openssl);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="7.39.0";
+VERSION="7.40.0";
 APP_NAME="curl";
 
 # destination build info
