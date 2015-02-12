@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(pcre db openssl);
+
 apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 
 # build data

@@ -1,4 +1,4 @@
-BIN_DIRECTORY=/opt/local/sbin/exim-4.84/bin
+BIN_DIRECTORY=/opt/local/sbin/exim-4.85/bin
 CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 HEADERS_CHARSET="ISO-8859-1"
 FIXED_NEVER_USERS=root
