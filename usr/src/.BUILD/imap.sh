@@ -18,7 +18,7 @@ source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 #SSLTYPE=nopwd SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
-make slx SSLTYPE=unix EXTRACFLAGS=-fPIC;
+make slx SSLTYPE=unix.nopwd EXTRACFLAGS=-fPIC;
 mkdir lib;
 mkdir include;
 
