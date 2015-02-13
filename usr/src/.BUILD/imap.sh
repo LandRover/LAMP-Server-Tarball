@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(openssl);
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2007f";
@@ -8,12 +11,14 @@ APP_NAME="imap";
 # destination build info
 LOCAL="/opt/local";
 BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-make lr5 EXTRACFLAGS=-fPIC;
+#SSLTYPE=nopwd SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
+make slx SSLTYPE=unix EXTRACFLAGS=-fPIC;
 mkdir lib;
 mkdir include;
 
