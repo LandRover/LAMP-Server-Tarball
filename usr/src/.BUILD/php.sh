@@ -20,6 +20,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 /sbin/ldconfig;
 
 #--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
+#--enable-bcmath \
 ./configure \
 --prefix=${DESTINATION} \
 --disable-all \
