@@ -54,7 +54,7 @@ function usage {
 [[ -z "${USER}" || -z "${DOMAIN}" || $PRIORITY != ?(-)+([0-9.]) || $PORT != ?(-)+([0-9.]) || $IS_SSL != ?(-)+([0-1.]) ]] && usage;
 
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HTDOCS} ${USER};
-[ ! -d "${HTDOCS}" ] && mkdir -p ${HTDOCS} && echo "Hello World!" > ${HTDOCS}/index.html && chmod -R 600 ${HTDOCS}/.. && chown -R ${USER}:${USER} ${HTDOCS}/.. && chmod -R 711 ${HTDOCS}/../;
+[ ! -d "${HTDOCS}" ] && mkdir -p ${HTDOCS} && echo "Hello World!" > ${HTDOCS}/index.html && chmod -R 600 ${HTDOCS}/.. && chown -R ${USER}:${USER} ${HTDOCS}/.. && chmod 711 ${HTDOCS}/../;
 [ ! -d "${APACHE_LOGS_DIR}" ] && mkdir -p ${APACHE_LOGS_DIR} && chown -R ${USER}:${USER} ${APACHE_LOGS_DIR} && chmod -R u+w ${APACHE_LOGS_DIR};
 
 echo "[info] Copy PHP-FPM Template ${TARGET_PHPFPM_FILE}";
