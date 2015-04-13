@@ -12,6 +12,9 @@ iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 
+echo "Blocking black listed ips..."
+
 for fn in `cat _black-list.txt`; do
   iptables -A INPUT -s $fn -p tcp --destination-port 80 -j DROP
+  echo "[x] Blocking $fn"
 done
