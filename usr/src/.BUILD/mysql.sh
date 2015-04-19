@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="5.6.23";
+VERSION="5.6.24";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";
