@@ -6,6 +6,9 @@ libboost-program-options-dev \
 libboost-system-dev \
 libboost-thread-dev;
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(scons);
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="r3.0.2";
