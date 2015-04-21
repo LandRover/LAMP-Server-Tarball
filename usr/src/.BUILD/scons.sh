@@ -14,7 +14,6 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-rm -rf ${DESTINATION};
-cp -R ../${APP_NAME}-${VERSION} ${DESTINATION};
+python setup.py install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
