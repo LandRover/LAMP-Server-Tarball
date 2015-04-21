@@ -1,4 +1,4 @@
-/var/log/httpd/*.log {
+/home/*/logs/*.log {
 	daily
 	missingok
 	rotate 14
