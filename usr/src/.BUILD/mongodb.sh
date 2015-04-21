@@ -1,5 +1,12 @@
 #!/bin/bash
 
+## boost libs for c++
+apt-get -y install scons \
+libboost-filesystem-dev \
+libboost-program-options-dev \
+libboost-system-dev \
+libboost-thread-dev;
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="r3.0.2";
@@ -11,13 +18,13 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
+## wierd notation by mongo.. with the src thing in name
+rm -rf ../${APP_NAME}-${VERSION}; ln -s /usr/src/${APP_NAME}-src-${VERSION}/ /usr/src/${APP_NAME}-${VERSION};
+
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-./configure \
---prefix=${DESTINATION};
-
-make;
-make install;
+scons -j 4 --64 --ssl all;
+scons -j 4 --64 --ssl --prefix=${DESTINATION} install;
 
 [ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
