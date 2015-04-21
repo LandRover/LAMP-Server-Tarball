@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ## boost libs for c++
-apt-get -y install scons \
-libboost-filesystem-dev \
+apt-get -y install libboost-filesystem-dev \
 libboost-program-options-dev \
 libboost-system-dev \
 libboost-thread-dev;
