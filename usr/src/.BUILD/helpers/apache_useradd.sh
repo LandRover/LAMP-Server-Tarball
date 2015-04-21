@@ -18,7 +18,7 @@ ETC_DIR="/opt/local/etc";
 ETC_PHPFPMD="${ETC_DIR}/php/fpm.d";
 ETC_HTTPD_VHOST="${ETC_DIR}/apache/vhosts";
 
-APACHE_LOGS_DIR="/var/log/apache/${USER}";
+APACHE_LOGS_DIR="/home/${USER}/logs";
 
 TEMPLATE_PHPFPM="${BUILD}/templates/php/php-fpm-template.conf";
 TEMPLATE_APACHE="${BUILD}/templates/apache/vhost-template.conf";
