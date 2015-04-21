@@ -18,3 +18,5 @@ if [[ ! -e "${PEM_CERT}" ]]; then
 	## combine key and cert into a single file
 	cat ${CERT_DIR}/${CERT_NAME}-cert.key ${CERT_DIR}/${CERT_NAME}-cert.crt > ${PEM_CERT};
 fi
+
+#./postinit configure
