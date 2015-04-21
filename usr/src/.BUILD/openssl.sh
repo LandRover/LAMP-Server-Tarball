@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.0.2";
+VERSION="1.0.2a";
 APP_NAME="openssl";
 
 # destination build info
