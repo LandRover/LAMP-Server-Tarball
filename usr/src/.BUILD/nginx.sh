@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl pcre);
+DEPENDENCIES=(openssl pcre libxslt);
 
 # build data
 BUILD="../${PWD##*/}";
