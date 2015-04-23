@@ -22,7 +22,7 @@ USER="$4";
 #../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 
 ## logs
-../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/${USER};
+#../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/${USER};
 
 ## logrotate.d
 #../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
