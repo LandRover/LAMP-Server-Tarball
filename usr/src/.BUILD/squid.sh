@@ -24,7 +24,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-default-user=${APP_NAME} \
 --with-swapdir=/dev/null \
 --with-pidfile=/var/run/${APP_NAME}.pid \
---with-logdir=/var/log;
+--with-logdir=/var/log/${APP_NAME};
 
 make;
 make install;
