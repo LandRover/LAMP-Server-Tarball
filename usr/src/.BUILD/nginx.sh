@@ -50,8 +50,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-ipv6 \
 --with-mail \
 --with-mail_ssl_module \
---with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/opt/local/sbin/libxml2/include/libxml2 -L/opt/local/sbin/libxml2/lib -I/opt/local/sbin/libxslt/include -L/opt/local/sbin/libxslt/lib -I/opt/local/sbin/libgd/include -L/opt/local/sbin/libgd/lib -I/opt/local/sbin/GeoIP/include -L/opt/local/sbin/GeoIP/lib -I/opt/local/sbin/gperftools/include -L/opt/local/sbin/gperftools/lib -I/opt/local/sbin/pcre/include -L/opt/local/sbin/pcre/lib -I/opt/local/sbin/openssl/include -L/opt/local/sbin/openssl/lib -I/opt/local/sbin/zlib/include -L/opt/local/sbin/zlib/lib' \
---with-ld-opt='-Wl,-z,relro -Wl,--as-needed';
+--with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/opt/local/sbin/libxml2/include/libxml2 -I/opt/local/sbin/libxslt/include -I/opt/local/sbin/libgd/include -I/opt/local/sbin/GeoIP/include -I/opt/local/sbin/gperftools/include -I/opt/local/sbin/pcre/include -I/opt/local/sbin/openssl/include -I/opt/local/sbin/zlib/include' \
+--with-ld-opt='-Wl,-z,relro -Wl,--as-needed -L/opt/local/sbin/libxml2/lib -L/opt/local/sbin/libxslt/lib -L/opt/local/sbin/libgd/lib -L/opt/local/sbin/GeoIP/lib -L/opt/local/sbin/gperftools/lib -L/opt/local/sbin/pcre/lib -L/opt/local/sbin/openssl/lib -L/opt/local/sbin/zlib/lib';
 
 make;
 make install;
