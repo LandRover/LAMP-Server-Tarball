@@ -18,9 +18,11 @@ source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 export CPPFLAGS="-I${BIN_DIR}/zlib/include";
+export LDFLAGS="-L${BIN_DIR}/zlib/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
+--with-zlib-prefix=${BIN_DIR}/zlib \
 --disable-static;
 
 make;
