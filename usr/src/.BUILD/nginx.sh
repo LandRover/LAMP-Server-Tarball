@@ -25,11 +25,11 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --error-log-path=/var/log/${APP_NAME}/error.log \
 --lock-path=/var/run/lock/subsys/${APP_NAME}.lock \
 --pid-path=/var/run/${APP_NAME}.pid \
---http-client-body-temp-path=${BIN_DIR}/${APP_NAME}/lib/body \
---http-fastcgi-temp-path=${BIN_DIR}/${APP_NAME}/lib/fastcgi \
---http-proxy-temp-path=${BIN_DIR}/${APP_NAME}/lib/proxy \
---http-scgi-temp-path=${BIN_DIR}/${APP_NAME}/lib/scgi \
---http-uwsgi-temp-path=${BIN_DIR}/${APP_NAME}/lib/uwsgi \
+--http-client-body-temp-path=${DESTINATION}/lib/body \
+--http-fastcgi-temp-path=${DESTINATION}/lib/fastcgi \
+--http-proxy-temp-path=${DESTINATION}/lib/proxy \
+--http-scgi-temp-path=${DESTINATION}/lib/scgi \
+--http-uwsgi-temp-path=${DESTINATION}/lib/uwsgi \
 --user=${APP_NAME} \
 --group=${APP_NAME} \
 --with-debug \
