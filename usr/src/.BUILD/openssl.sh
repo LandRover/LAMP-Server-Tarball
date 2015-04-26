@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(zlib);
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.0.2a";
