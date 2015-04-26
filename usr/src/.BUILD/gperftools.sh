@@ -15,7 +15,8 @@ source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 ./configure \
---prefix=${DESTINATION};
+--prefix=${DESTINATION} \
+--enable-frame-pointers;
 
 make;
 make install;
