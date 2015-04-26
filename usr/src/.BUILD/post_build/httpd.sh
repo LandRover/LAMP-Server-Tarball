@@ -6,6 +6,7 @@ source ./.shared.sh;
 APP_DIR="${BIN_DIR}/${APP_NAME}-${VERSION}";
 ETC_DIR="/opt/local/etc";
 USER="$4";
+DEFAULT_HOST_USER="defaulthost";
 [ -z "${USER}" ] && usage "[error] User was not set. Halt. As apache setup requires a user.";
 
 ## general init.d settings
@@ -28,7 +29,7 @@ update-rc.d ${APP_NAME} defaults
 ../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
 ## create vhost + php-fpm settings for first hold
-../helpers/apache_useradd.sh ${USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;
+../helpers/apache_useradd.sh ${DEFAULT_HOST_USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;
 
 ## create and own logs for vhosts
 [ ! -d "/var/log/${USER}" ] && mkdir /var/log/${USER} && chown ${USER}:${USER} /var/log/${USER};
