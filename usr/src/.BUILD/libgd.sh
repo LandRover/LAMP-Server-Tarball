@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(jpeg libpng freetype fontconfig);
+DEPENDENCIES=(zlib jpeg libpng freetype fontconfig);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.1.0";
+VERSION="2.1.1";
 APP_NAME="libgd";
 
 # destination build info
