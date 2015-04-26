@@ -22,8 +22,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --conf-path=${ETC_DIR}/${APP_NAME}/nginx.conf \
 --http-log-path=/var/log/${APP_NAME}/access.log \
 --error-log-path=/var/log/${APP_NAME}/error.log \
---lock-path=/run/lock/subsys/${APP_NAME}.lock \
---pid-path=/run/${APP_NAME}.pid \
+--lock-path=/var/run/lock/subsys/${APP_NAME}.lock \
+--pid-path=/var/run/${APP_NAME}.pid \
 --user=${APP_NAME} \
 --group=${APP_NAME} \
 --with-debug \
