@@ -52,7 +52,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-mail_ssl_module \
 --with-openssl=${BIN_DIR}/openssl \
 --with-pcre=${BIN_DIR}/pcre \
---with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+--with-zlib=${BIN_DIR}/zlib \
+--with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/opt/local/sbin/libxml2/include/libxml2 -L/opt/local/sbin/libxml2/lib -I/opt/local/sbin/libxslt/include -L/opt/local/sbin/libxslt/lib' \
 --with-ld-opt='-Wl,-z,relro -Wl,--as-needed';
 
 make;
