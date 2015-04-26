@@ -53,7 +53,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-openssl=${BIN_DIR}/openssl \
 --with-pcre=${BIN_DIR}/pcre \
 --with-zlib=${BIN_DIR}/zlib \
---with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/opt/local/sbin/libxml2/include/libxml2 -L/opt/local/sbin/libxml2/lib -I/opt/local/sbin/libxslt/include -L/opt/local/sbin/libxslt/lib -I/opt/local/sbin/libgd/include -L/opt/local/sbin/libgd/lib -I/opt/local/sbin/GeoIP/include -L/opt/local/sbin/GeoIP/lib' \
+--with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/opt/local/sbin/libxml2/include/libxml2 -L/opt/local/sbin/libxml2/lib -I/opt/local/sbin/libxslt/include -L/opt/local/sbin/libxslt/lib -I/opt/local/sbin/libgd/include -L/opt/local/sbin/libgd/lib -I/opt/local/sbin/GeoIP/include -L/opt/local/sbin/GeoIP/lib -I/opt/local/sbin/gperftools/include -L/opt/local/sbin/gperftools/lib' \
 --with-ld-opt='-Wl,-z,relro -Wl,--as-needed';
 
 make;
