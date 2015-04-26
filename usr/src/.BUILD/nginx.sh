@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl pcre libxml2 libxslt libgd);
+DEPENDENCIES=(openssl pcre libxml2 libxslt libgd GeoIP);
 
 # build data
 BUILD="../${PWD##*/}";
