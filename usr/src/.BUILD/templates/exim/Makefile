@@ -55,5 +55,6 @@ COMPRESS_COMMAND=/usr/bin/gzip
 PCRE_CONFIG=/opt/local/sbin/pcre/bin/pcre-config
 PCRE_LIBS=-lpcre -L/opt/local/sbin/pcre/lib
 TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
+TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/db/include
 DBMLIB=-L/opt/local/sbin/db/lib -ldb
