@@ -18,6 +18,6 @@ libncurses5-dev \
 cmake \
 make \
 autoconf \
-automake1.9 \
+automake \
 gcc \
 g++;
