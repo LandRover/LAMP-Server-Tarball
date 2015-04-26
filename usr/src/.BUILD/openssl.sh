@@ -20,6 +20,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 ./config \
 --prefix=${DESTINATION} \
 --openssldir=${ETC_DIR}/${APP_NAME} \
+--with-zlib-lib=${BIN_DIR}/zlib/lib \
+--with-zlib-include=${BIN_DIR}/zlib/include \
 zlib-dynamic \
 zlib \
 enable-tlsext \
