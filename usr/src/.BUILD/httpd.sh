@@ -49,6 +49,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-expat=builtin \
 --with-pcre=${BIN_DIR}/pcre \
 --with-ssl=${BIN_DIR}/openssl \
+--with-z=${BIN_DIR}/zlib \
 --with-suexec \
 --with-suexec-caller=${USER} \
 --with-suexec-docroot=${BIN_DIR}/httpd/htdocs \
