@@ -7,6 +7,7 @@ DEPENDENCIES=(openssl pcre libxml2 libxslt libgd GeoIP gperftools);
 BUILD="../${PWD##*/}";
 VERSION="1.7.12";
 APP_NAME="nginx";
+USER="${APP_NAME}";
 
 # destination build info
 LOCAL="/opt/local";
@@ -56,4 +57,4 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 make;
 make install;
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
+[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};
