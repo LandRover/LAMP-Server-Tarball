@@ -19,6 +19,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 ./configure \
 --prefix=${DESTINATION} \
+--with-zlib=${BIN_DIR}/zlib \
 --with-jpeg=${BIN_DIR}/jpeg \
 --with-png=${BIN_DIR}/libpng \
 --with-freetype=${BIN_DIR}/freetype \
