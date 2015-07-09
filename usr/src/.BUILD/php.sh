@@ -30,7 +30,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --enable-fpm \
 --enable-gd-native-ttf \
 --enable-hash \
---enable_phar \
+--enable-phar \
 --enable-inline-optimization \
 --enable-json \
 --enable-libxml \
