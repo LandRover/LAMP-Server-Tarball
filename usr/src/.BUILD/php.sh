@@ -58,6 +58,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-mysql-sock=/var/run/mysql/mysql.sock \
 --with-mysql=${BIN_DIR}/mysql \
 --with-mysqli=${BIN_DIR}/mysql/bin/mysql_config \
+--with-pdo-mysql=${BIN_DIR}/mysql \
 --with-openssl=${BIN_DIR}/openssl \
 --with-pcre-regex=${BIN_DIR}/pcre \
 --with-png-dir=${BIN_DIR}/libpng \
