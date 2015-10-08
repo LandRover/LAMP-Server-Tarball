@@ -5,7 +5,7 @@ DEPENDENCIES=(jpeg libpng freetype libxml2 libmcrypt pcre openssl zlib mysql);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="5.6.8";
+VERSION="5.6.14";
 APP_NAME="php";
 
 # destination build info
