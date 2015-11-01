@@ -5,7 +5,7 @@ DEPENDENCIES=(zlib);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.6.16";
+VERSION="1.6.18";
 APP_NAME="libpng";
 
 # destination build info
