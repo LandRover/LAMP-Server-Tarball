@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="v0.12.2";
+VERSION="v5.0.0";
 APP_NAME="node";
 
 # destination build info
