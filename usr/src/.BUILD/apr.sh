@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.5.1";
+VERSION="1.5.2";
 APP_NAME="apr";
 
 # destination build info

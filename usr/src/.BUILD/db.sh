@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="6.1.19";
+VERSION="6.1.26";
 APP_NAME="db";
 
 # destination build info
