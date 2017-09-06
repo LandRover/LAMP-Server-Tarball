@@ -11,7 +11,7 @@ DEPENDENCIES=(scons);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="r3.0.7";
+VERSION="r3.5.12";
 APP_NAME="mongodb";
 
 # destination build info

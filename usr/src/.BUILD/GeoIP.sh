@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.6.5";
+VERSION="1.6.11";
 APP_NAME="GeoIP";
 
 # destination build info

@@ -5,7 +5,7 @@ DEPENDENCIES=(openssl pcre libxml2 libxslt libgd GeoIP gperftools);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.8.0";
+VERSION="1.13.5";
 APP_NAME="nginx";
 USER="${APP_NAME}";
 

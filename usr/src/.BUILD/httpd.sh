@@ -5,7 +5,7 @@ DEPENDENCIES=(arp arp-util pcre openssl);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.4.17";
+VERSION="2.4.27";
 APP_NAME="httpd";
 USER="apache";
 

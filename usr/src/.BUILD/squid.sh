@@ -5,7 +5,7 @@ DEPENDENCIES=(openssl);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="3.5.10";
+VERSION="3.5.27";
 APP_NAME="squid";
 
 # destination build info

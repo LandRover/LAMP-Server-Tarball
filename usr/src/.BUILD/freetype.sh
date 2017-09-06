@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.6.1";
+VERSION="2.8";
 APP_NAME="freetype";
 
 # destination build info

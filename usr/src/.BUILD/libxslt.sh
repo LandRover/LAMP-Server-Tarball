@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.1.28";
+VERSION="1.1.30";
 APP_NAME="libxslt";
 
 # destination build info

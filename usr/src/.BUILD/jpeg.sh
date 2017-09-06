@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="9a";
+VERSION="9b";
 APP_NAME="jpeg";
 
 # destination build info

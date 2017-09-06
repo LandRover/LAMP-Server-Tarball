@@ -5,7 +5,7 @@ DEPENDENCIES=(zlib);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.0.2d";
+VERSION="1.0.2l";
 APP_NAME="openssl";
 
 # destination build info

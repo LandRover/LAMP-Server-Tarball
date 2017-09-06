@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.9.2";
+VERSION="2.9.5";
 APP_NAME="libxml2";
 
 # destination build info

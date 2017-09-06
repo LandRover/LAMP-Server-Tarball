@@ -5,7 +5,7 @@ DEPENDENCIES=(httpd php);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="4.5.1-english";
+VERSION="4.7.4-english";
 APP_NAME="phpMyAdmin";
 USER="apache";
 

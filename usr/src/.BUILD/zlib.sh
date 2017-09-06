@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.2.8";
+VERSION="1.2.11";
 APP_NAME="zlib";
 
 # destination build info

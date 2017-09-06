@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.4";
+VERSION="2.6.1";
 APP_NAME="gperftools";
 
 # destination build info

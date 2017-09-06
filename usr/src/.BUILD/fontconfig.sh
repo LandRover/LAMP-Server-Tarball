@@ -5,7 +5,7 @@ DEPENDENCIES=(freetype libxml2);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.11.94";
+VERSION="2.12.4";
 APP_NAME="fontconfig";
 
 # destination build info

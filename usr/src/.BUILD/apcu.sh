@@ -7,7 +7,7 @@ DEPENDENCIES=(php);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="4.0.7";
+VERSION="5.1.8";
 APP_NAME="apcu";
 
 # destination build info
