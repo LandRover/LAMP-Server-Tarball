@@ -1,4 +1,4 @@
-BIN_DIRECTORY=/opt/local/sbin/exim-4.85/bin
+BIN_DIRECTORY=/opt/local/sbin/exim-4.89/bin
 CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 HEADERS_CHARSET="ISO-8859-1"
 FIXED_NEVER_USERS=root
@@ -58,3 +58,6 @@ TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
 TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/db/include
 DBMLIB=-L/opt/local/sbin/db/lib -ldb
+
+CFLAGS += -I/opt/local/sbin/openssl/include
+LDFLAGS += -L/opt/local/sbin/openssl/lib -lssl -lcrypto

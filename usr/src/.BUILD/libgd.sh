@@ -5,7 +5,7 @@ DEPENDENCIES=(zlib jpeg libpng freetype fontconfig);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.1.1";
+VERSION="2.2.5";
 APP_NAME="libgd";
 
 # destination build info
@@ -16,6 +16,9 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+
+export LDFLAGS="-L${BIN_DIR}/freetype/lib";
+export CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 
 ./configure \
 --prefix=${DESTINATION} \

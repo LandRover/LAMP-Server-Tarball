@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="8.37";
+VERSION="8.41";
 APP_NAME="pcre";
 
 # destination build info

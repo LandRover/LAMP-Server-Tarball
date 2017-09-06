@@ -5,7 +5,7 @@ DEPENDENCIES=(apr);
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.5.4";
+VERSION="1.6.0";
 APP_NAME="apr-util";
 
 # destination build info
