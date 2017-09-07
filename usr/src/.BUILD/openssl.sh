@@ -3,6 +3,8 @@
 # Dependencies which must exist prior to current build. If not found, will try to install
 DEPENDENCIES=(zlib);
 
+#http://curl.haxx.se/ca/cacert.pem --< /opt/local/etc/openssl/certs/cacert.pem
+
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.0.2l";
