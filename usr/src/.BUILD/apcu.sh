@@ -8,6 +8,7 @@ DEPENDENCIES=(php);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="5.1.8";
+DIST_URL="https://pecl.php.net/get/apcu-${VERSION}.tgz";
 APP_NAME="apcu";
 
 # destination build info

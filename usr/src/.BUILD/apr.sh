@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.6.2";
+DIST_URL="http://apache.spd.co.il/apr/apr-${VERSION}.tar.gz";
 APP_NAME="apr";
 
 # destination build info

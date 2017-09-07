@@ -6,6 +6,7 @@ DEPENDENCIES=(openssl);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2007f";
+DIST_URL="https://www.mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-${VERSION}.tar.gz";
 APP_NAME="imap";
 
 # destination build info

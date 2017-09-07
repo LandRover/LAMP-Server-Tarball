@@ -6,6 +6,7 @@ DEPENDENCIES=(freetype libxml2);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.12.4";
+DIST_URL="https://www.freedesktop.org/software/fontconfig/release/fontconfig-${VERSION}.tar.gz";
 APP_NAME="fontconfig";
 
 # destination build info

@@ -12,6 +12,7 @@ DEPENDENCIES=(scons);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="r3.5.12";
+DIST_URL="http://downloads.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
 APP_NAME="mongodb";
 
 # destination build info

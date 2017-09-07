@@ -6,6 +6,7 @@ DEPENDENCIES=(apr);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.6.0";
+DIST_URL="http://apache.spd.co.il/apr/apr-util-${VERSION}.tar.gz";
 APP_NAME="apr-util";
 
 # destination build info

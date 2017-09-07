@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="6.2.32";
+DIST_URL="http://download.oracle.com/berkeley-db/db-${VERSION}.tar.gz";
 APP_NAME="db";
 
 # destination build info

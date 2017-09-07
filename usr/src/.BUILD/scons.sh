@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.5.1";
+DIST_URL="https://netix.dl.sourceforge.net/project/scons/scons/${VERSION}/scons-${VERSION}.tar.gz";
 APP_NAME="scons";
 
 # destination build info

@@ -6,6 +6,7 @@ DEPENDENCIES=(zlib);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.0.2l";
+DIST_URL="https://www.openssl.org/source/openssl-${VERSION}.tar.gz";
 APP_NAME="openssl";
 
 # destination build info

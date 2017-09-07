@@ -6,6 +6,7 @@ DEPENDENCIES=(openssl);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="7.55.1";
+DIST_URL="https://curl.haxx.se/download/curl-${VERSION}.tar.gz";
 APP_NAME="curl";
 
 # destination build info

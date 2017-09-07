@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="8.41";
+DIST_URL="https://netix.dl.sourceforge.net/project/pcre/pcre/${VERSION}/pcre-${VERSION}.tar.gz";
 APP_NAME="pcre";
 
 # destination build info

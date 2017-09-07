@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="v8.4.0";
+DIST_URL="https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz";
 APP_NAME="node";
 
 # destination build info

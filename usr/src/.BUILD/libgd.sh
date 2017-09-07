@@ -6,6 +6,7 @@ DEPENDENCIES=(zlib jpeg libpng freetype fontconfig);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.2.5";
+DIST_URL="https://github.com/libgd/libgd/releases/download/gd-${VERSION}/libgd-${VERSION}.tar.gz";
 APP_NAME="libgd";
 
 # destination build info

@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.2.11";
+DIST_URL="https://zlib.net/zlib-${VERSION}.tar.gz";
 APP_NAME="zlib";
 
 # destination build info

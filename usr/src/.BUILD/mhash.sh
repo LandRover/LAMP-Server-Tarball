@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="0.9.9.9";
+DIST_URL="https://netix.dl.sourceforge.net/project/mhash/mhash/${VERSION}/mhash-${VERSION}.tar.gz";
 APP_NAME="mhash";
 
 # destination build info

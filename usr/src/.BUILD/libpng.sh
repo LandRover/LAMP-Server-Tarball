@@ -6,6 +6,7 @@ DEPENDENCIES=(zlib);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.6.32";
+DIST_URL="https://netix.dl.sourceforge.net/project/libpng/libpng16/${VERSION}/libpng-${VERSION}.tar.gz";
 APP_NAME="libpng";
 
 # destination build info

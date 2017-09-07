@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.5.8";
+DIST_URL="https://netix.dl.sourceforge.net/project/mcrypt/Libmcrypt/${VERSION}/libmcrypt-${VERSION}.tar.gz";
 APP_NAME="libmcrypt";
 
 # destination build info

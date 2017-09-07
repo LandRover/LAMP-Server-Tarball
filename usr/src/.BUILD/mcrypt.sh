@@ -6,6 +6,7 @@ DEPENDENCIES=(libmcrypt mhash);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.6.8";
+DIST_URL="https://netix.dl.sourceforge.net/project/mcrypt/MCrypt/${VERSION}/mcrypt-${VERSION}.tar.gz";
 APP_NAME="mcrypt";
 
 # destination build info

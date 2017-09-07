@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="9b";
+DIST_URL="http://www.ijg.org/files/jpegsrc.v${VERSION}.tar.gz";
 APP_NAME="jpeg";
 
 # destination build info

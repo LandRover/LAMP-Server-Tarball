@@ -6,6 +6,7 @@ DEPENDENCIES=(arp arp-util pcre openssl);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="2.4.27";
+DIST_URL="http://apache.mivzakim.net/httpd/httpd-${VERSION}.tar.gz";
 APP_NAME="httpd";
 USER="apache";
 

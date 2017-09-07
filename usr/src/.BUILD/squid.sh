@@ -6,6 +6,7 @@ DEPENDENCIES=(openssl);
 # build data
 BUILD="../${PWD##*/}";
 VERSION="3.5.27";
+DIST_URL="https://launchpad.net/squid/3.5/${VERSION}/+download/squid-${VERSION}.tar.gz";
 APP_NAME="squid";
 
 # destination build info

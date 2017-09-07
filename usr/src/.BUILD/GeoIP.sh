@@ -3,6 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="1.6.11";
+DIST_URL="https://github.com/maxmind/geoip-api-c/releases/download/v${VERSION}/GeoIP-${VERSION}.tar.gz";
 APP_NAME="GeoIP";
 
 # destination build info
