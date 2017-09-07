@@ -17,16 +17,14 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
-export LDFLAGS="-L${BIN_DIR}/freetype/lib";
-export CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
-
 ./configure \
 --prefix=${DESTINATION} \
 --with-zlib=${BIN_DIR}/zlib \
 --with-jpeg=${BIN_DIR}/jpeg \
 --with-png=${BIN_DIR}/libpng \
---with-freetype=${BIN_DIR}/freetype \
---with-fontconfig=${BIN_DIR}/fontconfig;
+--without-x \
+--without-xpm \
+--with-freetype=${BIN_DIR}/freetype;
 
 make;
 make install;

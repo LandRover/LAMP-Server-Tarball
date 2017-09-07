@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.8";
+VERSION="2.7.1";
 APP_NAME="freetype";
 
 # destination build info
@@ -14,9 +14,12 @@ DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
 source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
+export LIBPNG_LIBS="-L${BIN_DIR}/libpng/lib";
+export LIBPNG_CFLAGS="-I${BIN_DIR}/libpng/include";
+
 ./configure \
 --prefix=${DESTINATION} \
---with-png=no;
+--with-png=yes;
 
 make;
 make install;

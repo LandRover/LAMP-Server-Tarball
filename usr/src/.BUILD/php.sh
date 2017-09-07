@@ -19,6 +19,9 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 /sbin/ldconfig;
 
+export LIBPNG_LIBS="-L${BIN_DIR}/freetype/lib";
+export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
+
 #--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
 #--enable-bcmath \
 ./configure \

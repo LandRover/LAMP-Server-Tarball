@@ -21,7 +21,10 @@ export CPPFLAGS="-I${BIN_DIR}/openssl/include";
 export LDFLAGS="-L${BIN_DIR}/openssl/lib";
 
 ./configure \
---prefix=${DESTINATION};
+--prefix=${DESTINATION} \
+--disable-shared \
+--with-ssl \
+--enable-cookies;
 
 make;
 make install;
