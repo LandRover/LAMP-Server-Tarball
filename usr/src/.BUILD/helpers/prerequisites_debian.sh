@@ -8,6 +8,7 @@ apt-get upgrade;
 
 apt-get -y install \
 mc \
+vim \
 screen \
 htop \
 rcconf \
