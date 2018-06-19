@@ -3,7 +3,7 @@
 # build data
 BUILD="../${PWD##*/}";
 VERSION="5.6.27";
-DIST_URL="https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-${VERSION}.tar.gz";
+DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";

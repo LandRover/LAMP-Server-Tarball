@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.6.1";
+VERSION="2.7";
 DIST_URL="https://github.com/gperftools/gperftools/releases/download/gperftools-${VERSION}/gperftools-${VERSION}.tar.gz";
 APP_NAME="gperftools";
 
