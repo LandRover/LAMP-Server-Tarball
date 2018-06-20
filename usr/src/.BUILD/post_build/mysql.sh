@@ -35,6 +35,9 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ## profile.d
     ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 
+    ## tmpfiles.d
+    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.sh";
+
     ## Copy template of .my.cnf to ~
     cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
     cp -Lf ../templates/mysql/.init-file ${TMP_INIT_FILE};
