@@ -19,7 +19,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --prefix=${DESTINATION} \
 --with-libxml-prefix=${BIN_DIR}/libxml2 \
 --with-libxml-libs-prefix=${BIN_DIR}/libxml2/lib \
---with-libxml-include-prefix=${BIN_DIR}/libxml2/include;
+--with-libxml-include-prefix=${BIN_DIR}/libxml2/include/libxml2;
 
 make;
 make install;
