@@ -58,8 +58,8 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         sed -i "s/\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
         sed -i "s/\$PASSWORD/${PASSWORD}/g" ${TMP_INIT_FILE};
 
-        ${BIN_DIR}/${APP_NAME}/bin/mysqld_safe --skip-grant-tables --skip-networking --init-file=${TMP_INIT_FILE} &
-        sleep 4;
+        ${BIN_DIR}/${APP_NAME}/bin/mysqld --defaults-file=${ETC_DIR}/mysql/my.cnf --init-file=${TMP_INIT_FILE} &
+        sleep 3;
         rm -rf ${TMP_INIT_FILE};
     fi
 fi
