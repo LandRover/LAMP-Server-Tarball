@@ -43,7 +43,11 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     cd ${BIN_DIR}/${APP_NAME};
 
     ## generate default structure to datadir
-    ./scripts/mysql_install_db --user=${USER} --ldata=${HOME_DIR}/${DATA_DIR};
+    ${BIN_DIR}/${APP_NAME}/bin/mysqld \
+        --user=${USER} \
+        --initialize;
+
+    ${BIN_DIR}/${APP_NAME}/bin/mysql_ssl_rsa_setup;
 
     chown -R ${USER}:${USER} ${BIN_DIR}/${APP_NAME};
     chown -R ${USER}:${USER} ${APP_DIR};
