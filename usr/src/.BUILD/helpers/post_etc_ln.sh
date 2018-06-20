@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Validation object, shared currently for creating profile.d and ld.conf.d.
+# Validation object, shared currently for creating profile.d, ld.conf.d & tmpfiles.d.
 # External params must be provided:
 #   SRC_DIR, SERVICE, FILE_NAME
 #   more info about the params @ usage
@@ -20,7 +20,7 @@ function usage {
     echo "USAGE: $0 <src_dir> <service> <file_name>";
     echo "";
     echo "<src_dir> - usually for my setup would be /opt/local/etc";
-    echo "<service> - depends on what's being created [profile.d || ld.so.conf.d]";
+    echo "<service> - depends on what's being created [profile.d || ld.so.conf.d || tmpfiles.d]";
     echo "<file_name> - file to be linked";
     echo "";
 
