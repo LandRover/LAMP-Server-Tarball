@@ -40,7 +40,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 
     ## tmpfiles.d
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.sh";
+    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
 
     ## Copy template of .my.cnf to ~
     cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
