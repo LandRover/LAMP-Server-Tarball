@@ -2,8 +2,8 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="1.1.30";
-DIST_URL="http://xmlsoft.org/sources/libxslt-1.1.30.tar.gz";
+VERSION="1.1.32";
+DIST_URL="http://xmlsoft.org/sources/libxslt-${VERSION}.tar.gz";
 APP_NAME="libxslt";
 
 # destination build info

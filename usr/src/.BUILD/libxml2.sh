@@ -2,8 +2,8 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="2.9.5";
-DIST_URL="http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz";
+VERSION="2.9.8";
+DIST_URL="http://xmlsoft.org/sources/libxml2-${VERSION}.tar.gz";
 APP_NAME="libxml2";
 
 # destination build info

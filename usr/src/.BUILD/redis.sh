@@ -2,7 +2,7 @@
 
 # build data
 BUILD="../${PWD##*/}";
-VERSION="4.0.1";
+VERSION="4.0.10";
 DIST_URL="http://download.redis.io/releases/redis-${VERSION}.tar.gz";
 USER="redis";
 APP_NAME="redis";
