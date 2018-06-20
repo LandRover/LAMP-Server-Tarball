@@ -27,7 +27,11 @@ update-rc.d ${APP_NAME} defaults
 
 # Verify /var/run/mysql
 [ ! -d "/var/run/${APP_NAME}" ] && mkdir "/var/run/${APP_NAME}";
-chown -R ${USER}:${USER} /var/run/${APP_NAME}; ##change sock dir owner
+chown -R ${USER}:${USER} /var/run/${APP_NAME}; # Change mysql.sock permission
+
+# Create dir for logs
+[ ! -d "${HOME_DIR}/logs" ] && mkdir "${HOME_DIR}/logs";
+chown -R ${USER}:${USER} ${HOME_DIR}/logs; # Change logs permission
 
 # If no data, means it's a fresh install and not an update so create initial setup - happens only once
 # wont be triggered during rebuilds
