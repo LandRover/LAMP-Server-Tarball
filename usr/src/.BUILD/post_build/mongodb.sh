@@ -10,9 +10,6 @@ CERT_DIR="${ETC_DIR}/openssl/certs";
 CERT_NAME="mongodb";
 PEM_CERT="${CERT_DIR}/${CERT_NAME}.pem";
 
-## profile.d
-../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
-
 ## Veryify cert does NOT exist.. if not found will generate one
 if [[ ! -e "${PEM_CERT}" ]]; then
 	##generate crt and key

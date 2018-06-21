@@ -14,10 +14,6 @@ TMP_INIT_FILE='/tmp/.reset-mysql-pw.sql';
 
 ## init.d symlinks
 ../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/support-files/mysql.server ${ETC_DIR}/init.d/${APP_NAME};
-../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
-
-## system stop/start on boot
-update-rc.d ${APP_NAME} defaults
 
 ## create user and group
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HOME_DIR} ${USER};
@@ -36,12 +32,6 @@ chown -R ${USER}:${USER} ${HOME_DIR}/logs; # Change logs permission
 # If no data, means it's a fresh install and not an update so create initial setup - happens only once
 # wont be triggered during rebuilds
 if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
-    ## profile.d
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
-
-    ## tmpfiles.d
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
-
     ## Copy template of .my.cnf to ~
     cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
     cp -Lf ../templates/mysql/.init-file ${TMP_INIT_FILE};

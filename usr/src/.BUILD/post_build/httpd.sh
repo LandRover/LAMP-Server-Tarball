@@ -11,22 +11,12 @@ DEFAULT_HOST_USER="defaulthost";
 
 ## general init.d settings
 ../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
-../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
-
-## system stop/start on boot
-update-rc.d ${APP_NAME} defaults
 
 ## I like getting there faster..
 ../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;
 
-## profile.d
-../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
-
 ## logs
 ../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/httpd;
-
-## logrotate.d
-../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
 ## create vhost + php-fpm settings for first hold
 ../helpers/apache_useradd.sh ${DEFAULT_HOST_USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;

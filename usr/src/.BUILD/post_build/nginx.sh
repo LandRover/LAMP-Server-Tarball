@@ -18,14 +18,8 @@ USER="$4";
 ## I like getting there faster..
 #../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;
 
-## profile.d
-#../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
-
 ## logs
 #../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/${USER};
-
-## logrotate.d
-#../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 
 ## create vhost + php-fpm settings for first hold
 #../helpers/apache_useradd.sh ${USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;

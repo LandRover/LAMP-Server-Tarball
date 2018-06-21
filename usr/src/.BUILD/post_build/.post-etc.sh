@@ -9,6 +9,13 @@ if [ -f "${APP_PROFILE}" ]; then
     ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 fi
 
+echo "[info] Checking tmpfiles.d ln to etc";
+APP_TMPFILES="${ETC_DIR}/tmpfiles.d/${APP_NAME}.conf";
+if [ -f "${APP_TMPFILES}" ]; then
+    echo "[info] Found ${APP_TMPFILES}, creating ln";
+    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
+fi
+
 echo "[info] Checking logrotate.d ln to etc";
 APP_LOGROTATE="${ETC_DIR}/logrotate.d/${APP_NAME}";
 if [ -f "${APP_LOGROTATE}" ]; then
@@ -37,4 +44,3 @@ if [ -d "${APP_LIB}" ]; then
     echo "${APP_LIB}" > "/etc/ld.so.conf.d/${APP_NAME}.conf";
     /sbin/ldconfig ${APP_LIB};
 fi
-
