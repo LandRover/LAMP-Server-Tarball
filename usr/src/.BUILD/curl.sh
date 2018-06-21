@@ -20,6 +20,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 
 export CPPFLAGS="-I${BIN_DIR}/openssl/include";
 export LDFLAGS="-L${BIN_DIR}/openssl/lib";
+export PKG_CONFIG_PATH="${BIN_DIR}/openssl/lib/pkgconfig";
 
 ./configure \
 --prefix=${DESTINATION} \
