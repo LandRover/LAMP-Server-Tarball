@@ -25,4 +25,4 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 make;
 make install;
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
+[ -f "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
