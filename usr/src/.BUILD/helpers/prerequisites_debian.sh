@@ -22,5 +22,7 @@ cmake \
 make \
 autoconf \
 automake \
+libtool \
+m4 \
 gcc \
 g++;
