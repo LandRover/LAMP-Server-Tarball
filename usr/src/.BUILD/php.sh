@@ -38,6 +38,7 @@ export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 --enable-inline-optimization \
 --enable-json \
 --enable-libxml \
+--enable-mysqlnd \
 --enable-mbstring \
 --enable-opcache \
 --enable-pcntl \
