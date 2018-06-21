@@ -18,6 +18,8 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 export LIBPNG_LIBS="-L${BIN_DIR}/libpng/lib";
 export LIBPNG_CFLAGS="-I${BIN_DIR}/libpng/include";
 
+./autogen.sh;
+
 ./configure \
 --prefix=${DESTINATION} \
 --with-png=yes;
