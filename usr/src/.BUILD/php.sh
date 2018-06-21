@@ -59,7 +59,6 @@ export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 --with-iconv \
 --with-jpeg-dir=${BIN_DIR}/jpeg \
 --with-libxml-dir=${BIN_DIR}/libxml2 \
---with-mysql=mysqlnd \
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
 --with-mysql-sock=/var/run/mysql/mysql.sock \
