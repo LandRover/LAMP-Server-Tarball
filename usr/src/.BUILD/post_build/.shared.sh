@@ -2,6 +2,14 @@
 
 [ "$0" = "${BASH_SOURCE}" ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
 
+## GLOBAL PATHS
+LOCAL="/opt/local";
+BIN_DIR="${LOCAL}/sbin";
+ETC_DIR="${LOCAL}/etc";
+APP_DIR="${BIN_DIR}/${APP_NAME}";
+
+source ./.post-etc.sh;
+
 # Used as a shared focal point for running generic shared between all components
 # file is loaded via SOURCE and must NOT BE executed directly.
 
