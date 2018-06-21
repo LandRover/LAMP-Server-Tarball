@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(jpeg libpng freetype libxml2 libmcrypt pcre openssl zlib mysql);
+DEPENDENCIES=(jpeg libpng freetype libxml2 pcre openssl zlib mysql);
 
 # build data
 BUILD="../${PWD##*/}";
@@ -59,7 +59,6 @@ export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 --with-iconv \
 --with-jpeg-dir=${BIN_DIR}/jpeg \
 --with-libxml-dir=${BIN_DIR}/libxml2 \
---with-mcrypt=${BIN_DIR}/libmcrypt \
 --with-mysql=mysqlnd \
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
