@@ -1,5 +1,9 @@
 #!/bin/bash
 
+## libs required
+apt-get -y install gperf \
+uuid-dev;
+
 # Dependencies which must exist prior to current build. If not found, will try to install
 DEPENDENCIES=(freetype libxml2);
 
