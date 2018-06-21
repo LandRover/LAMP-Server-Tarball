@@ -32,7 +32,6 @@ export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 --enable-exif \
 --enable-filter \
 --enable-fpm \
---enable-gd-native-ttf \
 --enable-hash \
 --enable-pdo \
 --enable-phar \
