@@ -25,6 +25,7 @@ source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
 --with-png=${BIN_DIR}/libpng \
 --without-x \
 --without-xpm \
+--with-fontconfig=${BIN_DIR}/fontconfig \
 --with-freetype=${BIN_DIR}/freetype;
 
 make;
