@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # build data
-BUILD="../${PWD##*/}";
+BUILD="`pwd`";
 VERSION="8.0.11";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";
-RANDOM_PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w8 | head -n1);
 
 # destination build info
 LOCAL="/opt/local";
@@ -40,4 +39,4 @@ cmake \
 make;
 make install;
 
-[ -f "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR} ${RANDOM_PASSWORD};
+cd ${BUILD}/post_build && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};

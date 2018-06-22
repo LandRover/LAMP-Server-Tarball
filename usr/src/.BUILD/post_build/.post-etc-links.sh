@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ "$0" = "${BASH_SOURCE}" ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
+#[ ["$0" = "${BASH_SOURCE}"] || ["$1" = "${BASH_SOURCE}"] ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
 
 echo "[info] Checking profile.d ln to etc";
 APP_PROFILE="${ETC_DIR}/profile.d/${APP_NAME}.sh";

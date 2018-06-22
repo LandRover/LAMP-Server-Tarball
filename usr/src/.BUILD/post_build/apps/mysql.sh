@@ -1,19 +1,11 @@
 #!/bin/bash
 
-source ../helpers/.post_validate_input.sh;
-source ./.shared.sh;
-
-APP_DIR="${BIN_DIR}/${APP_NAME}-${VERSION}";
 USER="$4";
 DATA_DIR="$5";
-PASSWORD="$6"; ## mysql root password
+PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w8 | head -n1); ## mysql root password
 HOME_DIR="/home/${USER}";
-ETC_DIR="/opt/local/etc";
 TMP_INIT_FILE='/tmp/.reset-mysql-pw.sql';
 [[ -z "${USER}" || -z "${DATA_DIR}" ]] && usage "[error] User was not set. Halt. As mysql setup requires a user.";
-
-## init.d symlinks
-../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/support-files/mysql.server ${ETC_DIR}/init.d/${APP_NAME};
 
 ## create user and group
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HOME_DIR} ${USER};
@@ -51,7 +43,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     chown -R ${USER}:${USER} ${HOME_DIR};
 
     ## start the server..
-    /etc/init.d/${APP_NAME} stop
+    ${ETC_DIR}/init.d/${APP_NAME} stop
 
     if [ ! -z "${PASSWORD}" ]; then
         echo "[info] Reseting password to: ${PASSWORD}";
@@ -66,4 +58,4 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
 fi
 
 ## restart service
-/etc/init.d/${APP_NAME} restart
+${ETC_DIR}/init.d/${APP_NAME} restart
