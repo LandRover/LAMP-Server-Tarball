@@ -4,19 +4,11 @@
 DEPENDENCIES=(openssl);
 
 # build data
-BUILD="../${PWD##*/}";
 VERSION="7.55.0";
 DIST_URL="https://curl.haxx.se/download/curl-${VERSION}.tar.gz";
 APP_NAME="curl";
 
-# destination build info
-LOCAL="/opt/local";
-BIN_DIR="${LOCAL}/sbin";
-ETC_DIR="${LOCAL}/etc";
-DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
-
-source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
-source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+source ./helpers/build_pre/.pre-start.sh;
 
 export CPPFLAGS="-I${BIN_DIR}/openssl/include";
 export LDFLAGS="-L${BIN_DIR}/openssl/lib";
@@ -30,4 +22,4 @@ export LDFLAGS="-L${BIN_DIR}/openssl/lib";
 make;
 make install;
 
-[ -f "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
+cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

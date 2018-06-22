@@ -1,11 +1,5 @@
 #!/bin/bash
 
-source ../helpers/.post_validate_input.sh;
-source ./.shared.sh;
-
-APP_DIR="${BIN_DIR}/${APP_NAME}-${VERSION}";
-ETC_DIR="/opt/local/etc";
-
 CERT_DIR="${ETC_DIR}/openssl/certs";
 CERT_NAME="mongodb";
 PEM_CERT="${CERT_DIR}/${CERT_NAME}.pem";

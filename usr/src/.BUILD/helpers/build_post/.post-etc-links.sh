@@ -6,28 +6,28 @@ echo "[info] Checking profile.d ln to etc";
 APP_PROFILE="${ETC_DIR}/profile.d/${APP_NAME}.sh";
 if [ -f "${APP_PROFILE}" ]; then
     echo "[info] Found ${APP_PROFILE}, creating ln";
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
+    ../post_etc_ln.sh "${ETC_DIR}" "profile.d" "${APP_NAME}.sh";
 fi
 
 echo "[info] Checking tmpfiles.d ln to etc";
 APP_TMPFILES="${ETC_DIR}/tmpfiles.d/${APP_NAME}.conf";
 if [ -f "${APP_TMPFILES}" ]; then
     echo "[info] Found ${APP_TMPFILES}, creating ln";
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
+    ../post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
 fi
 
 echo "[info] Checking logrotate.d ln to etc";
 APP_LOGROTATE="${ETC_DIR}/logrotate.d/${APP_NAME}";
 if [ -f "${APP_LOGROTATE}" ]; then
     echo "[info] Found ${APP_LOGROTATE}, creating ln";
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
+    ../post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 fi
 
 echo "[info] Checking init.d ln to etc";
 APP_INIT="${ETC_DIR}/init.d/${APP_NAME}";
 if [ -f "${APP_INIT}" ]; then
     echo "[info] Found ${APP_INIT}, creating ln";
-    ../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
+    ../post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
 
     ## system stop/start on boot
     echo "[info] Adding ${APP_NAME} to startup";
@@ -43,4 +43,12 @@ if [ -d "${APP_LIB}" ]; then
     echo "[info] Found ${APP_LIB}, creating file";
     echo "${APP_LIB}" > "/etc/ld.so.conf.d/${APP_NAME}.conf";
     /sbin/ldconfig ${APP_LIB};
+fi
+
+
+echo "[info] Checking include";
+APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
+if [ -d "${APP_INCLUDE}" ]; then
+    echo "[info] Found ${APP_INCLUDE}, creating ln";
+    ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/include /usr/include/${APP_NAME};
 fi

@@ -1,21 +1,13 @@
 #!/bin/bash
 
 # build data
-BUILD="`pwd`";
 VERSION="8.0.11";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
 DATA_DIR="db_data";
 
-# destination build info
-LOCAL="/opt/local";
-BIN_DIR="${LOCAL}/sbin";
-ETC_DIR="${LOCAL}/etc";
-DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
-
-source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
-source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+source ./helpers/build_pre/.pre-start.sh;
 
 ##add to startup @ redhat:
 ##chkconfig --add mysqld
@@ -39,4 +31,4 @@ cmake \
 make;
 make install;
 
-cd ${BUILD}/post_build && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};
+cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};

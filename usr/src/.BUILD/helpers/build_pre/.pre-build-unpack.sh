@@ -23,7 +23,7 @@ function error {
 
 tar -zxvf "${PACKAGE}" -C ../; # unpack it
 cd ..; # get one folder above to /usr/src, if not, link will be damaged.
-./.BUILD/helpers/bin/ln.sh "${APP_NAME}-${VERSION}" "${APP_NAME}"; ## create link
+${BUILD}/helpers/bin/ln.sh "${APP_NAME}-${VERSION}" "${APP_NAME}"; ## create link
 
 ## enter src app dir
 cd "${APP_NAME}";

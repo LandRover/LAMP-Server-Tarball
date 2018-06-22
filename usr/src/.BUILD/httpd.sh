@@ -4,20 +4,12 @@
 DEPENDENCIES=(arp arp-util pcre openssl);
 
 # build data
-BUILD="../${PWD##*/}";
 VERSION="2.4.33";
 DIST_URL="http://apache.mivzakim.net/httpd/httpd-${VERSION}.tar.gz";
 APP_NAME="httpd";
 USER="apache";
 
-# destination build info
-LOCAL="/opt/local";
-BIN_DIR="${LOCAL}/sbin";
-ETC_DIR="${LOCAL}/etc";
-DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
-
-source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
-source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+source ./helpers/build_pre/.pre-start.sh;
 
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${BIN_DIR}/httpd/htdocs ${USER};
 
@@ -64,4 +56,4 @@ make install;
 
 ##chkconfig httpd on --level 2,3,5
 
-[ -f "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};
+cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};

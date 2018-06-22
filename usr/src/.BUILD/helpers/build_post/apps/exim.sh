@@ -1,6 +1,5 @@
 #!/bin/bash
 
-ETC_DIR="/opt/local/etc";
 USER="$4";
 [ -z "${USER}" ] && usage "[error] User was not set. Halt. As apache setup requires a user.";
 

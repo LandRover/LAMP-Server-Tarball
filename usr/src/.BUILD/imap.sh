@@ -4,19 +4,11 @@
 DEPENDENCIES=(openssl);
 
 # build data
-BUILD="../${PWD##*/}";
 VERSION="2007f";
 DIST_URL="https://www.mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-${VERSION}.tar.gz";
 APP_NAME="imap";
 
-# destination build info
-LOCAL="/opt/local";
-BIN_DIR="${LOCAL}/sbin";
-ETC_DIR="${LOCAL}/etc";
-DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
-
-source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
-source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+source ./helpers/build_pre/.pre-start.sh;
 
 #SSLTYPE=nopwd SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
 #make slx SSLTYPE=unix.nopwd EXTRACFLAGS=-fPIC;
@@ -28,4 +20,4 @@ cp c-client/*.c lib/;
 cp c-client/*.h include/;
 cp c-client/c-client.a lib/libc-client.a;
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION};
+cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

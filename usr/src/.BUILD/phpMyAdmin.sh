@@ -4,22 +4,14 @@
 DEPENDENCIES=(httpd php);
 
 # build data
-BUILD="../${PWD##*/}";
 VERSION="4.8.1-english";
 DIST_URL="https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-${VERSION}.tar.gz";
 APP_NAME="phpMyAdmin";
 USER="apache";
 
-# destination build info
-LOCAL="/opt/local";
-BIN_DIR="${LOCAL}/sbin";
-ETC_DIR="${LOCAL}/etc";
-DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
-
-source ./helpers/.dependency_install.sh; ##checks all @DEPENDENCIES in tact
-source ./helpers/.pre_build_unpack.sh; ##unpack tar and enters the app dir
+source ./helpers/build_pre/.pre-start.sh;
 
 [ ! -d "${DESTINATION}" ] && mkdir ${DESTINATION};
 cp -RLf ./* ${DESTINATION};
 
-[ -a "${BUILD}/post_build/$0" ] && cd ${BUILD}/post_build; $0 ${BIN_DIR} ${APP_NAME} ${VERSION} ${USER};
+cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};

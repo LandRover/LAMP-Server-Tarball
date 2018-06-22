@@ -20,8 +20,8 @@ ETC_HTTPD_VHOST="${ETC_DIR}/apache/vhosts";
 
 APACHE_LOGS_DIR="/home/${USER}/logs";
 
-TEMPLATE_PHPFPM="${BUILD}/templates/php/php-fpm-template.conf";
-TEMPLATE_APACHE="${BUILD}/templates/apache/vhost-template.conf";
+TEMPLATE_PHPFPM="${BUILD}/helpers/templates/php/php-fpm-template.conf";
+TEMPLATE_APACHE="${BUILD}/helpers/templates/apache/vhost-template.conf";
 
 TARGET_PHPFPM_FILE="${ETC_PHPFPMD}/${USER}.conf";
 TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/$(printf '%03d' ${PRIORITY})-${USER}.conf";

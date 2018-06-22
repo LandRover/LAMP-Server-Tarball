@@ -1,10 +1,6 @@
 #!/bin/bash
 
-source ../helpers/.post_validate_input.sh;
-source ./.shared.sh;
-
-ETC_DIR="/opt/local/etc";
-USER="$4";
+USER="${PARAM1}";
 [ -z "${USER}" ] && usage "[error] User was not set. Halt. As apache setup requires a user.";
 
 ../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME} /var/www/${APP_NAME};

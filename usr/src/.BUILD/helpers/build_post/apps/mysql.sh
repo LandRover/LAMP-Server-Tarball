@@ -1,7 +1,7 @@
 #!/bin/bash
 
-USER="$4";
-DATA_DIR="$5";
+USER="${PARAM1}";
+DATA_DIR="${PARAM2}";
 PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w8 | head -n1); ## mysql root password
 HOME_DIR="/home/${USER}";
 TMP_INIT_FILE='/tmp/.reset-mysql-pw.sql';
@@ -25,8 +25,8 @@ chown -R ${USER}:${USER} ${HOME_DIR}/logs; # Change logs permission
 # wont be triggered during rebuilds
 if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ## Copy template of .my.cnf to ~
-    cp -Lf ../templates/mysql/.my.cnf ~/.my.cnf
-    cp -Lf ../templates/mysql/.init-file ${TMP_INIT_FILE};
+    cp -Lf ../../helpers/templates/mysql/.my.cnf ~/.my.cnf
+    cp -Lf ../../helpers/templates/mysql/.init-file ${TMP_INIT_FILE};
 
     ## bash must be in dir before running mysql_install_db since ./bin/my_print_defaults is called relatively, blah.
     cd ${BIN_DIR}/${APP_NAME};
