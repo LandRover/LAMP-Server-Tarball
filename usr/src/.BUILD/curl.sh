@@ -10,13 +10,10 @@ APP_NAME="curl";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CPPFLAGS="-I${BIN_DIR}/openssl/include";
-export LDFLAGS="-L${BIN_DIR}/openssl/lib";
-
 ./configure \
 --prefix=${DESTINATION} \
 --disable-shared \
---with-ssl \
+--with-ssl=${BIN_DIR}/openssl \
 --enable-cookies;
 
 make;
