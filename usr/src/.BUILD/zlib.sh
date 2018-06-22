@@ -5,7 +5,7 @@ VERSION="1.2.11";
 DIST_URL="https://zlib.net/zlib-${VERSION}.tar.gz";
 APP_NAME="zlib";
 
-source ./helpers/.pre-start.sh;
+source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION};
