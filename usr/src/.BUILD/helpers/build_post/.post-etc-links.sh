@@ -31,7 +31,6 @@ if [ -d "${APP_LIB}" ]; then
     /sbin/ldconfig ${APP_LIB};
 fi
 
-
 echo "[info] Checking include";
 APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
 if [ -d "${APP_INCLUDE}" ]; then
