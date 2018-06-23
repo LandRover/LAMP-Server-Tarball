@@ -24,8 +24,6 @@ chown -R ${USER}:${USER} ${HOME_DIR}/logs; # Change logs permission
 # If no data, means it's a fresh install and not an update so create initial setup - happens only once
 # wont be triggered during rebuilds
 if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
-echo "OGZzzzzzzzzzz";
-ls
     ## Copy template of .my.cnf to ~
     cp -Lf ../../helpers/templates/mysql/.my.cnf ~/.my.cnf
     cp -Lf ../../helpers/templates/mysql/.init-file ${TMP_INIT_FILE};
