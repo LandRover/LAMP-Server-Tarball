@@ -20,4 +20,9 @@ cp c-client/*.c lib/;
 cp c-client/*.h include/;
 cp c-client/c-client.a lib/libc-client.a;
 
+mkdir -p ${DESTINATION}/lib;
+mkdir -p ${DESTINATION}/include/c-client;
+cp -rf lib/*libc-client* ${DESTINATION}/lib;
+cp -rf include ${DESTINATION}/include/c-client;
+
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};
