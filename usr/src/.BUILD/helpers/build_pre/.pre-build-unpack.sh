@@ -8,14 +8,8 @@
 OVERWRITE="$1"; ## first arg, 1 is overwrite on.
 PACKAGE="../${APP_NAME}-${VERSION}.tgz";
 
-function error {
-    echo $1;
-    echo "";
-
-    exit 0;
-}
-
-[[ ! -e "${PACKAGE}" ]] && error "PACKAGE ${PACKAGE} not found";
+[[ ! -e "${PACKAGE}" ]] && echo "[info] Package ${APP_NAME} not found, downloading @ ${DIST_URL}" && wget ${DIST_URL} -O ${PACKAGE};
+[[ ! -e "${PACKAGE}" ]] && echo "[error] Download failing, halt." && exit 0;
 
 ## on overwrite option on, deletes the old build first.
 [[ "1" = OVERWRITE &&  -d "../${APP_NAME}" ]] && rm -rf "../${APP_NAME}";
