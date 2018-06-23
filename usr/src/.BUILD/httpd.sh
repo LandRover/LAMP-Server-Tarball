@@ -31,6 +31,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-slotmem-shm \
 --enable-so \
 --enable-ssl \
+--enable-http2 \
 --enable-status \
 --enable-suexec \
 --enable-unique-id \
