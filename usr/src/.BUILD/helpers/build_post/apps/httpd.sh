@@ -5,16 +5,16 @@ DEFAULT_HOST_USER="defaulthost";
 [ -z "${USER}" ] && usage "[error] User was not set. Halt. As apache setup requires a user.";
 
 ## general init.d settings
-../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
+../../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
 
 ## I like getting there faster..
-../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;
+../../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;
 
 ## logs
-../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/httpd;
+../../helpers/bin/ln.sh ${APP_DIR}/logs /var/log/httpd;
 
 ## create vhost + php-fpm settings for first hold
-../helpers/apache_useradd.sh ${DEFAULT_HOST_USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;
+../../helpers/apache_useradd.sh ${DEFAULT_HOST_USER} localhost 000 ${BIN_DIR}/${APP_NAME}/htdocs;
 
 ## create and own logs for vhosts
 [ ! -d "/var/log/${USER}" ] && mkdir /var/log/${USER} && chown ${USER}:${USER} /var/log/${USER};
