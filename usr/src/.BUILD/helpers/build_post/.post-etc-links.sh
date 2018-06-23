@@ -23,20 +23,6 @@ if [ -f "${APP_LOGROTATE}" ]; then
     ../post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 fi
 
-echo "[info] Checking init.d ln to etc";
-APP_INIT="${ETC_DIR}/init.d/${APP_NAME}";
-if [ -f "${APP_INIT}" ]; then
-    echo "[info] Found ${APP_INIT}, creating ln";
-    ../post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
-
-    ## system stop/start on boot
-    echo "[info] Adding ${APP_NAME} to startup";
-    update-rc.d ${APP_NAME} defaults
-
-    echo "[info] Retarting service ${APP_NAME}";
-    /etc/init.d/${APP_NAME} restart
-fi
-
 echo "[info] Checking ld.so";
 APP_LIB="${BIN_DIR}/${APP_NAME}/lib";
 if [ -d "${APP_LIB}" ]; then
@@ -51,4 +37,18 @@ APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
 if [ -d "${APP_INCLUDE}" ]; then
     echo "[info] Found ${APP_INCLUDE}, creating ln";
     ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/include /usr/include/${APP_NAME};
+fi
+
+echo "[info] Checking init.d ln to etc";
+APP_INIT="${ETC_DIR}/init.d/${APP_NAME}";
+if [ -f "${APP_INIT}" ]; then
+    echo "[info] Found ${APP_INIT}, creating ln";
+    ../post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
+
+    ## system stop/start on boot
+    echo "[info] Adding ${APP_NAME} to startup";
+    update-rc.d ${APP_NAME} defaults
+
+    echo "[info] Retarting service ${APP_NAME}";
+    /etc/init.d/${APP_NAME} restart
 fi
