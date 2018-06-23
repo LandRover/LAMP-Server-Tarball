@@ -3,6 +3,8 @@
 ## generate phpinfo file
 
 FILE_NAME="phpinfo.php";
-WWW="/opt/local/sbin/httpd/htdocs";
+USER="apache";
+WWW="/home/${USER}/public_html";
 
-echo "<?php phpinfo();" > "${WWW}/${FILE_NAME}";
+echo "<?php phpinfo();" > ${WWW}/${FILE_NAME};
+chown ${USER}:${USER} ${WWW}/${FILE_NAME};

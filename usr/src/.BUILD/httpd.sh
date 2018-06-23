@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(arp arp-util pcre openssl);
+DEPENDENCIES=(arp arp-util pcre openssl php);
 
 # build data
 VERSION="2.4.33";
 DIST_URL="http://apache.mivzakim.net/httpd/httpd-${VERSION}.tar.gz";
 APP_NAME="httpd";
 USER="apache";
+HOME_DIR="/home/${USER}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${BIN_DIR}/httpd/htdocs ${USER};
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && mkdir -p ${HOME_DIR}/public_html && useradd -M -s /bin/false -d ${HOME_DIR}/public_html ${USER};
 
 ./configure \
 --prefix=${DESTINATION} \
@@ -46,9 +47,9 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-z=${BIN_DIR}/zlib \
 --with-suexec \
 --with-suexec-caller=${USER} \
---with-suexec-docroot=${BIN_DIR}/httpd/htdocs \
+--with-suexec-docroot=${HOME_DIR}/public_html \
 --with-suexec-gidmin=100 \
---with-suexec-logfile=${BIN_DIR}/httpd/logs/suexec_log \
+--with-suexec-logfile=${HOME_DIR}/logs/suexec_log \
 --with-suexec-uidmin=100 \
 --with-suexec-userdir=public_html;
 
