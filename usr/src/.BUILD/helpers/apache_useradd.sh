@@ -3,7 +3,8 @@
 USER="$1";
 DOMAIN="$2";
 PRIORITY="$3";
-DEFAULT_HTDOCS="/home/${USER}/public_html";
+HOME_DIR="/home/${USER}";
+DEFAULT_HTDOCS="${HOME_DIR}/public_html";
 DEFAULT_PORT="80";
 DEFAULT_IS_SSL="0";
 HTDOCS="${4:-$DEFAULT_HTDOCS}";
@@ -26,7 +27,7 @@ TEMPLATE_APACHE="${BUILD}/helpers/templates/apache/vhost-template.conf";
 TARGET_PHPFPM_FILE="${ETC_PHPFPMD}/${USER}.conf";
 TARGET_APACHE_FILE="${ETC_HTTPD_VHOST}/$(printf '%03d' ${PRIORITY})-${USER}.conf";
 
-VARLIST=(USER HTDOCS DOMAIN PORT CGI_PORT);
+VARLIST=(USER HOME_DIR HTDOCS DOMAIN PORT CGI_PORT);
 
 ## if ssl, renames to -ssl.conf
 [ "1" -eq "${IS_SSL}" ] && TARGET_APACHE_FILE="${TARGET_APACHE_FILE/.conf/-ssl.conf}";
@@ -53,9 +54,13 @@ function usage {
 ## validation inputs
 [[ -z "${USER}" || -z "${DOMAIN}" || $PRIORITY != ?(-)+([0-9.]) || $PORT != ?(-)+([0-9.]) || $IS_SSL != ?(-)+([0-1.]) ]] && usage;
 
-[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HTDOCS} ${USER};
-[ ! -d "${HTDOCS}" ] && mkdir -p ${HTDOCS} && echo "Hello World!" > ${HTDOCS}/index.html && chmod -R 600 ${HTDOCS}/.. && chown -R ${USER}:${USER} ${HTDOCS}/.. && chmod 711 ${HTDOCS}/..;
-[ ! -d "${APACHE_LOGS_DIR}" ] && mkdir -p ${APACHE_LOGS_DIR} && chown -R ${USER}:${USER} ${APACHE_LOGS_DIR} && chmod -R u+w ${APACHE_LOGS_DIR};
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d ${HOME_DIR} ${USER};
+
+echo "[info] Checking htdocs dir @ ${HTDOCS}";
+[ ! -d "${HTDOCS}" ] && echo "[info] htdocs not found, creating ${HTDOCS}" && mkdir -p ${HTDOCS} && echo "<html><body><h1>It works!</h1></body></html>" > ${HTDOCS}/index.html && chmod -R 600 ${HOME_DIR} && chown -R ${USER}:${USER} ${HOME_DIR} && chmod 711 ${HOME_DIR};
+
+echo "[info] Checking logs dir @ ${APACHE_LOGS_DIR}";
+[ ! -d "${APACHE_LOGS_DIR}" ] && echo "[info] logs dir not found, creating ${APACHE_LOGS_DIR}" && mkdir -p ${APACHE_LOGS_DIR} && chown -R ${USER}:${USER} ${APACHE_LOGS_DIR} && chmod -R u+w ${APACHE_LOGS_DIR};
 
 echo "[info] Copy PHP-FPM Template ${TARGET_PHPFPM_FILE}";
 cp -Lf ${TEMPLATE_PHPFPM} ${TARGET_PHPFPM_FILE};

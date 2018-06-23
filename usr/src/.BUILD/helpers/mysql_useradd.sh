@@ -27,9 +27,10 @@ function usage {
 [[ -z "${DBNAME}" || -z "${DBUSER}" || -z "${DBPASS}" ]] && usage;
 
 Q1="CREATE DATABASE IF NOT EXISTS ${DBNAME};";
-Q2="GRANT ALL ON ${DBNAME}.* TO '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';";
-Q3="FLUSH PRIVILEGES;";
-SQL="${Q1}${Q2}${Q3}";
+Q2="CREATE USER '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';";
+Q3="GRANT ALL ON ${DBNAME}.* TO '${DBUSER}'@'localhost';";
+Q4="FLUSH PRIVILEGES;";
+SQL="${Q1}${Q2}${Q3}${Q4}";
 
 $MSQL_BIN -uroot -e "${SQL}";
 
