@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.1.30"; ## latest - 1.1.31+1.1.32 does not compile well, throws
+VERSION="1.1.30"; ## latest - 1.1.31+1.1.32 does not compile well, throws: recipe for target 'xsltproc' failed
 DIST_URL="http://xmlsoft.org/sources/libxslt-${VERSION}.tar.gz";
 APP_NAME="libxslt";
 
