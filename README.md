@@ -12,6 +12,10 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - make scripts for mariaDB
   - add autossl
   - add vsftpd with default configs - from src
+  - add composer install script
+      php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      mkdir -p /opt/local/sbin/bin/composer
+      php composer-setup.php --install-dir=/opt/local/sbin/bin/composer --filename=composer
   - exim
     - custom route for each php-fpm user
   - Reinstall VM and test all scripts. 
