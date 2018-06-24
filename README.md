@@ -10,6 +10,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Script configuring Google Drive up-on change
   - add postgresql scripts
   - make scripts for mariaDB
+  - add autossl
   - add vsftpd with default configs - from src
   - exim
     - custom route for each php-fpm user
