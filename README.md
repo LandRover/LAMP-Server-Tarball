@@ -8,6 +8,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Install apc web-view to htdocs part of apcu build script.
   - Script configuring automysqlbackup & cron
   - Script configuring Google Drive up-on change
+  - add postgresql scripts
   - make scripts for mariaDB
   - add vsftpd with default configs - from src
   - exim
