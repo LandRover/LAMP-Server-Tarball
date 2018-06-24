@@ -5,7 +5,7 @@ apt-get -y install xutils-dev;
 # Dependencies which must exist prior to current build. If not found, will try to install
 DEPENDENCIES=(zlib);
 
-#http://curl.haxx.se/ca/cacert.pem --< /opt/local/etc/openssl/certs/cacert.pem
+#http://curl.haxx.se/ca/cacert.pem --> /opt/local/etc/openssl/certs/cacert.pem
 
 # build data
 VERSION="1.1.0h";
