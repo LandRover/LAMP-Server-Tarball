@@ -14,7 +14,6 @@ export LIBPNG_LIBS="-L${BIN_DIR}/freetype/lib";
 export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 
 #--with-apxs2=${BIN_DIR}/httpd/bin/apxs \  ## if cgi/fpm is used - NOT NEEDED!
-#--enable-bcmath \
 ./configure \
 --prefix=${DESTINATION} \
 --disable-all \
@@ -32,6 +31,7 @@ export LIBPNG_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2";
 --enable-mbstring \
 --enable-opcache \
 --enable-pcntl \
+--enable-bcmath \
 --enable-tokenizer \
 --enable-session \
 --enable-simplexml \
