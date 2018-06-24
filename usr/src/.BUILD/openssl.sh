@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get -y install xutils-dev;
+
 # Dependencies which must exist prior to current build. If not found, will try to install
 DEPENDENCIES=(zlib);
 
