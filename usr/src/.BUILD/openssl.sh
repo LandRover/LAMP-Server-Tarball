@@ -8,7 +8,7 @@ DEPENDENCIES=(zlib);
 #http://curl.haxx.se/ca/cacert.pem --< /opt/local/etc/openssl/certs/cacert.pem
 
 # build data
-VERSION="1.0.2o";
+VERSION="1.1.0h";
 DIST_URL="https://www.openssl.org/source/openssl-${VERSION}.tar.gz";
 APP_NAME="openssl";
 
@@ -19,10 +19,9 @@ source ./helpers/build_pre/.pre-start.sh;
 --openssldir=${ETC_DIR}/${APP_NAME} \
 --with-zlib-lib=${BIN_DIR}/zlib/lib \
 --with-zlib-include=${BIN_DIR}/zlib/include \
-zlib-dynamic \
+no-ssl2 \
 zlib \
-enable-tlsext \
-shared;
+no-shared;
 
 make depend;
 make;
