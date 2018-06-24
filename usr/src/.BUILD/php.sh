@@ -4,7 +4,7 @@
 DEPENDENCIES=(jpeg libpng freetype libxml2 pcre openssl zlib mysql);
 
 # build data
-VERSION="7.2.6";
+VERSION="7.2.7";
 DIST_URL="http://cz1.php.net/distributions/php-${VERSION}.tar.gz";
 APP_NAME="php";
 
