@@ -18,6 +18,4 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - freetype v2.8.0 compiles but something is wrong with it
   - libgd - add support for WEBP + TIFF
   - libgd not compiling well due to freetype 2.8.0
-  - defaulthost public_html should be at /home/defaulthost/public_html rather than 
-    - move phpmyadmin here after done.
   - php.ini - harden disable_functions
