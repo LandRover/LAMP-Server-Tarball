@@ -15,7 +15,9 @@ PACKAGE="../${APP_NAME}-${VERSION}.tgz";
 [[ "1" = OVERWRITE &&  -d "../${APP_NAME}" ]] && rm -rf "../${APP_NAME}";
 [[ "1" = OVERWRITE &&  -d "../${APP_NAME}-${VERSION}" ]] && rm -rf "../${APP_NAME}-${VERSION}";
 
-tar -zxvf "${PACKAGE}" -C ../; # unpack it
+## unpack it
+[ ! -d "../${APP_NAME}-${VERSION}" ] && echo "[info] unpacking ${APP_NAME}-${VERSION}" && tar -zxvf "${PACKAGE}" -C ../ || echo "[info] found src folder: ${APP_NAME}-${VERSION}"
+
 cd ..; # get one folder above to /usr/src, if not, link will be damaged.
 ${BUILD}/helpers/bin/ln.sh "${APP_NAME}-${VERSION}" "${APP_NAME}"; ## create link
 
