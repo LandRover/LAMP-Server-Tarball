@@ -22,6 +22,7 @@ cmake \
 -DMYSQL_UNIX_ADDR=/var/run/${APP_NAME}/mysql.sock \
 -DSYSCONFDIR=${ETC_DIR}/${APP_NAME} \
 -DWITH_SSL=${BIN_DIR}/openssl \
+-DOPENSSL_EXECUTABLE=${BIN_DIR}/openssl/bin/openssl \
 -DFEATURE_SET=community \
 -DWITH_EMBEDDED_SERVER=OFF \
 -DDOWNLOAD_BOOST=1 \
