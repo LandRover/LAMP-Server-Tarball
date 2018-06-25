@@ -19,7 +19,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --openssldir=${ETC_DIR}/${APP_NAME} \
 --with-zlib-lib=${BIN_DIR}/zlib/lib \
 --with-zlib-include=${BIN_DIR}/zlib/include \
---disable-docs \
 no-ssl2 \
 zlib \
 shared;
