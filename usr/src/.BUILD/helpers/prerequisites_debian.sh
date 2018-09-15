@@ -9,6 +9,7 @@ apt-get upgrade;
 apt-get -y install \
 mc \
 vim \
+psmisc \
 apg \
 screen \
 htop \
