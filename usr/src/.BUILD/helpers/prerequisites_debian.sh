@@ -12,6 +12,7 @@ mc \
 vim \
 psmisc \
 apg \
+git \
 screen \
 htop \
 rcconf \
