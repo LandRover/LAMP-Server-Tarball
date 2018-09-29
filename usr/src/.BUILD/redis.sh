@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="4.0.10";
+VERSION="4.0.11";
 DIST_URL="http://download.redis.io/releases/redis-${VERSION}.tar.gz";
 USER="redis";
 APP_NAME="redis";
