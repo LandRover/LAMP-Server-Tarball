@@ -4,8 +4,8 @@
 DEPENDENCIES=(openssl);
 
 # build data
-VERSION="3.5.27";
-DIST_URL="https://launchpad.net/squid/3.5/${VERSION}/+download/squid-${VERSION}.tar.gz";
+VERSION="4.2";
+DIST_URL="http://www.squid-cache.org/Versions/v4/squid-${VERSION}.tar.gz";
 APP_NAME="squid";
 USER="${APP_NAME}";
 
