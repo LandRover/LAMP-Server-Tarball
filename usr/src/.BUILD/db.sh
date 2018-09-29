@@ -2,7 +2,7 @@
 
 # build data
 VERSION="18.1.25";
-DIST_URL="http://download.oracle.com/otn/berkeley-db/db-${VERSION}.tar.gz";
+DIST_URL="https://fossies.org/linux/misc/db-${VERSION}.tar.gz";
 APP_NAME="db";
 
 source ./helpers/build_pre/.pre-start.sh;
