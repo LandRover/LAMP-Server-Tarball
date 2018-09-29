@@ -28,3 +28,6 @@ libtool \
 m4 \
 gcc \
 g++;
+
+apt-get -y install  \
+python-pip;
