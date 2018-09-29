@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="6.2.32";
-DIST_URL="http://download.oracle.com/berkeley-db/db-${VERSION}.tar.gz";
+VERSION="18.1.25";
+DIST_URL="http://download.oracle.com/otn/berkeley-db/db-${VERSION}.tar.gz";
 APP_NAME="db";
 
 source ./helpers/build_pre/.pre-start.sh;
