@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(libxml2);
+
 # build data
 VERSION="1.1.30"; ## latest - 1.1.31+1.1.32 does not compile well, throws: recipe for target 'xsltproc' failed
 DIST_URL="http://xmlsoft.org/sources/libxslt-${VERSION}.tar.gz";
