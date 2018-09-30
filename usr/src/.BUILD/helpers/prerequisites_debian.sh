@@ -7,7 +7,7 @@ apt-get update;
 apt-get upgrade;
 
 apt-get -y install \
-inetutils-tools \
+net-tools \
 mc \
 vim \
 psmisc \
