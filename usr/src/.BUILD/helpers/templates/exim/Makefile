@@ -28,6 +28,7 @@ SUPPORT_MAILDIR=no
 SUPPORT_MAILSTORE=no
 SUPPORT_TLS=yes
 
+USE_GDBM=yes
 LOOKUP_CDB=no
 LOOKUP_DBM=yes
 LOOKUP_DNSDB=yes
@@ -56,8 +57,8 @@ PCRE_CONFIG=/opt/local/sbin/pcre/bin/pcre-config
 PCRE_LIBS=-lpcre -L/opt/local/sbin/pcre/lib
 TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
 TLS_INCLUDE=-I/opt/local/sbin/openssl/include
-INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/db/include
-DBMLIB=-L/opt/local/sbin/db/lib -ldb
+INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/gdbm/include
+DBMLIB=-L/opt/local/sbin/gdbm/lib -lgdbm
 
 CFLAGS += -I/opt/local/sbin/openssl/include
 LDFLAGS += -L/opt/local/sbin/openssl/lib -lssl -lcrypto
