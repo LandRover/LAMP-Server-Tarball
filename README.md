@@ -18,7 +18,9 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
       php composer-setup.php --install-dir=/opt/local/sbin/bin/composer --filename=composer
   - exim
     - custom route for each php-fpm user
-  - Reinstall VM and test all scripts. 
+  - Reinstall VM and test all scripts.
+  - add  curl --remote-name --time-cond cacert.pem https://curl.haxx.se/ca/cacert.pem to /opt/local/etc/openssl/certs during postinstall for openssl
+
 
 ## @issues
   - freetype v2.8.0 compiles but something is wrong with it
