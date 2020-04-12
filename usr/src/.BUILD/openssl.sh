@@ -8,7 +8,7 @@ DEPENDENCIES=(zlib);
 #http://curl.haxx.se/ca/cacert.pem --> /opt/local/etc/openssl/certs/cacert.pem
 
 # build data
-VERSION="1.1.1";
+VERSION="1.1.1f";
 DIST_URL="https://www.openssl.org/source/openssl-${VERSION}.tar.gz";
 APP_NAME="openssl";
 
