@@ -1,8 +1,8 @@
-BIN_DIRECTORY=/opt/local/sbin/exim-4.91/bin
+BIN_DIRECTORY=/opt/local/sbin/exim-4.93/bin
 CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 HEADERS_CHARSET="ISO-8859-1"
 FIXED_NEVER_USERS=root
-HAVE_IPV6=no
+HAVE_IPV6=yes
 HAVE_ICONV=yes
 SYSLOG_LOG_PID=yes
 EXICYCLOG_MAX=10
