@@ -19,7 +19,10 @@ source ./helpers/build_pre/.pre-start.sh;
 --openssldir=${ETC_DIR}/${APP_NAME} \
 --with-zlib-lib=${BIN_DIR}/zlib/lib \
 --with-zlib-include=${BIN_DIR}/zlib/include \
-no-ssl2 \
+no-ssl \
+no-tls1 \
+no-tls1_1 \
+no-tls1_2 \
 zlib \
 shared;
 
