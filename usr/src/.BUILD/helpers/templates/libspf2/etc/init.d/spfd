@@ -1,0 +1,45 @@
+#!/bin/sh
+
+USER=exim
+GROUP=exim
+
+SOCK=/var/run/spfd.sock
+PID=/var/run/spfd.pid
+
+#SPFD=/opt/local/sbin/libspf2/bin/spfd
+SPFD=/usr/sbin/spfd
+DESC="SPF Daemon"
+
+ARGS="--socket=${SOCK} --socket-user ${USER} --socket-group ${GROUP} --set-user=${USER} --set-group=${GROUP}"
+
+
+case "$1" in
+    start)
+        echo -n "Starting $DESC:"
+            start-stop-daemon --start --quiet --background --make-pidfile \
+                --pidfile ${PID} \
+                --exec ${SPFD} -- ${ARGS}
+        echo "."
+        ;;
+
+    stop)
+        echo -n "Stopping $DESC:"
+            start-stop-daemon --stop --quiet --oknodo --signal 9 \
+                --pidfile "${PID}" \
+                --exec $DAEMON -- ${ARGS}
+        echo "."
+        ;;
+
+    restart|force-reload)
+        /etc/init.d/spfd stop
+        /etc/init.d/spfd start
+        ;;
+
+    *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

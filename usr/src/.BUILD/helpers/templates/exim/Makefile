@@ -1,4 +1,4 @@
-BIN_DIRECTORY=/opt/local/sbin/exim-4.93/bin
+BIN_DIRECTORY=/opt/local/sbin/exim-4.92.2/bin
 CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 HEADERS_CHARSET="ISO-8859-1"
 FIXED_NEVER_USERS=root
@@ -26,6 +26,8 @@ TRANSPORT_SMTP=yes
 SUPPORT_MBX=no
 SUPPORT_MAILDIR=no
 SUPPORT_MAILSTORE=no
+SUPPORT_SPF=yes
+SUPPORT_DMARC=yes
 SUPPORT_TLS=yes
 
 USE_GDBM=yes
@@ -44,6 +46,8 @@ AUTH_CRAM_MD5=yes
 AUTH_PLAINTEXT=yes
 AUTH_SPA=yes
 
+WITH_CONTENT_SCAN=yes
+
 SYSTEM_ALIASES_FILE=/opt/local/etc/exim/aliases
 SPOOL_DIRECTORY=/var/spool/exim
 PID_FILE_PATH=/var/run/exim.pid
@@ -55,10 +59,19 @@ COMPRESS_COMMAND=/usr/bin/gzip
 
 PCRE_CONFIG=/opt/local/sbin/pcre/bin/pcre-config
 PCRE_LIBS=-lpcre -L/opt/local/sbin/pcre/lib
+
+USE_OPENSSL=yes
 TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
 TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/gdbm/include
 DBMLIB=-L/opt/local/sbin/gdbm/lib -lgdbm
 
-CFLAGS += -I/opt/local/sbin/openssl/include
-LDFLAGS += -L/opt/local/sbin/openssl/lib -lssl -lcrypto
+CFLAGS += -DSPF -I/opt/local/sbin/openssl/include -I/opt/local/sbin/libspf2/include
+LDFLAGS += -L/opt/local/sbin/openssl/lib -L/opt/local/sbin/libspf2/lib -lssl -lcrypto -lspf2
+#EXTRALIBS_EXIM +=-L/opt/local/sbin/libspf2/lib -lspf2
+
+
+#USE_GNUTLS=no
+#TLS_LIBS=-L/opt/local/sbin/gnu/lib -lgnutls -ltasn1 -lgcrypt
+#TLS_INCLUDE=-I/opt/local/sbin/gnu/include
+

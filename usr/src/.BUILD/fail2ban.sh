@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="0.9.4";
+VERSION="0.11.1";
 DIST_URL="https://github.com/fail2ban/fail2ban/archive/${VERSION}.tar.gz";
 APP_NAME="fail2ban";
 
