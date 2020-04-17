@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="8.0.12";
+VERSION="8.0.19";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
