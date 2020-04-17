@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="9c";
+VERSION="9d";
 DIST_URL="http://www.ijg.org/files/jpegsrc.v${VERSION}.tar.gz";
 APP_NAME="jpeg";
 
