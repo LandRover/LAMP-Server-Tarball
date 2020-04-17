@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.9.8";
+VERSION="2.9.10";
 DIST_URL="http://xmlsoft.org/sources/libxml2-${VERSION}.tar.gz";
 APP_NAME="libxml2";
 
