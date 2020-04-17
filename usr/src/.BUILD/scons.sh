@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="3.0.1";
+VERSION="3.1.2";
 DIST_URL="https://netix.dl.sourceforge.net/project/scons/scons/${VERSION}/scons-${VERSION}.tar.gz";
 APP_NAME="scons";
 
