@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl);
 
 # build data
-VERSION="7.55.0";
+VERSION="7.69.1";
 DIST_URL="https://curl.haxx.se/download/curl-${VERSION}.tar.gz";
 APP_NAME="curl";
 
