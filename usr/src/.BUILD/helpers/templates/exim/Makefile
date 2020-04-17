@@ -1,4 +1,4 @@
-BIN_DIRECTORY=/opt/local/sbin/exim-4.92.2/bin
+BIN_DIRECTORY=/opt/local/sbin/exim-4.93/bin
 CONFIGURE_FILE=/opt/local/etc/exim/exim.conf
 HEADERS_CHARSET="ISO-8859-1"
 FIXED_NEVER_USERS=root
@@ -27,8 +27,9 @@ SUPPORT_MBX=no
 SUPPORT_MAILDIR=no
 SUPPORT_MAILSTORE=no
 SUPPORT_SPF=yes
-SUPPORT_DMARC=yes
 SUPPORT_TLS=yes
+SUPPORT_DMARC=yes
+#DMARC_TLD_FILE=/usr/share/publicsuffix/effective_tld_names.dat
 
 USE_GDBM=yes
 LOOKUP_CDB=no
@@ -67,8 +68,7 @@ INCLUDE=-I/opt/local/sbin/pcre/include -I/opt/local/sbin/gdbm/include
 DBMLIB=-L/opt/local/sbin/gdbm/lib -lgdbm
 
 CFLAGS += -DSPF -I/opt/local/sbin/openssl/include -I/opt/local/sbin/libspf2/include
-LDFLAGS += -L/opt/local/sbin/openssl/lib -L/opt/local/sbin/libspf2/lib -lssl -lcrypto -lspf2
-#EXTRALIBS_EXIM +=-L/opt/local/sbin/libspf2/lib -lspf2
+LDFLAGS += -L/opt/local/sbin/openssl/lib -L/opt/local/sbin/libspf2/lib -lssl -lcrypto -lspf2 -lopendmarc
 
 
 #USE_GNUTLS=no
