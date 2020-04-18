@@ -35,7 +35,14 @@ echo "[info] Checking include";
 APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
 if [ -d "${APP_INCLUDE}" ]; then
     echo "[info] Found ${APP_INCLUDE}, creating ln";
-    ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/include /usr/include/${APP_NAME};
+    ../bin/ln.sh ${APP_INCLUDE} /usr/include/${APP_NAME};
+fi
+
+echo "[info] Checking etc";
+APP_ETC="${ETC_DIR}/${APP_NAME}";
+if [ -d "${APP_ETC}" ]; then
+    echo "[info] Found ${APP_ETC}, creating ln";
+    ../bin/ln.sh "${APP_ETC}" /etc/;
 fi
 
 echo "[info] Checking init.d ln to etc";
