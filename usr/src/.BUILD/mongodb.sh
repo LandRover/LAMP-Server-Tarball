@@ -10,7 +10,7 @@ libboost-thread-dev;
 DEPENDENCIES=(scons);
 
 # build data
-VERSION="r4.0.2";
+VERSION="r4.2.0";
 DIST_URL="http://downloads.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
 APP_NAME="mongodb";
 

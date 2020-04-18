@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.18";
+VERSION="1.18.1";
 DIST_URL="ftp://ftp.gnu.org/gnu/gdbm/gdbm-${VERSION}.tar.gz";
 APP_NAME="gdbm";
 

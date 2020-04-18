@@ -8,7 +8,7 @@ uuid-dev;
 DEPENDENCIES=(freetype libxml2);
 
 # build data
-VERSION="2.13.0";
+VERSION="2.13.1";
 DIST_URL="https://www.freedesktop.org/software/fontconfig/release/fontconfig-${VERSION}.tar.gz";
 APP_NAME="fontconfig";
 

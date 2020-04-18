@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl pcre libxml2 libxslt libgd GeoIP gperftools);
 
 # build data
-VERSION="1.15.4";
+VERSION="1.17.0";
 DIST_URL="http://nginx.org/download/nginx-${VERSION}.tar.gz";
 APP_NAME="nginx";
 USER="${APP_NAME}";

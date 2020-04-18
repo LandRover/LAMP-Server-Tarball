@@ -2,7 +2,7 @@
 
 # build data
 VERSION="6.2.38";
-DIST_URL="http://download.oracle.com/berkeley-db/db-${VERSION}.tar.gz";
+DIST_URL="http://distfiles.gentoo.org/distfiles/db-${VERSION}.tar.gz";
 APP_NAME="db";
 
 source ./helpers/build_pre/.pre-start.sh;
