@@ -42,7 +42,7 @@ echo "[info] Checking etc";
 APP_ETC="${ETC_DIR}/${APP_NAME}";
 if [ -d "${APP_ETC}" ]; then
     echo "[info] Found ${APP_ETC}, creating ln";
-    ../bin/ln.sh "${APP_ETC}" /etc/;
+    ../bin/ln.sh "${APP_ETC}" "/etc/${APP_NAME}";
 fi
 
 echo "[info] Checking init.d ln to etc";
