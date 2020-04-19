@@ -31,6 +31,14 @@ if [ -d "${APP_LIB}" ]; then
     /sbin/ldconfig ${APP_LIB};
 fi
 
+echo "[info] Checking ld.so lib64";
+APP_LIB64="${BIN_DIR}/${APP_NAME}/lib64";
+if [ -d "${APP_LIB64}" ]; then
+    echo "[info] Found ${APP_LIB64}, creating file";
+    echo "${APP_LIB64}" > "/etc/ld.so.conf.d/${APP_NAME}.conf";
+    /sbin/ldconfig ${APP_LIB64};
+fi
+
 echo "[info] Checking include";
 APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
 if [ -d "${APP_INCLUDE}" ]; then

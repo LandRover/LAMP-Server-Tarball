@@ -14,11 +14,6 @@ APP_NAME="fontconfig";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-#export FREETYPE_CFLAGS='-I${BIN_DIR}/freetype/include/freetype2';
-#export FREETYPE_LIBS='-L${BIN_DIR}/freetype/lib';
-#export LIBXML2_CFLAGS='-I${BIN_DIR}/libxml2/include/libxml2';
-#export LIBXML2_LIBS='-L${BIN_DIR}/libxml2';
-
 ./configure \
 --prefix=${DESTINATION} \
 --enable-libxml2 \

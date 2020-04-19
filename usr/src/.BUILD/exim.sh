@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(pcre db libspf2 opendmarc openssl);
+DEPENDENCIES=(pcre gdbm libspf2 opendmarc openssl);
 
 apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 
 # build data
-VERSION="4.92.2";
-DIST_URL="https://ftp.exim.org/pub/exim/exim4/old/exim-${VERSION}.tar.gz";
+VERSION="4.93";
+DIST_URL="https://ftp.exim.org/pub/exim/exim4/exim-${VERSION}.tar.gz";
 APP_NAME="exim";
 USER="exim";
 

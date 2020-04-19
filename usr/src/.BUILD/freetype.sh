@@ -10,13 +10,12 @@ APP_NAME="freetype";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export LIBPNG_LIBS="-L${BIN_DIR}/libpng/lib";
-export LIBPNG_CFLAGS="-I${BIN_DIR}/libpng/include";
-
 ./autogen.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+LIBPNG_LIBS="-L${BIN_DIR}/libpng/lib" \
+LIBPNG_CFLAGS="-I${BIN_DIR}/libpng/include" \
 --with-png=yes;
 
 make;
