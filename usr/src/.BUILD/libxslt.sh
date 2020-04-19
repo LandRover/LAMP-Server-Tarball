@@ -4,17 +4,18 @@
 DEPENDENCIES=(libxml2);
 
 # build data
-VERSION="1.1.30"; ## latest - 1.1.31+1.1.32 does not compile well, throws: recipe for target 'xsltproc' failed
+VERSION="1.1.34";
 DIST_URL="http://xmlsoft.org/sources/libxslt-${VERSION}.tar.gz";
 APP_NAME="libxslt";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+export CFLAGS="-I${BIN_DIR}/libxml2/include";
+export LDFLAGS="-L${BIN_DIR}/libxml2/lib";
+
 ./configure \
 --prefix=${DESTINATION} \
---with-libxml-prefix=${BIN_DIR}/libxml2 \
---with-libxml-libs-prefix=${BIN_DIR}/libxml2/lib \
---with-libxml-include-prefix=${BIN_DIR}/libxml2/include/libxml2;
+--with-libxml-prefix=${BIN_DIR}/libxml2;
 
 make;
 make install;

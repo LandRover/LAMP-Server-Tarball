@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # build data
-VERSION="8.44";
-DIST_URL="https://ftp.pcre.org/pub/pcre/pcre-${VERSION}.tar.gz";
-APP_NAME="pcre";
+VERSION="10.34";
+DIST_URL="https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.gz";
+APP_NAME="pcre2";
 
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
---prefix=${DESTINATION}
+--prefix=${DESTINATION} \
 --enable-utf8 \
 --enable-unicode-properties \
 --enable-newline-is-lf \

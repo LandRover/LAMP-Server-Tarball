@@ -16,6 +16,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 LIBPNG_LIBS="-L${BIN_DIR}/libpng/lib" \
 LIBPNG_CFLAGS="-I${BIN_DIR}/libpng/include" \
+ZLIB_LIBS="-L${BIN_DIR}/zlib/lib" \
+ZLIB_CFLAGS="-I${BIN_DIR}/zlib/include" \
 --with-png=yes;
 
 make;
