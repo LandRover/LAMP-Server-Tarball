@@ -1,5 +1,15 @@
+# Keys
 *.pem
 *.pub
 *.key
 *.cert
 *.crt
+
+# dirs
+opt/local/etc/openssl
+opt/local/etc/apache/extra
+opt/local/etc/apache/original
+opt/local/etc/apache/vhosts/*.conf
+opt/local/etc/php/fpm.d/*.conf
+
+
