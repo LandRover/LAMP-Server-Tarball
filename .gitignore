@@ -6,6 +6,7 @@
 *.crt
 
 # dirs
+opt/local/sbin
 opt/local/etc/openssl
 opt/local/etc/apache/extra
 opt/local/etc/apache/original
