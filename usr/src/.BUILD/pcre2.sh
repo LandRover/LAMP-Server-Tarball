@@ -10,6 +10,10 @@ source ./helpers/build_pre/.pre-start.sh;
 ./configure \
 --prefix=${DESTINATION} \
 --enable-utf8 \
+--enable-pcre2-8 \
+--enable-pcre2-16 \
+--enable-pcre2-32 \
+--enable-unicode \
 --enable-unicode-properties \
 --enable-newline-is-lf \
 --with-link-size=2 \

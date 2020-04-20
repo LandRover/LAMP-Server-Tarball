@@ -8,7 +8,9 @@ APP_NAME="apr";
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
---prefix=${DESTINATION};
+--prefix=${DESTINATION} \
+CFLAGS="-I${BIN_DIR}/pcre2/include" \
+LDFLAGS="-lpcre2-8 -L${BIN_DIR}/pcre2/lib";
 
 make;
 make install;
