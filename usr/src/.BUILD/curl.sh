@@ -12,12 +12,13 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
---disable-shared \
---enable-shared=no \
+--disable-static \
+--enable-threaded-resolver \
 --enable-ipv6 \
 --enable-cookies \
 --with-random=/dev/urandom \
 --with-ssl=${BIN_DIR}/openssl \
+--with-ca-path=/etc/ssl/certs \
 --with-zlib=${BIN_DIR}/zlib \
 --with-libidn2=${BIN_DIR}/libidn2 \
 --with-nghttp2=${BIN_DIR}/nghttp2;

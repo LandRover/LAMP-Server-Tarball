@@ -40,6 +40,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-config-file-path=${ETC_DIR}/php \
 --with-config-file-scan-dir=${ETC_DIR}/php/php.d \
 --with-mysql-sock=/var/run/mysql/mysql.sock \
+--with-curl \
 --with-openssl \
 --with-gettext \
 --with-iconv \
@@ -52,7 +53,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-zlib;
 
 #--with-zip
-#--with-curl
 
 make;
 make install;
