@@ -9,7 +9,7 @@ apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 VERSION="4.93";
 DIST_URL="https://ftp.exim.org/pub/exim/exim4/exim-${VERSION}.tar.gz";
 APP_NAME="exim";
-USER="exim";
+USER="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
