@@ -8,3 +8,13 @@ LOCAL="/opt/local";
 BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
+
+die() {
+  local code=$? now=$(date +%T.%N)
+  if [ "$1" -ge 0 ] 2>/dev/null; then  # assume $1 is an error code if numeric
+    code="$1"
+    shift
+  fi
+  echo "$0: ERROR at ${now%???}${1:+: $*}" >&2
+  exit $code
+}
