@@ -7,16 +7,16 @@ APP_NAME="libspf2";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-COMPILE_FROM_SOURCE=false;
+COMPILE_FROM_SOURCE=true;
 
 [ "$COMPILE_FROM_SOURCE" != true ] && apt-get -y install spf-tools-perl;
 
-## pending pull request fix: https://github.com/shevek/libspf2/pull/5/files
-## won't compile without.
-## sed 's/SPF_debugx( __FILE__, __LINE__, format, __VA_ARGS__ )/SPF_debugx( __FILE__, __LINE__, format, ##__VA_ARGS__ )/g' /usr/src/libspf2/src/include/spf_log.h
-## --host/--build set to 'x86_64-linux-gnu'
+## wont comple without - pending pull request fix: https://github.com/shevek/libspf2/pull/5/files
+perl -pi -e 's|SPF_debugx\( __FILE__, __LINE__, format, __VA_ARGS__ \)|SPF_debugx\( __FILE__, __LINE__, format, ##__VA_ARGS__ \)|g' ./src/include/spf_log.h
+perl -pi -e 's|www.openspf.org|www.open-spf.org|g' ./src/include/spf.h
 
 ./configure \
+--host=x86_64-linux-gnu \
 --prefix=${DESTINATION};
 
 make;
