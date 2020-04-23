@@ -14,6 +14,9 @@ APP_NAME="openssl";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+export CFLAGS="-fstack-protector-strong -Wformat -Werror=format-security";
+export CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2";
+
 ./config \
 --prefix=${DESTINATION} \
 --openssldir=${ETC_DIR}/${APP_NAME} \

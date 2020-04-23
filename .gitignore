@@ -4,6 +4,8 @@
 *.key
 *.cert
 *.crt
+*.csr
+*.srl
 
 # dirs
 opt/local/sbin

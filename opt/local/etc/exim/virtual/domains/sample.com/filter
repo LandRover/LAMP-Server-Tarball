@@ -1,0 +1,5 @@
+##
+
+if error_message then finish endif
+
+finish
