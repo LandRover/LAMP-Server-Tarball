@@ -6,8 +6,8 @@ GROUP=mail
 SOCK=/var/run/spfd.sock
 PID=/var/run/spfd.pid
 
-#SPFD=/opt/local/sbin/libspf2/bin/spfd
-SPFD=/usr/sbin/spfd
+SPFD=/opt/local/sbin/libspf2/bin/spfd
+#SPFD=/usr/sbin/spfd
 DESC="SPF Daemon"
 
 ARGS="--socket=${SOCK} --socket-user ${USER} --socket-group ${GROUP} --set-user=${USER} --set-group=${GROUP}"

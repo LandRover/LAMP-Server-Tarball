@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# Startup script for ClamAV
+#
+# chkconfig: - 61 39
+# description: clamav antivirus daemon
+# processname: clamd
+# config: /etc/clamd.conf
+#
+### BEGIN INIT INFO
+# Provides:          clamd
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: clamd
+# Description:       clamav antivirus daemon
+### END INIT INFO
+
+
+PATH="$PATH:/usr/sbin"
+PID=/var/run/clamd/clamd.pid
+BINARY=/usr/sbin/clamd
+
+if [ ! -d /var/run/clamd ]; then
+        mkdir -p /var/run/clamd
+        chown clamav:clamav /var/run/clamd
+fi
+
+if [ ! -e /var/lock/subsys ]; then
+        mkdir -p /var/lock/subsys
+fi
+
+# See how we were called.
+case "$1" in
+        start)
+                echo -n "Starting clamd: "
+                $BINARY
+                echo
+                touch /var/lock/subsys/clamd
+                ;;
+        stop)
+                echo -n "Shutting down clamd: "
+                kill `cat $PID`
+                echo
+                rm -f /var/lock/subsys/clamd
+                ;;
+        status)
+                status clamd
+                ;;
+        restart)
+                $0 stop
+                $0 start
+                ;;
+        reread)
+                echo -n "Re-reading clamd config: "
+                killproc clamd -HUP
+                echo
+                ;;
+        *)
+                echo -n "Usage: $0 {start|stop|restart|status|reread"
+                exit 1
+esac
+
+exit 0

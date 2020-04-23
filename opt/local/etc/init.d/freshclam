@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# Startup script for freshclam
+#
+# chkconfig: - 62 38
+# description: clamav antivirus daemon updater
+# processname: freshclam
+# config: /etc/freshclam.conf
+#
+### BEGIN INIT INFO
+# Provides:          freshclam
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: freshclam
+# Description:       clamav antivirus daemon
+### END INIT INFO
+
+
+PATH="$PATH:/usr/sbin"
+PID=/var/run/clamd/freshclam.pid
+BINARY=/opt/local/sbin/freshclam/bin/freshclam
+
+if [ ! -d /var/run/clamd ]; then
+        mkdir -p /var/run/clamd
+        chown clamav:clamav /var/run/clamd
+fi
+
+if [ ! -e /var/lock/subsys ]; then
+        mkdir -p /var/lock/subsys
+fi
+
+# See how we were called.
+case "$1" in
+        start)
+                echo -n "Starting freshclam: "
+                $BINARY -d
+                echo
+                touch /var/lock/subsys/freshclam
+                ;;
+        stop)
+                echo -n "Shutting down freshclam: "
+                kill `cat $PID`
+                echo
+                rm -f /var/lock/subsys/freshclam
+                ;;
+        status)
+                status freshclam
+                ;;
+        restart)
+                $0 stop
+                $0 start
+                ;;
+        reread)
+                echo -n "Re-reading freshclam config: "
+                killproc freshclam -HUP
+                echo
+                ;;
+        *)
+                echo -n "Usage: $0 {start|stop|restart|status|reread"
+                exit 1
+esac
+
+exit 0

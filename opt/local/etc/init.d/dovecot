@@ -1,72 +1,77 @@
+#!/bin/sh
+#
+# Init file for Dovecot IMAP daemon
+#
 ### BEGIN INIT INFO
 # Provides:          dovecot
-# Required-Start:    $local_fs $remote_fs $network $syslog $time
-# Required-Stop:     $local_fs $remote_fs $network $syslog
-# Should-Start:      postgresql mysql slapd winbind
-# Should-Stop:       postgresql mysql slapd winbind
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Dovecot init script
-# Description:       Init script for dovecot services
+# Short-Description: dovecot
+# Description:       dovecot pop & imap daemon
 ### END INIT INFO
-
-# Example /etc/init.d/dovecot script. Change DAEMON if necessary.
-# License is public domain.
+#
+# description: Dovecot IMAP Daemon
+#
+# processname: dovecot
+# config: /etc/dovecot.conf
+# pidfile: /var/run/dovecot
 
 DAEMON=/opt/local/sbin/dovecot/sbin/dovecot
 
-# Uncomment to allow Dovecot daemons to produce core dumps.
-#ulimit -c unlimited
+[ -x $DAEMON ] || exit 1
 
-test -x $DAEMON || exit 1
-set -e
+PID=/var/run/dovecot/master.pid
+RETVAL=0
 
-base_dir=`$DAEMON config -h base_dir`
-pidfile=$base_dir/master.pid
+ulimit -HSn 32768
 
-if test -f $pidfile; then
-  running=yes
-else
-  running=no
-fi
+start() {
+        echo -n $"Starting dovecot: "
+        ${DAEMON}
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/dovecot
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down dovecot: "
+        if [ -e $PID ]; then kill `cat $PID`; fi
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/dovecot
+        sleep 1
+        return $RETVAL
+}
+
+restart(){
+        stop
+        start
+}
 
 case "$1" in
   start)
-    echo -n "Starting Dovecot"
-    $DAEMON
-    echo "."
-    ;;
+        start
+        ;;
   stop)
-    if test $running = yes; then
-      echo "Stopping Dovecot"
-      kill `cat $pidfile`
-      echo "."
-    else
-      echo "Dovecot is already stopped."
-    fi
-    ;;
-  reload)
-    if test $running = yes; then
-      echo -n "Reloading Dovecot configuration"
-      kill -HUP `cat $pidfile`
-      echo "."
-    else
-      echo "Dovecot isn't running."
-    fi
-    ;;
-  restart|force-reload)
-    echo -n "Restarting Dovecot"
-    if test $running = yes; then
-      kill `cat $pidfile`
-      sleep 1
-    fi
-    $DAEMON
-    echo "."
-    ;;
+        stop
+        ;;
+  restart|reload)
+        restart
+        ;;
+  condrestart)
+        [ -e /var/lock/subsys/dovecot ] && restart
+        RETVAL=$?
+        ;;
+  status)
+        status dovecot
+        RETVAL=$?
+        ;;
   *)
-    echo "Usage: /etc/init.d/dovecot {start|stop|reload|restart|force-reload}" >&2
-    exit 1
-    ;;
+        echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+        RETVAL=1
 esac
 
-exit 0
+exit $RETVAL
