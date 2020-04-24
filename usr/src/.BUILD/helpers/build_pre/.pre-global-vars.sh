@@ -9,6 +9,11 @@ BIN_DIR="${LOCAL}/sbin";
 ETC_DIR="${LOCAL}/etc";
 DESTINATION="${BIN_DIR}/${APP_NAME}-${VERSION}";
 
+if [ "`cat /proc/cpuinfo | grep -F 'model name' | wc -l`" -gt 0 ]; then
+    CPU_CORES="`cat /proc/cpuinfo | grep -F 'model name' | wc -l`"
+fi
+MEMORY=`grep -m1 'MemTotal' /proc/meminfo | awk '{print $2}'`
+
 die() {
   local code=$? now=$(date +%T.%N)
   if [ "$1" -ge 0 ] 2>/dev/null; then  # assume $1 is an error code if numeric

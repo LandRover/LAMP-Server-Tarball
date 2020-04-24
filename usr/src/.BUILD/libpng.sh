@@ -16,9 +16,14 @@ export LDFLAGS="-L${BIN_DIR}/zlib/lib";
 ./configure \
 --prefix=${DESTINATION} \
 --with-zlib-prefix=${BIN_DIR}/zlib \
---disable-static;
+--disable-static \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

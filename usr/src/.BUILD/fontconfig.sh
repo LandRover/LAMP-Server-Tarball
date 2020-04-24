@@ -21,9 +21,14 @@ source ./helpers/build_pre/.pre-start.sh;
 FREETYPE_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2" \
 FREETYPE_LIBS="-L${BIN_DIR}/freetype/lib -lfreetype" \
 LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
-LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2 -lm";
+LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2 -lm" \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make V=1;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make V=1 || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

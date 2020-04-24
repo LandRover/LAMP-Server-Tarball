@@ -16,8 +16,6 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ## SSL cert: https://support.plesk.com/hc/en-us/articles/115001833974-How-to-generate-custom-self-signed-SSL-certificates-and-apply-it-to-Dovecot-on-Plesk-for-Linux | https://wiki.dovecot.org/SSL/DovecotConfiguration
 
-apt-get -y install libpam-dev;
-
 export CFLAGS="-I${BIN_DIR}/openssl/include -I${BIN_DIR}/zlib/include";
 export LDFLAGS="-L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib";
 
@@ -28,9 +26,14 @@ export LDFLAGS="-L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib";
 --with-systemdsystemunitdir=${ETC_DIR}/systemd/system \
 --disable-largefile \
 --with-zlib \
---without-icu;
+--without-icu \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};

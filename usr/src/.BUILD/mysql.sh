@@ -36,9 +36,14 @@ cmake \
 -DWITH_INNOBASE_STORAGE_ENGINE=1 \
 -DWITH_PARTITION_STORAGE_ENGINE=1 \
 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
--DWITH_MYISAM_STORAGE_ENGINE=1;
+-DWITH_MYISAM_STORAGE_ENGINE=1 \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};

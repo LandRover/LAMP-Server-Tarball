@@ -22,9 +22,14 @@ export LDFLAGS="-L${BIN_DIR}/openssl/lib";
 --with-zlib=${BIN_DIR}/zlib \
 --with-xml=${BIN_DIR}/libxml2 \
 --with-libcurl=${BIN_DIR}/curl \
---with-openssl=${BIN_DIR}/openssl;
+--with-openssl=${BIN_DIR}/openssl \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

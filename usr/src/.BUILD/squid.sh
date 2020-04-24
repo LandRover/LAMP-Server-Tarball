@@ -51,13 +51,18 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-default-user=${USER} \
 --with-swapdir=/dev/null \
 --with-pidfile=/var/run/${APP_NAME}.pid \
---with-logdir=/var/log/${APP_NAME};
+--with-logdir=/var/log/${APP_NAME} \
+|| die 0 "[${APP_NAME}] Configure failed"
 
 # --with-swapdir=/dev/null \
 # --with-swapdir=/var/spool/squid \
 # --with-gnutls
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};

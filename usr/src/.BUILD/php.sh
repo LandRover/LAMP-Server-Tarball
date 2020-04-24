@@ -30,6 +30,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-pcntl \
 --enable-bcmath \
 --enable-tokenizer \
+--enable-sockets \
 --enable-session \
 --enable-simplexml \
 --enable-gd \
@@ -50,11 +51,16 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-jpeg \
 --with-freetype \
 --with-xsl \
---with-zlib;
+--with-zlib \
+|| die 0 "[${APP_NAME}] Configure failed";
 
 #--with-zip
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

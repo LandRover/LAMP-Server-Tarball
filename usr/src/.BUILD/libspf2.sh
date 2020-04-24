@@ -17,11 +17,17 @@ perl -pi -e 's|www.openspf.org|www.open-spf.org|g' ./src/include/spf.h
 
 ./configure \
 --host=x86_64-linux-gnu \
---prefix=${DESTINATION};
+--prefix=${DESTINATION} \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make check;
-make install;
-#make maintainer-clean;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+echo "Make test ${APP_NAME}...";
+make check || die 0 "[${APP_NAME}] Make test failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

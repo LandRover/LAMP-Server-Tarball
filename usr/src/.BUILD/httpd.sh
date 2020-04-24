@@ -51,10 +51,15 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-suexec-gidmin=100 \
 --with-suexec-logfile=${HOME_DIR}/logs/suexec_log \
 --with-suexec-uidmin=100 \
---with-suexec-userdir=public_html;
+--with-suexec-userdir=public_html \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 ##chkconfig httpd on --level 2,3,5
 

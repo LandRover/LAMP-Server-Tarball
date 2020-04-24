@@ -21,8 +21,13 @@ source ./helpers/build_pre/.pre-start.sh;
 ${BUILD}/helpers/bin/ln.sh ${BUILD}/helpers/templates/${APP_NAME}/Makefile /usr/src/${APP_NAME}/Local/Makefile;
 ${BUILD}/helpers/bin/ln.sh ${BUILD}/helpers/templates/${APP_NAME}/eximon.conf /usr/src/${APP_NAME}/Local/eximon.conf;
 
-make makefile;
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make makefile || die 0 "[${APP_NAME}] Make file failed";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
+
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};

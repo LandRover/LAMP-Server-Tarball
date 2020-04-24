@@ -19,7 +19,10 @@ rm -rf ../${APP_NAME}-${VERSION}; ln -s /usr/src/${APP_NAME}-src-${VERSION}/ /us
 
 source ./helpers/build_pre/.pre-start.sh;
 
-scons -j 4 --64 --ssl all;
-scons -j 4 --64 --ssl --prefix=${DESTINATION} install;
+echo "Trying to make ${APP_NAME}...";
+scons -j 4 --64 --ssl all || die 0 "[${APP_NAME}] Make failed";
+
+scons -j 4 --64 --ssl --prefix=${DESTINATION} install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

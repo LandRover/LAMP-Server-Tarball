@@ -10,11 +10,19 @@ source ./helpers/build_pre/.pre-start.sh;
 cmake \
 -DCMAKE_INSTALL_PREFIX=${DESTINATION} \
 -DENABLE_OPENSSL=1 \
+-DENABLE_GNUTLS=OFF \
 -DZLIB_LIBRARY=${BIN_DIR}/zlib/lib \
--DZLIB_INCLUDE_DIR=${BIN_DIR}/zlib/include;
+-DZLIB_INCLUDE_DIR=${BIN_DIR}/zlib/include \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make test;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make -j ${CPU_CORES} || die 0 "[${APP_NAME}] Make failed";
+
+echo "Installing ${APP_NAME}-${VERSION}..."
+make test || die 0 "[${APP_NAME}] Make test failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}. It is recommended to reinstall libxslt after update of ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

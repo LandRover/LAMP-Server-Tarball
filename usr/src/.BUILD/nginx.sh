@@ -23,20 +23,16 @@ source ./helpers/build_pre/.pre-start.sh;
 --http-proxy-temp-path=${DESTINATION}/lib/proxy \
 --http-scgi-temp-path=${DESTINATION}/lib/scgi \
 --http-uwsgi-temp-path=${DESTINATION}/lib/uwsgi \
---user=${APP_NAME} \
---group=${APP_NAME} \
---with-debug \
+--user=${USER} \
+--group=${USER} \
 --with-file-aio \
 --with-google_perftools_module \
 --with-http_addition_module \
 --with-http_dav_module \
 --with-http_degradation_module \
---with-http_flv_module \
 --with-http_geoip_module \
---with-http_gunzip_module \
 --with-http_gzip_static_module \
 --with-http_image_filter_module \
---with-http_mp4_module \
 --with-http_perl_module \
 --with-http_random_index_module \
 --with-http_realip_module \
@@ -46,15 +42,21 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-http_stub_status_module \
 --with-http_sub_module \
 --with-http_xslt_module \
+--with-http_v2_module \
 --with-ipv6 \
---with-mail \
---with-mail_ssl_module \
+--without-mail_imap_module \
+--without-mail_smtp_module \
 --with-sha1=${BIN_DIR}/openssl/include \
 --with-md5=${BIN_DIR}/openssl/include \
---with-cc-opt="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I${BIN_DIR}/libxml2/include/libxml2 -I${BIN_DIR}/libxslt/include -I${BIN_DIR}/libgd/include -I${BIN_DIR}/GeoIP/include -I${BIN_DIR}/gperftools/include -I${BIN_DIR}/pcre/include -I${BIN_DIR}/openssl/include -I${BIN_DIR}/zlib/include" \
---with-ld-opt="-Wl,-z,relro -Wl,--as-needed -L${BIN_DIR}/libxml2/lib -L${BIN_DIR}/libxslt/lib -L${BIN_DIR}/libgd/lib -L${BIN_DIR}/GeoIP/lib -L${BIN_DIR}/gperftools/lib -L${BIN_DIR}/pcre/lib -L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib";
+--with-cc-opt="-D FD_SETSIZE=32768' -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I${BIN_DIR}/libxml2/include/libxml2 -I${BIN_DIR}/libxslt/include -I${BIN_DIR}/libgd/include -I${BIN_DIR}/GeoIP/include -I${BIN_DIR}/gperftools/include -I${BIN_DIR}/pcre/include -I${BIN_DIR}/openssl/include -I${BIN_DIR}/zlib/include" \
+--with-ld-opt="-Wl,-z,relro -Wl,--as-needed -L${BIN_DIR}/libxml2/lib -L${BIN_DIR}/libxslt/lib -L${BIN_DIR}/libgd/lib -L${BIN_DIR}/GeoIP/lib -L${BIN_DIR}/gperftools/lib -L${BIN_DIR}/pcre/lib -L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib" \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-make;
-make install;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER};
