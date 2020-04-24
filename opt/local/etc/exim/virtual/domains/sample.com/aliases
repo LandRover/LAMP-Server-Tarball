@@ -1,2 +1,3 @@
-acebiz: acebiz
-*: :fail:
+USERNAME: USERNAME
+forward.email.example: forward.email@sample.com
+*: info@sample.com

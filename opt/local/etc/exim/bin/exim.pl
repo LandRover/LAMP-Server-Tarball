@@ -759,7 +759,7 @@ sub save_virtual_user
 		return "no";
 	}
 	
-	open (PASSWD, "/opt/local/etc/exim/virtual/$dmn/passwd") || return "no";
+	open (PASSWD, "/opt/local/etc/exim/virtual/domains/$dmn/passwd") || return "no";
 
 	while ($entry = <PASSWD>) {
 		($usr,$pss) = split(/:/,$entry);

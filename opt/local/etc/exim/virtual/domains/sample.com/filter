@@ -1,5 +1,5 @@
-##
+# Exim Filter
 
 if error_message then finish endif
 
-finish
+#end filter
