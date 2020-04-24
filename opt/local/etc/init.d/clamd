@@ -20,7 +20,7 @@
 
 PATH="$PATH:/usr/sbin"
 PID=/var/run/clamd/clamd.pid
-BINARY=/usr/sbin/clamd
+BINARY=/opt/local/sbin/clamav/sbin/clamd
 
 if [ ! -d /var/run/clamd ]; then
         mkdir -p /var/run/clamd

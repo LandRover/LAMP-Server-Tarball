@@ -6,6 +6,8 @@
 *.crt
 *.csr
 *.srl
+*.combined
+
 
 # dirs
 opt/local/sbin
