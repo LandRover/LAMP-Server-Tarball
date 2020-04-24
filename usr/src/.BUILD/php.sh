@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(jpeg libpng freetype libxml2 pcre openssl zlib mysql zip curl);
+DEPENDENCIES=(jpeg libpng libwebp libgd freetype libxml2 pcre openssl zlib mysql libzip curl);
 
 # build data
 VERSION="7.4.5";
@@ -49,6 +49,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
 --with-jpeg \
+--with-webp \
 --with-freetype \
 --with-xsl \
 --with-zlib \

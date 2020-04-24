@@ -7,12 +7,18 @@ APP_NAME="libzip";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+rm -rf build && mkdir -p build;
+cd build;
+
 cmake \
 -DCMAKE_INSTALL_PREFIX=${DESTINATION} \
 -DENABLE_OPENSSL=1 \
 -DENABLE_GNUTLS=OFF \
+-DENABLE_LZMA=OFF \
+-DENABLE_BZIP2=OFF \
 -DZLIB_LIBRARY=${BIN_DIR}/zlib/lib \
 -DZLIB_INCLUDE_DIR=${BIN_DIR}/zlib/include \
+../ \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";

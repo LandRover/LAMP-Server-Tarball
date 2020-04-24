@@ -5,7 +5,7 @@ apt-get -y install gperf \
 uuid-dev;
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(freetype libxml2);
+DEPENDENCIES=(freetype libpng libxml2);
 
 # build data
 VERSION="2.13.1";
@@ -18,8 +18,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 --enable-libxml2 \
 --with-arch=arm \
-FREETYPE_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2" \
-FREETYPE_LIBS="-L${BIN_DIR}/freetype/lib -lfreetype" \
+FREETYPE_CFLAGS="-I${BIN_DIR}/freetype/include/freetype2 -I${BIN_DIR}/libpng/include" \
+FREETYPE_LIBS="-L${BIN_DIR}/freetype/lib -L${BIN_DIR}/libpng/lib -lfreetype -lpng16" \
 LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
 LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2 -lm" \
 || die 0 "[${APP_NAME}] Configure failed";

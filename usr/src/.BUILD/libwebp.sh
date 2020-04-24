@@ -1,19 +1,27 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(zlib);
+DEPENDENCIES=(libpng jpeg);
 
 # build data
-VERSION="2.9.10";
-DIST_URL="http://xmlsoft.org/sources/libxml2-${VERSION}.tar.gz";
-APP_NAME="libxml2";
+VERSION="1.1.0";
+DIST_URL="http://downloads.webmproject.org/releases/webp/libwebp-${VERSION}.tar.gz";
+APP_NAME="libwebp";
 
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
---with-zlib="${BIN_DIR}/zlib" \
---without-python \
+--enable-libwebpmux \
+--enable-libwebpdemux \
+--enable-libwebpdecoder \
+--enable-libwebpextras \
+--enable-swap-16bit-csp \
+--with-pngincludedir=${BIN_DIR}/libpng/include \
+--with-pnglibdir=${BIN_DIR}/libpng/lib \
+--with-jpegincludedir=${BIN_DIR}/jpeg/include \
+--with-jpeglibdir=${BIN_DIR}/jpeg/lib \
+--disable-static \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";

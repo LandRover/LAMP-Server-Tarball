@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(zlib jpeg libpng freetype fontconfig);
+DEPENDENCIES=(zlib jpeg libpng libwebp freetype fontconfig);
 
 # build data
 VERSION="2.3.0";
@@ -15,10 +15,11 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-zlib=${BIN_DIR}/zlib \
 --with-jpeg=${BIN_DIR}/jpeg \
 --with-png=${BIN_DIR}/libpng \
---without-x \
---without-xpm \
+--with-webp=${BIN_DIR}/libwebp \
 --with-fontconfig=${BIN_DIR}/fontconfig \
 --with-freetype=${BIN_DIR}/freetype \
+--without-x \
+--without-xpm \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
