@@ -4,18 +4,18 @@
 VERSION="0.11.1";
 DIST_URL="https://github.com/fail2ban/fail2ban/archive/${VERSION}.tar.gz";
 APP_NAME="fail2ban";
+USER="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-./configure \
---prefix=${DESTINATION} \
-|| die 0 "[${APP_NAME}] Configure failed";
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd --system -s /bin/false -d /dev/null --groups adm ${USER}
 
-echo "Done. Making ${APP_NAME}-${VERSION}...";
-echo "Trying to make ${APP_NAME}...";
-make || die 0 "[${APP_NAME}] Make failed";
+echo "Trying to setup ${APP_NAME}...";
 
-make install || die 0 "[${APP_NAME}] Make install failed";
+python3 setup.py install \
+--home=${DESTINATION} \
+|| die 0 "[${APP_NAME}] Make failed";
+
 echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};

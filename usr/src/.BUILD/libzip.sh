@@ -7,6 +7,8 @@ APP_NAME="libzip";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+export LD_LIBRARY_PATH=${BIN_DIR}/zlib/lib;
+
 rm -rf build && mkdir -p build;
 cd build;
 
