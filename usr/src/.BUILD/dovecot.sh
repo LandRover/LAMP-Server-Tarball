@@ -24,9 +24,9 @@ export LDFLAGS="-L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib";
 ./configure \
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR} \
+--localstatedir=/var \
 --with-systemdsystemunitdir=${ETC_DIR}/systemd/system \
 --disable-largefile \
---with-pam \
 --with-zlib \
 --without-icu;
 
