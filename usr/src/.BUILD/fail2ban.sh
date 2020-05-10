@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get -y install python3-setuptools;
+
 # build data
 VERSION="0.11.1";
 DIST_URL="https://github.com/fail2ban/fail2ban/archive/${VERSION}.tar.gz";
