@@ -1,5 +1,6 @@
 #!/bin/bash
 
+## libs required
 apt-get -y install python3-setuptools;
 
 # build data
