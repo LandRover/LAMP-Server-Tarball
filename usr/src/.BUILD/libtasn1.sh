@@ -8,7 +8,7 @@ APP_NAME="libtasn1";
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
---prefix=${DESTINATION \
+--prefix=${DESTINATION} \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
