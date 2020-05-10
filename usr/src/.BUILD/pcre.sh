@@ -8,7 +8,7 @@ APP_NAME="pcre";
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
---prefix=${DESTINATION}
+--prefix=${DESTINATION} \
 --enable-utf8 \
 --enable-unicode-properties \
 --enable-newline-is-lf \
