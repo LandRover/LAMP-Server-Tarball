@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="3.0.3";
+VERSION="3.0.5";
 DIST_URL="https://security.appspot.com/downloads/vsftpd-${VERSION}.tar.gz";
 APP_NAME="vsftpd";
 
