@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl libecap);
 
 # build data
-VERSION="4.16";
+VERSION="4.17";
 DIST_URL="http://www.squid-cache.org/Versions/v4/squid-${VERSION}.tar.gz";
 APP_NAME="squid";
 USER="${APP_NAME}";
