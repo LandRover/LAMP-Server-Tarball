@@ -10,8 +10,8 @@ libboost-thread-dev;
 DEPENDENCIES=(scons);
 
 # build data
-VERSION="r4.2.0";
-DIST_URL="http://downloads.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
+VERSION="r5.0.4";
+DIST_URL="https://fastdl.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
 APP_NAME="mongodb";
 
 ## wierd notation by mongo.. with the src thing in name
