@@ -5,7 +5,7 @@ DEPENDENCIES=(apr);
 
 # build data
 VERSION="1.6.1";
-DIST_URL="http://apache.spd.co.il/apr/apr-util-${VERSION}.tar.gz";
+DIST_URL="https://dlcdn.apache.org/apr/apr-util-${VERSION}.tar.gz";
 APP_NAME="apr-util";
 
 source ./helpers/build_pre/.pre-start.sh;
