@@ -2,7 +2,7 @@
 
 # build data
 VERSION="1.7.0";
-DIST_URL="http://apache.spd.co.il/apr/apr-${VERSION}.tar.gz";
+DIST_URL="https://dlcdn.apache.org/apr/apr-${VERSION}.tar.gz";
 APP_NAME="apr";
 
 source ./helpers/build_pre/.pre-start.sh;
