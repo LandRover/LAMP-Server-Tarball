@@ -4,8 +4,8 @@
 DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle);
 
 # build data
-VERSION="3.6.13";
-DIST_URL="https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-${VERSION}.tar.xz";
+VERSION="3.7.2";
+DIST_URL="https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-${VERSION}.tar.xz";
 APP_NAME="gnutls";
 
 source ./helpers/build_pre/.pre-start.sh;
