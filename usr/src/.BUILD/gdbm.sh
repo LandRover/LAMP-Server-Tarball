@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="1.18.1";
-DIST_URL="ftp://ftp.gnu.org/gnu/gdbm/gdbm-${VERSION}.tar.gz";
+VERSION="1.22";
+DIST_URL="https://ftp.gnu.org/gnu/gdbm/gdbm-${VERSION}.tar.gz";
 APP_NAME="gdbm";
 
 source ./helpers/build_pre/.pre-start.sh;
