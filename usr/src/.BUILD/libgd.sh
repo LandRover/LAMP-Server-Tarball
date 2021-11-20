@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib jpeg libpng libwebp freetype fontconfig);
 
 # build data
-VERSION="2.3.0";
+VERSION="2.3.3";
 DIST_URL="https://github.com/libgd/libgd/releases/download/gd-${VERSION}/libgd-${VERSION}.tar.gz";
 APP_NAME="libgd";
 
