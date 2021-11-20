@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl zlib);
 
 # build data
-VERSION="2.3.10";
+VERSION="2.3.17";
 DIST_URL="https://dovecot.org/releases/2.3/dovecot-${VERSION}.tar.gz";
 APP_NAME="dovecot";
 USER="mail";
