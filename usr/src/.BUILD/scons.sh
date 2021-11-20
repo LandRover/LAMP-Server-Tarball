@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # build data
-VERSION="3.1.2";
-DIST_URL="https://netix.dl.sourceforge.net/project/scons/scons/${VERSION}/scons-${VERSION}.tar.gz";
-APP_NAME="scons";
+VERSION="4.3.0";
+DIST_URL="https://iweb.dl.sourceforge.net/project/scons/scons/${VERSION}/SCons-${VERSION}.tar.gz";
+APP_NAME="SCons";
 
 source ./helpers/build_pre/.pre-start.sh;
 
