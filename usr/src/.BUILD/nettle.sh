@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="3.5.1";
+VERSION="3.7.3";
 DIST_URL="https://ftp.gnu.org/gnu/nettle/nettle-${VERSION}.tar.gz";
 APP_NAME="nettle";
 
