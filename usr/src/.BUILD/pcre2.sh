@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="10.34";
-DIST_URL="https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.gz";
+VERSION="10.37";
+DIST_URL="https://netix.dl.sourceforge.net/project/pcre/pcre2/${VERSION}/pcre2-${VERSION}.tar.bz2";
 APP_NAME="pcre2";
 
 source ./helpers/build_pre/.pre-start.sh;
