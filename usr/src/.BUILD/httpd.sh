@@ -4,8 +4,8 @@
 DEPENDENCIES=(arp arp-util pcre openssl php);
 
 # build data
-VERSION="2.4.43";
-DIST_URL="http://apache.mivzakim.net/httpd/httpd-${VERSION}.tar.gz";
+VERSION="2.4.51";
+DIST_URL="https://dlcdn.apache.org/httpd/httpd-${VERSION}.tar.gz";
 APP_NAME="httpd";
 USER="apache";
 HOME_DIR="/home/${USER}";
