@@ -10,13 +10,15 @@ APP_NAME="nettle";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-CFLAGS="-m64" ./configure \
+CFLAGS="-m64" \
+OPENSSL_LIBFLAGS="${BIN_DIR}/openssl/lib" \
+./configure \
 --prefix=${DESTINATION} \
 --with-include-path="${BIN_DIR}/gmp/include" \
 --with-lib-path="${BIN_DIR}/gmp/lib" \
---disable-openssl \
 --disable-static \
 --enable-shared \
+--enable-openssl \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
