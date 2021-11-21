@@ -11,7 +11,7 @@ source ./helpers/build_pre/.pre-start.sh;
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /home/${USER}/ ${USER};
 
 echo "Trying to make ${APP_NAME}...";
-make -j y || die 0 "[${APP_NAME}] Make failed";
+make || die 0 "[${APP_NAME}] Make failed";
 
 make PREFIX=${DESTINATION} install || die 0 "[${APP_NAME}] Make install failed";
 echo "Done ${APP_NAME}.";
