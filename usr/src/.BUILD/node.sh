@@ -9,6 +9,11 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+--shared-openssl \
+--shared-openssl-libpath=${BIN_DIR}/openssl/lib \
+--shared-openssl-includes=${BIN_DIR}/openssl/include \
+--shared-openssl-libname=crypto,ssl \
+--openssl-is-fips \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
