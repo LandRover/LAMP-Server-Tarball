@@ -7,10 +7,6 @@ APP_NAME="vsftpd";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-./configure \
---prefix=${DESTINATION} \
-|| die 0 "[${APP_NAME}] Configure failed";
-
 echo "Done. Making ${APP_NAME}-${VERSION}...";
 echo "Trying to make ${APP_NAME}...";
 make || die 0 "[${APP_NAME}] Make failed";
