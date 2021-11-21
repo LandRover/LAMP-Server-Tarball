@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="6.2.0";
+VERSION="6.2.1";
 DIST_URL="https://gmplib.org/download/gmp/gmp-${VERSION}.tar.gz";
 APP_NAME="gmp";
 
