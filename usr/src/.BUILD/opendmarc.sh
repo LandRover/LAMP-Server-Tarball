@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(milter-manager);
+
 # build data
 VERSION="1.3.2";
 DIST_URL="https://netix.dl.sourceforge.net/project/opendmarc/opendmarc-${VERSION}.tar.gz";
