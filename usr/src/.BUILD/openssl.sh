@@ -24,6 +24,7 @@ export CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2";
 --with-zlib-include=${BIN_DIR}/zlib/include \
 no-ssl \
 zlib \
+enable-fips \
 shared \
 || die 0 "[${APP_NAME}] Configure failed";
 
