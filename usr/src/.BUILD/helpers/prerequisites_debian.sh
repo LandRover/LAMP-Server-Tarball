@@ -23,6 +23,7 @@ logrotate \
 libncurses5-dev \
 cmake \
 make \
+gtk-doc-tools \
 autoconf \
 automake \
 libtool \
