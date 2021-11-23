@@ -26,6 +26,7 @@ make \
 autoconf \
 automake \
 libtool \
+intltool \
 m4 \
 gcc \
 g++;
