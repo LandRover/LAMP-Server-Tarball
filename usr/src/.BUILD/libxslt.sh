@@ -13,6 +13,13 @@ source ./helpers/build_pre/.pre-start.sh;
 export LIBGCRYPT_CFLAGS="-I${BIN_DIR}/libgcrypt/include";
 export LIBGCRYPT_LIBS="-L${BIN_DIR}/libgcrypt/lib";
 
+./autogen.sh \
+--enable-static \
+--without-python \
+--without-crypto \
+--with-libxml-include-prefix=${BIN_DIR}/libxml2/include/libxml2 \
+--with-libxml-libs-prefix=${BIN_DIR}/libxml2/lib;
+
 ./configure \
 --prefix=${DESTINATION} \
 --with-libxml-prefix=${BIN_DIR}/libxml2 \
