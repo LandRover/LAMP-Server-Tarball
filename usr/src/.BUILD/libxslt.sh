@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(libxml2);
+DEPENDENCIES=(libxml2 libgcrypt);
 
 # build data
 VERSION="1.1.34";
