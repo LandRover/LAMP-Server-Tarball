@@ -12,6 +12,7 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+--with-libgpg-error-prefix=${BIN_DIR}/libgpg-error \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
