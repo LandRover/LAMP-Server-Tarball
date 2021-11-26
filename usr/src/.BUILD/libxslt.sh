@@ -10,15 +10,14 @@ APP_NAME="libxslt";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CFLAGS="-I${BIN_DIR}/libxml2/include";
-export LDFLAGS="-L${BIN_DIR}/libxml2/lib";
-
 export LIBGCRYPT_CFLAGS="-I${BIN_DIR}/libgcrypt/include";
 export LIBGCRYPT_LIBS="-L${BIN_DIR}/libgcrypt/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
 --with-libxml-prefix=${BIN_DIR}/libxml2 \
+--with-libxml-include-prefix=${BIN_DIR}/libxml2/include/libxml2 \
+--with-libxml-libs-prefix=${BIN_DIR}/libxml2/lib \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
