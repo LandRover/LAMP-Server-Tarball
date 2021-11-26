@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # build data
-VERSION="10.37";
+VERSION="10.39";
 DIST_URL="https://github.com/PhilipHazel/pcre2/archive/refs/tags/pcre2-${VERSION}.tar.gz";
 APP_NAME="pcre2";
 
+./helpers/bin/ln.sh /usr/src/${APP_NAME}-${APP_NAME}-${VERSION} /usr/src/${APP_NAME}-${VERSION};
+
 source ./helpers/build_pre/.pre-start.sh;
+
+./autogen.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
