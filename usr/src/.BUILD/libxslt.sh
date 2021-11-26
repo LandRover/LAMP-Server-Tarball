@@ -13,6 +13,9 @@ source ./helpers/build_pre/.pre-start.sh;
 export CFLAGS="-I${BIN_DIR}/libxml2/include";
 export LDFLAGS="-L${BIN_DIR}/libxml2/lib";
 
+export LIBGCRYPT_CFLAGS="-I${BIN_DIR}/libgcrypt/include";
+export LIBGCRYPT_LIBS="-L${BIN_DIR}/libgcrypt/lib";
+
 ./configure \
 --prefix=${DESTINATION} \
 --with-libxml-prefix=${BIN_DIR}/libxml2 \
