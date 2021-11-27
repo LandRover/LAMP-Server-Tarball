@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies which must exist prior to current build. If not found, will try to install
+DEPENDENCIES=(openssl);
+
 # build data
 VERSION="3.22.0";
 DIST_URL="https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}.tar.gz";
