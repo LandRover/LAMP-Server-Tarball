@@ -8,7 +8,7 @@ USER="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-## Create user for exim
+## Create user for clamav
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
 
 export CFLAGS="-I${BIN_DIR}/openssl/include";
