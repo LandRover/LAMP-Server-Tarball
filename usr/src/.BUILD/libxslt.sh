@@ -4,7 +4,7 @@
 DEPENDENCIES=(libxml2 libgcrypt);
 
 # build data
-VERSION="1.1.34";
+VERSION="1.1.33";
 DIST_URL="http://xmlsoft.org/sources/libxslt-${VERSION}.tar.gz";
 APP_NAME="libxslt";
 
@@ -15,7 +15,7 @@ export LIBGCRYPT_LIBS="-L${BIN_DIR}/libgcrypt/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
---enable-static \
+--disable-static \
 --without-python \
 --without-crypto \
 --with-libxml-src=../libxml2 \
