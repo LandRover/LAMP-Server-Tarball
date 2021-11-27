@@ -28,6 +28,7 @@ autoconf \
 automake \
 libtool \
 intltool \
+texinfo \
 m4 \
 gcc \
 g++;
