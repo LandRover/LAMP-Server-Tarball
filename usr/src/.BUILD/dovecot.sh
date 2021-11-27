@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl zlib);
+DEPENDENCIES=(openssl zlib exim);
 
 # build data
 VERSION="2.3.17";
