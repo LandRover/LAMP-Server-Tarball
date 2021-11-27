@@ -18,7 +18,8 @@ export LIBGCRYPT_LIBS="-L${BIN_DIR}/libgcrypt/lib";
 --enable-static \
 --without-python \
 --without-crypto \
---with-libxml-prefix=${BIN_DIR}/libxml2 \
+--with-libxml-src=../libxml2 \
+--with-libxml-prefix=${BIN_DIR}/libxml2/bin \
 --with-libxml-include-prefix=${BIN_DIR}/libxml2/include/libxml2 \
 --with-libxml-libs-prefix=${BIN_DIR}/libxml2/lib \
 || die 0 "[${APP_NAME}] Configure failed";
