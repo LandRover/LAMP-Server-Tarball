@@ -12,7 +12,10 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+--enable-static \
+--disable-shared \
 --with-zlib="${BIN_DIR}/zlib" \
+--without-iconv \
 --without-python \
 || die 0 "[${APP_NAME}] Configure failed";
 
