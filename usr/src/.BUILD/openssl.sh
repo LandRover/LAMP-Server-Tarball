@@ -14,7 +14,7 @@ APP_NAME="openssl";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CFLAGS="-fstack-protector-strong -Wformat -Werror=format-security";
+export CFLAGS="-fstack-protector-strong -Wformat -Werror=format-security -Wl,-rpath=${DESTINATION}/lib -Wl,--enable-new-dtags";
 export CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2";
 
 ./config \
