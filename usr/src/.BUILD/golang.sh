@@ -11,12 +11,15 @@ APP_NAME="go";
 source ./helpers/build_pre/.pre-start.sh;
 
 # GO PATHS
-GOROOT="${LOCAL_PATH}/go";
+GOROOT="${BIN_DIR}/go";
 GOPATH="~/go";
 
-## Modify global path for this run
-PATH=$PATH:${GOPATH}/bin:${GOROOT}/bin
+mv ../${APP_NAME}-${VERSION} ${BIN_DIR}/${APP_NAME}-${VERSION};
 
+addAlias ~/.profile "GOROOT" "export GOROOT=$GOROOT";
+addAlias ~/.profile "GOPATH" "export GOPATH=$GOPATH";
+addAlias ~/.profile "\$GOPATH" "export PATH=\$PATH:\$GOPATH/bin:\$GOROOT/bin";
+addAlias ~/.profile "GO111MODULE" "export GO111MODULE=on";
 
 echo "Done ${APP_NAME}.";
 
