@@ -3,7 +3,7 @@
 # build data
 VERSION="2.1.1";
 DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
-APP_NAME="cmake";
+APP_NAME="influxdb";
 
 source ./helpers/build_pre/.pre-start.sh;
 
