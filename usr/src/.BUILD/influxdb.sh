@@ -2,7 +2,7 @@
 
 # build data
 VERSION="2.1.1";
-DIST_URL="https://dl.influxdata.com/influxdb/releases/influxdb2-${VERSION}-linux-amd64.tar.gz";
+DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="cmake";
 
 source ./helpers/build_pre/.pre-start.sh;
