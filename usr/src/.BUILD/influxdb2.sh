@@ -4,7 +4,8 @@
 VERSION="2.1.1";
 DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="influxdb2";
-USER="influxdb2";
+USER="${APP_NAME}";
+GROUP="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
