@@ -16,6 +16,7 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ## Create DATADIR
 [ ! -d "${DATA_DIR}" ] && echo "[INFO] Datadir for ${APP_NAME} not found, creating..." && mkdir -p ${DATA_DIR} && chown ${USER}:${GROUP} ${DATA_DIR}/.. -R;
+[ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd ${GROUP};
 
 ## INSTALL
 [ -d "${BIN_DIR}/${APP_NAME}-${VERSION}/bin" ] && echo "[INFO] Detected previous install of ${APP_NAME}, Version: ${VERSION}. Removing..." && rm -rf ${BIN_DIR}/${APP_NAME}-${VERSION};
