@@ -11,8 +11,8 @@ DATA_DIR="/home/${USER}/db_data";
 source ./helpers/build_pre/.pre-start.sh;
 
 ## Create user for exim
-[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
-[ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd ${GROUP};
+[ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd -r ${GROUP} --gid=1000;
+[ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -r -g ${GROUP} --uid=1000 -M -s /bin/false -d /home/${USER} ${USER};
 
 ## Create DATADIR
 [ ! -d "${DATA_DIR}" ] && echo "[INFO] Datadir for ${APP_NAME} not found, creating..." && mkdir -p ${DATA_DIR} && chown ${USER}:${GROUP} ${DATA_DIR}/.. -R;
