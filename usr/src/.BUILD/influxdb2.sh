@@ -7,11 +7,10 @@ APP_NAME="influxdb2";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-echo "Done. Making ${APP_NAME}-${VERSION}...";
-echo "Trying to make ${APP_NAME}...";
-make || die 0 "[${APP_NAME}] Make failed";
+[ -d "${BIN_DIR}/${APP_NAME}-${VERSION}/bin" ] && echo "[INFO] Detected previous install of ${APP_NAME}, Version: ${VERSION}. Removing..." && rm -rf ${BIN_DIR}/${APP_NAME}-${VERSION};
+mkdir -p ${BIN_DIR}/${APP_NAME}-${VERSION}/bin;
+mv ../${APP_NAME}-${VERSION}/influxd ${BIN_DIR}/${APP_NAME}-${VERSION}/bin/;
 
-make install || die 0 "[${APP_NAME}] Make install failed";
 echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};
