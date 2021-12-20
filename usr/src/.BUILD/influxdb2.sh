@@ -6,6 +6,7 @@ DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.t
 APP_NAME="influxdb2";
 USER="${APP_NAME}";
 GROUP="${APP_NAME}";
+DATA_DIR="db_data";
 
 source ./helpers/build_pre/.pre-start.sh;
 
