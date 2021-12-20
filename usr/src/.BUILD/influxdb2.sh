@@ -14,7 +14,10 @@ source ./helpers/build_pre/.pre-start.sh;
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
 [ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd ${GROUP};
 
+## Create DATADIR
+[ ! -d "${DATA_DIR}" ] && echo "[INFO] Datadir for ${APP_NAME} not found, creating..." && mkdir -p ${DATA_DIR} && chown ${USER}:${GROUP} ${DATA_DIR}/.. -R;
 
+## INSTALL
 [ -d "${BIN_DIR}/${APP_NAME}-${VERSION}/bin" ] && echo "[INFO] Detected previous install of ${APP_NAME}, Version: ${VERSION}. Removing..." && rm -rf ${BIN_DIR}/${APP_NAME}-${VERSION};
 mkdir -p ${BIN_DIR}/${APP_NAME}-${VERSION}/bin;
 cp ../${APP_NAME}-${VERSION}/influxd ${BIN_DIR}/${APP_NAME}-${VERSION}/bin/;
