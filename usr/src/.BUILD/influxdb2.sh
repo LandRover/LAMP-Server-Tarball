@@ -3,7 +3,7 @@
 # build data
 VERSION="2.1.1";
 DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
-APP_NAME="influxdb";
+APP_NAME="influxdb2";
 
 source ./helpers/build_pre/.pre-start.sh;
 
