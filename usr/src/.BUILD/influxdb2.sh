@@ -11,6 +11,8 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ## Create user for exim
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
+[ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd ${GROUP};
+
 
 [ -d "${BIN_DIR}/${APP_NAME}-${VERSION}/bin" ] && echo "[INFO] Detected previous install of ${APP_NAME}, Version: ${VERSION}. Removing..." && rm -rf ${BIN_DIR}/${APP_NAME}-${VERSION};
 mkdir -p ${BIN_DIR}/${APP_NAME}-${VERSION}/bin;
