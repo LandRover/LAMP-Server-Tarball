@@ -1,0 +1,11 @@
+http-bind-address: :8086
+http-idle-timeout: 3m0s
+http-read-header-timeout: 10s
+http-read-timeout: 0s
+http-write-timeout: 0s
+bolt-path: /home/influxdb2/db_data/influxd.bolt
+engine-path: /home/influxdb2/db_data/engine
+nats-port: 4222
+reporting-disabled: true
+log-level: info
+flux-log-enabled: false
