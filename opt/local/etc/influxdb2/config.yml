@@ -1,4 +1,4 @@
-http-bind-address: :8086
+http-bind-address: 127.0.0.1:8086
 http-idle-timeout: 3m0s
 http-read-header-timeout: 10s
 http-read-timeout: 0s
