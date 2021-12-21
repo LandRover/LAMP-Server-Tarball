@@ -1,1 +1,2 @@
-
+# DEFAULT CONFIG PATH
+INFLUXD_CONFIG_PATH=/opt/local/etc/influxdb2/config.yml
