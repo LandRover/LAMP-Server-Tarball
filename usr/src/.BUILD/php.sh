@@ -4,7 +4,7 @@
 DEPENDENCIES=(jpeg libpng libwebp libgd freetype libxml2 pcre openssl zlib mysql libzip curl);
 
 # build data
-VERSION="7.4.5";
+VERSION="7.4.30";
 DIST_URL="http://cz1.php.net/distributions/php-${VERSION}.tar.gz";
 APP_NAME="php";
 
