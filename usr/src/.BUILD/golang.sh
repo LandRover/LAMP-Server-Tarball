@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl libidn2 nghttp2 zlib);
 
 # build data
-VERSION="1.17.5";
+VERSION="1.18.3";
 DIST_URL="https://storage.googleapis.com/golang/go${VERSION}.linux-amd64.tar.gz";
 APP_NAME="go";
 
