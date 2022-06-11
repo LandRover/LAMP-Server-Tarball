@@ -4,7 +4,7 @@
 DEPENDENCIES=(libpng);
 
 # build data
-VERSION="2.11.0";
+VERSION="2.12.1";
 DIST_URL="http://download.savannah.gnu.org/releases/freetype/freetype-${VERSION}.tar.gz";
 APP_NAME="freetype";
 
