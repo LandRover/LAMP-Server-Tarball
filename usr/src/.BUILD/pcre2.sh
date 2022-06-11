@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="10.39";
+VERSION="10.40";
 DIST_URL="https://github.com/PhilipHazel/pcre2/archive/refs/tags/pcre2-${VERSION}.tar.gz";
 APP_NAME="pcre2";
 
