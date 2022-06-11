@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.2.11";
+VERSION="1.2.12";
 DIST_URL="https://zlib.net/zlib-${VERSION}.tar.gz";
 APP_NAME="zlib";
 
