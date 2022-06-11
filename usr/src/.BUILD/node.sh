@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="v16.13.0";
+VERSION="v16.15.1";
 DIST_URL="https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz";
 APP_NAME="node";
 
