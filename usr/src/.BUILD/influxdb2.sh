@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.1.1";
+VERSION="2.2.0";
 DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="influxdb2";
 USER="${APP_NAME}";
