@@ -40,6 +40,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-security-cert-validators=fake \
 --enable-storeid-rewrite-helpers=file \
 --enable-url-rewrite-helpers=fake \
+--enable-http-violations \
 --enable-eui \
 --enable-esi \
 --enable-icmp \
