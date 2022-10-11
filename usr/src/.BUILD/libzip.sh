@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="1.8.0";
+VERSION="1.9.2";
 DIST_URL="https://libzip.org/download/libzip-${VERSION}.tar.gz";
 APP_NAME="libzip";
 
