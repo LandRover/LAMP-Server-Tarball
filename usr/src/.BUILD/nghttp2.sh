@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.47.0";
+VERSION="1.50.0";
 DIST_URL="https://github.com/nghttp2/nghttp2/releases/download/v${VERSION}/nghttp2-${VERSION}.tar.gz";
 APP_NAME="nghttp2";
 
