@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(libtasn1 libunistring);
+DEPENDENCIES=(libtasn1);
 
 # build data
 VERSION="0.24.1";
@@ -14,7 +14,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
---with-included-unistring \
 --with-trust-paths=/etc/pki/anchors \
 || die 0 "[${APP_NAME}] Configure failed";
 
