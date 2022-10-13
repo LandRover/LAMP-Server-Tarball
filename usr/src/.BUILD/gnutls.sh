@@ -15,15 +15,17 @@ source ./helpers/build_pre/.pre-start.sh;
 CFLAGS="-I${BIN_DIR}/libunistring/include -I${BIN_DIR}/libidn2/include -I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/nettle/include" \
 LDFLAGS="-L${BIN_DIR}/libunistring/lib -L${BIN_DIR}/libidn2/lib -L${BIN_DIR}/libtasn1/lib -L${BIN_DIR}/nettle/lib64 -lnettle" \
 GMP_CFLAGS="-I${BIN_DIR}/gmp/include" \
-GMP_LIBS="-L${BIN_DIR}/gmp/lib" \
+GMP_LIBS="-L${BIN_DIR}/gmp/lib -lgmp" \
 NETTLE_CFLAGS="-I${BIN_DIR}/nettle/include" \
-NETTLE_LIBS="-L${BIN_DIR}/nettle/lib64" \
+NETTLE_LIBS="-L${BIN_DIR}/nettle/lib64 -lnettle" \
 HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
-HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64" \
---with-idn \
---enable-fips140-mode \
---with-included-libtasn1 \
+HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
+--disable-guile \
 --disable-non-suiteb-curves \
+--with-idn \
+--with-included-libtasn1 \
+--with-included-unistring \
+--enable-fips140-mode \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
