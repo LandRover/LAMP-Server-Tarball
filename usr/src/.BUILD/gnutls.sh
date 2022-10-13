@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle);
+DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle p11-kit);
 
 # build data
 VERSION="3.7.8";
