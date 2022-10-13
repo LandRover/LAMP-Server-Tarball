@@ -12,10 +12,14 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
-CFLAGS="-I${BIN_DIR}/libunistring/include -I${BIN_DIR}/libidn2/include -I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/nettle/include" \
-LDFLAGS="-L${BIN_DIR}/libunistring/lib -L${BIN_DIR}/libidn2/lib -L${BIN_DIR}/libtasn1/lib -L${BIN_DIR}/nettle/lib64 -lnettle" \
+CFLAGS="-I${BIN_DIR}/libunistring/include" \
+LDFLAGS="-L${BIN_DIR}/libunistring/lib" \
 GMP_CFLAGS="-I${BIN_DIR}/gmp/include" \
 GMP_LIBS="-L${BIN_DIR}/gmp/lib -lgmp" \
+LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
+LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
+LIBIDN2_CFLAGS="-I${BIN_DIR}/libidn2/include" \
+LIBIDN2_LIBS="-L${BIN_DIR}/libidn2/lib -lidn2" \
 NETTLE_CFLAGS="-I${BIN_DIR}/nettle/include" \
 NETTLE_LIBS="-L${BIN_DIR}/nettle/lib64 -lnettle" \
 HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
