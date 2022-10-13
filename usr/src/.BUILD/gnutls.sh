@@ -12,8 +12,6 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
-CFLAGS="-I${BIN_DIR}/libunistring/include" \
-LDFLAGS="-L${BIN_DIR}/libunistring/lib" \
 GMP_CFLAGS="-I${BIN_DIR}/gmp/include" \
 GMP_LIBS="-L${BIN_DIR}/gmp/lib -lgmp" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
@@ -29,7 +27,6 @@ P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
 --disable-guile \
 --disable-non-suiteb-curves \
 --with-idn \
---with-included-libtasn1 \
 --with-included-unistring \
 --enable-fips140-mode \
 || die 0 "[${APP_NAME}] Configure failed";
