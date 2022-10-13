@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(libtasn1);
+DEPENDENCIES=(libtasn1 libunistring);
 
 # build data
 VERSION="0.24.1";
