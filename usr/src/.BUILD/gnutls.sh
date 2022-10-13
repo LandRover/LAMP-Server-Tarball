@@ -21,7 +21,7 @@ NETTLE_LIBS="-L${BIN_DIR}/nettle/lib64 -lnettle" \
 HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
 HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
 P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
-P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include" \
+P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
 --disable-guile \
 --disable-non-suiteb-curves \
 --with-idn \
