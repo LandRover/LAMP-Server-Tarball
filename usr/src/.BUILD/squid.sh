@@ -28,8 +28,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-async-io=8 \
 --enable-storeio="ufs,aufs,diskd,rock" \
 --enable-removal-policies="lru,heap" \
---enable-icap-client \
 --enable-ecap \
+--enable-icap-client \
 --enable-linux-netfilter \
 --enable-auth-basic="DB,fake,NCSA" \
 --enable-auth-digest=file \
