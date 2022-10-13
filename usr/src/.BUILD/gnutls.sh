@@ -12,6 +12,8 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+CFLAGS="-I${BIN_DIR}/libtasn1/include" \
+LDFLAGS="-L${BIN_DIR}/libtasn1/lib" \
 GMP_CFLAGS="-I${BIN_DIR}/gmp/include" \
 GMP_LIBS="-L${BIN_DIR}/gmp/lib -lgmp" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
@@ -25,10 +27,7 @@ HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
 P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
 --disable-guile \
---disable-non-suiteb-curves \
---with-idn \
 --with-included-unistring \
---enable-fips140-mode \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
