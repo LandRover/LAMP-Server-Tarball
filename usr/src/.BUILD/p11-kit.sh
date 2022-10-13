@@ -11,9 +11,9 @@ APP_NAME="p11-kit";
 source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
+--prefix=${DESTINATION} \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
---prefix=${DESTINATION} \
 --with-included-unistring \
 --with-trust-paths=/etc/pki/anchors \
 || die 0 "[${APP_NAME}] Configure failed";
