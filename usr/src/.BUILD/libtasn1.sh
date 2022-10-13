@@ -7,6 +7,8 @@ APP_NAME="libtasn1";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+# apt-get install texinfo
+
 ./configure \
 --prefix=${DESTINATION} \
 --disable-static \
