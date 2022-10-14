@@ -17,6 +17,8 @@ source ./helpers/build_pre/.pre-start.sh;
 ./configure \
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
+CFLAGS="-I${BIN_DIR}/gnutls/include" \
+LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 --disable-maintainer-mode \
 --disable-dependency-tracking \
 --disable-silent-rules \
@@ -41,7 +43,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-url-rewrite-helpers=fake \
 --with-large-files \
 --with-filedescriptors=65536 \
---with-openssl=${BIN_DIR}/openssl \
+--with-gnutls=${BIN_DIR}/gnutls \
 --with-default-user=${USER} \
 --with-swapdir=/dev/null \
 --with-pidfile=/var/run/${APP_NAME}.pid \
