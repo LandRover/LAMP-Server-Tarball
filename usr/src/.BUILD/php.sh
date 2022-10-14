@@ -22,8 +22,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-fpm \
 --enable-pdo \
 --enable-phar \
---enable-inline-optimization \
---enable-json \
 --enable-mysqlnd \
 --enable-mbstring \
 --enable-opcache \
