@@ -6,7 +6,7 @@ USER="${PARAM1}";
 ## create and own logs
 [ ! -d "/var/log/${APP_NAME}" ] && mkdir /var/log/${APP_NAME} && chown ${USER}:${USER} /var/log/${APP_NAME};
 
-## create and own logs
+## create and own certs
 [ ! -d "/etc/${APP_NAME}/certs" ] && mkdir /etc/${APP_NAME}/certs && chown ${USER}:${USER} /etc/${APP_NAME}/certs
 
 openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout /etc/${APP_NAME}/certs/squid-ca-key.pem -out /etc/${APP_NAME}/certs/squid-ca-cert.pem
