@@ -12,8 +12,8 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
-CFLAGS="-I${BIN_DIR}/libtasn1/include" \
-LDFLAGS="-L${BIN_DIR}/libtasn1/lib" \
+CFLAGS="-I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/libunistring/include" \
+LDFLAGS="-L${BIN_DIR}/libtasn1/lib -ltasn1 -L${BIN_DIR}/libunistring/lib -lunistring" \
 GMP_CFLAGS="-I${BIN_DIR}/gmp/include" \
 GMP_LIBS="-L${BIN_DIR}/gmp/lib -lgmp" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
@@ -27,7 +27,6 @@ HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
 P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
 --disable-guile \
---with-included-unistring \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
