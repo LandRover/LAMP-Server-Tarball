@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl libecap);
+DEPENDENCIES=(gnutls libecap);
 
 # build data
 VERSION="6.0.0-20220905-r9358e99f9";
@@ -52,7 +52,8 @@ LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 
 # --with-swapdir=/dev/null \
 # --with-swapdir=/var/spool/squid \
-# --with-gnutls
+# --with-openssl=${BIN_DIR}/openssl \
+# --with-gnutls=${BIN_DIR}/gnutls \
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
 echo "Trying to make ${APP_NAME}...";
