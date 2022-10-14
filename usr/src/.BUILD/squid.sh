@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(gnutls libecap);
+DEPENDENCIES=(openssl gnutls libecap);
 
 # build data
 VERSION="6.0.0-20220905-r9358e99f9";
@@ -30,6 +30,8 @@ LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 --enable-async-io=8 \
 --enable-storeio="ufs,aufs,diskd,rock" \
 --enable-removal-policies="lru,heap" \
+--enable-ssl \
+--enable-ssl-crtd \
 --enable-ecap \
 --enable-icap-client \
 --enable-linux-netfilter \
@@ -43,6 +45,7 @@ LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 --enable-url-rewrite-helpers=fake \
 --with-large-files \
 --with-filedescriptors=65536 \
+--with-openssl=${BIN_DIR}/openssl \
 --with-gnutls=${BIN_DIR}/gnutls \
 --with-default-user=${USER} \
 --with-swapdir=/dev/null \
@@ -52,8 +55,6 @@ LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 
 # --with-swapdir=/dev/null \
 # --with-swapdir=/var/spool/squid \
-# --with-openssl=${BIN_DIR}/openssl \
-# --with-gnutls=${BIN_DIR}/gnutls \
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
 echo "Trying to make ${APP_NAME}...";
