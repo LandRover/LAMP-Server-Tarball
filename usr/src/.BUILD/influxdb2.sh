@@ -2,7 +2,7 @@
 
 # build data
 VERSION="2.4.0";
-DIST_URL="https://github.com/influxdata/influxdb/archive/refs/tags/v${VERSION}.tar.gz";
+DIST_URL="https://dl.influxdata.com/influxdb/releases/influxdb2-${VERSION}-linux-amd64.tar.gz";
 APP_NAME="influxdb2";
 USER="${APP_NAME}";
 GROUP="${APP_NAME}";
@@ -10,7 +10,7 @@ DATA_DIR="/home/${USER}/db_data";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-## Create user for exim
+## Create user for influx
 [ -z "$(getent group ${GROUP})" ] && echo "[info] Group not found, creating.." && groupadd -r ${GROUP} --gid=1000;
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -r -g ${GROUP} --uid=1000 -M -s /bin/false -d /home/${USER} ${USER};
 
