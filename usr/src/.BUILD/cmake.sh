@@ -12,8 +12,8 @@ source ./helpers/build_pre/.pre-start.sh;
 
 export OPENSSL_ROOT_DIR="${BIN_DIR}/openssl";
 export OPENSSL_INCLUDE_DIR="${BIN_DIR}/openssl/include";
-export OPENSSL_LIBRARIES="${BIN_DIR}/openssl/lib";
-export OPENSSL_CRYPTO_LIBRARY="${BIN_DIR}/openssl/lib/libcrypto.so";
+export OPENSSL_LIBRARIES="${BIN_DIR}/openssl/lib64";
+export OPENSSL_CRYPTO_LIBRARY="${BIN_DIR}/openssl/lib64/libcrypto.so";
 
 ./bootstrap \
   --verbose \
