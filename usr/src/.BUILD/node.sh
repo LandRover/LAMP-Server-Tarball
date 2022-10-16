@@ -7,6 +7,8 @@ APP_NAME="node";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/local/sbin/openssl/lib64/
+
 ./configure \
 --prefix=${DESTINATION} \
 --shared-openssl \
