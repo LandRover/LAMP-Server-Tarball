@@ -14,4 +14,9 @@ cp ./${APP_NAME}-${VERSION} ${BIN_DIR}/${APP_NAME}-${VERSION}/bin/;
 
 echo "Done ${APP_NAME}.";
 
+# Example usage:
+# REGISTER - /opt/local/sbin/lego/bin/lego --accept-tos --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http run;
+# RENEW    - /opt/local/sbin/lego/bin/lego --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http renew --days 90;
+# REVOKE   - /opt/local/sbin/lego/bin/lego --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http revoke;
+
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};
