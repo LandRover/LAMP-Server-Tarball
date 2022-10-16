@@ -7,6 +7,10 @@ APP_NAME="milter-manager";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+./autogen.sh \
+--prefix=${DESTINATION} \
+|| die 0 "[${APP_NAME}] autogen failed";
+
 ./configure \
 --prefix=${DESTINATION} \
 || die 0 "[${APP_NAME}] Configure failed";
