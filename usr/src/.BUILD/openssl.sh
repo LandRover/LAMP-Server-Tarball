@@ -33,9 +33,12 @@ echo "Trying to make depend ${APP_NAME}...";
 make depend || die 0 "[${APP_NAME}] Make depend failed";
 
 echo "Trying to make ${APP_NAME}...";
-make || die 0 "[${APP_NAME}] Make failed";
 
+make -j8 || die 0 "[${APP_NAME}] Make failed";
 make install || die 0 "[${APP_NAME}] Make install failed";
+make install_ssldirs || die 0 "[${APP_NAME}] Make install ssldirs failed";
+make install_fips || die 0 "[${APP_NAME}] Make install fips failed";
+
 echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};
