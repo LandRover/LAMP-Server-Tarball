@@ -8,6 +8,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Install apc web-view to htdocs part of apcu build script.
   - Script configuring automysqlbackup & cron
   - Script configuring Google Drive up-on change
+  - php.ini - harden disable_functions
   - add postgresql scripts
   - make scripts for mariaDB
   - add extenstion type detection, currently only .tar.gz supported
@@ -20,10 +21,3 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
     - custom route for each php-fpm user
   - Reinstall VM and test all scripts.
   - add  curl --remote-name --time-cond cacert.pem https://curl.haxx.se/ca/cacert.pem to /opt/local/etc/openssl/certs during postinstall for openssl
-
-
-## @issues
-  - freetype v2.8.0 compiles but something is wrong with it
-  - libgd - add support for WEBP + TIFF
-  - libgd not compiling well due to freetype 2.8.0
-  - php.ini - harden disable_functions
