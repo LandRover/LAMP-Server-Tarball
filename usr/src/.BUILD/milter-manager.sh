@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y ruby-gnome-dev
+apt-get -y install ruby-gnome-dev
 
 # build data
 VERSION="2.1.5";
