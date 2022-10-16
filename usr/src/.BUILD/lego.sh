@@ -18,5 +18,8 @@ echo "Done ${APP_NAME}.";
 # REGISTER - /opt/local/sbin/lego/bin/lego --accept-tos --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http run;
 # RENEW    - /opt/local/sbin/lego/bin/lego --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http renew --days 90;
 # REVOKE   - /opt/local/sbin/lego/bin/lego --email="letsencrypt@domain.com" --domains="domain.com" --domains="www.domain.com" --http.webroot /home/domain/public_html --http revoke;
+#
+# crontab renew every month:
+# 10 10 10 * * /home/domain/ssl/RENEW.sh > /dev/null 2>&1
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};
