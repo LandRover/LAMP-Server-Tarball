@@ -29,6 +29,7 @@ SUPPORT_MAILDIR=yes
 SUPPORT_MAILSTORE=yes
 SUPPORT_TLS=yes
 SUPPORT_SPF=yes
+SUPPORT_SRS=yes
 SUPPORT_DMARC=yes
 DMARC_TLD_FILE=/usr/share/publicsuffix/effective_tld_names.dat
 
@@ -83,5 +84,3 @@ TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 #USE_GNUTLS_PC=gnutls
 #TLS_LIBS=-L/opt/local/sbin/gnu/lib -lgnutls -ltasn1 -lgcrypt
 #TLS_INCLUDE=-I/opt/local/sbin/gnu/include
-
-SUPPORT_SRS=yes
