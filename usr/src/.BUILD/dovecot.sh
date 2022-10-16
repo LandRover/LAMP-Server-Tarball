@@ -17,7 +17,7 @@ source ./helpers/build_pre/.pre-start.sh;
 ## SSL cert: https://support.plesk.com/hc/en-us/articles/115001833974-How-to-generate-custom-self-signed-SSL-certificates-and-apply-it-to-Dovecot-on-Plesk-for-Linux | https://wiki.dovecot.org/SSL/DovecotConfiguration
 
 export CFLAGS="-I${BIN_DIR}/openssl/include -I${BIN_DIR}/zlib/include";
-export LDFLAGS="-L${BIN_DIR}/openssl/lib -L${BIN_DIR}/zlib/lib";
+export LDFLAGS="-L${BIN_DIR}/openssl/lib64 -L${BIN_DIR}/zlib/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
