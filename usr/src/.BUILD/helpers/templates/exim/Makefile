@@ -84,4 +84,4 @@ TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 #TLS_LIBS=-L/opt/local/sbin/gnu/lib -lgnutls -ltasn1 -lgcrypt
 #TLS_INCLUDE=-I/opt/local/sbin/gnu/include
 
-EXPERIMENTAL_SRS=yes
+SUPPORT_SRS=yes
