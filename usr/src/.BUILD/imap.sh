@@ -10,9 +10,9 @@ APP_NAME="imap";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-#SSLTYPE=nopwd SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
+#SSLTYPE=nopwd SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib64 SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
 #make slx SSLTYPE=unix.nopwd EXTRACFLAGS=-fPIC;
-make slx SSLTYPE=unix.nopwd EXTRACFLAGS=-fPIC SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
+make slx SSLTYPE=unix.nopwd EXTRACFLAGS=-fPIC SPECIALS="SSLINCLUDE=${BIN_DIR}/openssl/include SSLLIB=${BIN_DIR}/openssl/lib64 SSLCERTS=${ETC_DIR}/openssl/certs SSLKEY=${ETC_DIR}/openssl/private";
 mkdir lib;
 mkdir include;
 
