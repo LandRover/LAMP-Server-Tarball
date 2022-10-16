@@ -16,6 +16,7 @@ git \
 screen \
 htop \
 rcconf \
+gtk-doc-tools \
 python-dev \
 build-essential \
 pkg-config \
