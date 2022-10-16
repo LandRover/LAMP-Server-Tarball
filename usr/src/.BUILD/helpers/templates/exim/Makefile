@@ -68,10 +68,10 @@ COMPRESS_SUFFIX=gz
 
 DBMLIB=-L/opt/local/sbin/gdbm/lib -lgdbm
 
-PCRE_CONFIG=/opt/local/sbin/pcre/bin/pcre-config
-PCRE_LIBS=-lpcre -L/opt/local/sbin/pcre/lib
+PCRE_CONFIG=/opt/local/sbin/pcre2/bin/pcre2-config
+PCRE_LIBS=-lpcre2-8 -L/opt/local/sbin/pcre2/lib
 
-CFLAGS += -DSPF -I/opt/local/sbin/libspf2/include -I/opt/local/sbin/libsrs_alt/include -I/opt/local/sbin/pcre/include -I/opt/local/sbin/gdbm/include
+CFLAGS += -DSPF -I/opt/local/sbin/libspf2/include -I/opt/local/sbin/libsrs_alt/include -I/opt/local/sbin/pcre2/include -I/opt/local/sbin/gdbm/include
 LDFLAGS += -L/opt/local/sbin/libspf2/lib -L/opt/local/sbin/libsrs_alt/lib -lspf2 -lopendmarc -lsrs_alt -fstack-protector-strong
 
 USE_OPENSSL=yes
