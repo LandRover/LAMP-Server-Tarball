@@ -77,7 +77,7 @@ LDFLAGS += -L/opt/local/sbin/opendmarc/lib -L/opt/local/sbin/libspf2/lib -L/opt/
 
 USE_OPENSSL=yes
 USE_OPENSSL_PC=openssl
-TLS_LIBS=-L/opt/local/sbin/openssl/lib -lssl -lcrypto
+TLS_LIBS=-L/opt/local/sbin/openssl/lib64 -lssl -lcrypto
 TLS_INCLUDE=-I/opt/local/sbin/openssl/include
 
 #USE_GNUTLS=no
