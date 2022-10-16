@@ -10,7 +10,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - Script configuring Google Drive up-on change
   - add postgresql scripts
   - make scripts for mariaDB
-  - add letsencrypt
+  - add extenstion type detection, currently only .tar.gz supported
   - add vsftpd with default configs - from src
   - add composer install script
       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
