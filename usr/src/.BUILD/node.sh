@@ -7,12 +7,12 @@ APP_NAME="node";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export LIBRARY_PATH=$LIBRARY_PATH:/opt/local/sbin/openssl/lib64/
+export LIBRARY_PATH=$LIBRARY_PATH:${BIN_DIR}/openssl/lib64
 
 ./configure \
 --prefix=${DESTINATION} \
 --shared-openssl \
---shared-openssl-libpath=${BIN_DIR}/openssl/lib \
+--shared-openssl-libpath=${BIN_DIR}/openssl/lib64 \
 --shared-openssl-includes=${BIN_DIR}/openssl/include \
 --shared-openssl-libname=crypto,ssl \
 --openssl-is-fips \
