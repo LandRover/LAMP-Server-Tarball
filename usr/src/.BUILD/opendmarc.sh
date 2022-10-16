@@ -10,8 +10,15 @@ APP_NAME="opendmarc";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-COMPILE_FROM_SOURCE=false;
+./configure \
+--prefix=${DESTINATION} \
+|| die 0 "[${APP_NAME}] Configure failed";
 
-[ "$COMPILE_FROM_SOURCE" != true ] && apt-get -y install libopendmarc-dev;
+echo "Done. Making ${APP_NAME}-${VERSION}...";
+echo "Trying to make ${APP_NAME}...";
+make || die 0 "[${APP_NAME}] Make failed";
+
+make install || die 0 "[${APP_NAME}] Make install failed";
+echo "Done ${APP_NAME}.";
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION};
