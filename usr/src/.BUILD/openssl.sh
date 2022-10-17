@@ -35,7 +35,7 @@ make depend || die 0 "[${APP_NAME}] Make depend failed";
 echo "Trying to make ${APP_NAME}...";
 
 make -j8 || die 0 "[${APP_NAME}] Make failed";
-make install || die 0 "[${APP_NAME}] Make install failed";
+make install_sw || die 0 "[${APP_NAME}] Make install sw failed";
 make install_ssldirs || die 0 "[${APP_NAME}] Make install ssldirs failed";
 make install_fips || die 0 "[${APP_NAME}] Make install fips failed";
 
