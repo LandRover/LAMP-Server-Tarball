@@ -2,7 +2,7 @@
 
 # build data
 VERSION="6.2.1";
-DIST_URL="https://gmplib.org/download/gmp/gmp-${VERSION}.tar.gz";
+DIST_URL="https://gmplib.org/download/gmp/gmp-${VERSION}.tar.xz";
 APP_NAME="gmp";
 
 source ./helpers/build_pre/.pre-start.sh;
