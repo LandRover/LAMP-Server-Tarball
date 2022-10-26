@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl gnutls libecap);
+DEPENDENCIES=(openssl gnutls libecap libxml2);
 
 # build data
 VERSION="6.0.0-20220905-r9358e99f9";
@@ -19,6 +19,10 @@ source ./helpers/build_pre/.pre-start.sh;
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 CFLAGS="-I${BIN_DIR}/gnutls/include" \
 LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
+EXT_LIBECAP_CFLAGS="-I${BIN_DIR}/libecap/include" \
+EXT_LIBECAP_LIBS="-L${BIN_DIR}/libecap/lib -lecap" \
+LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include" \
+LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2" \
 --disable-maintainer-mode \
 --disable-dependency-tracking \
 --disable-silent-rules \
