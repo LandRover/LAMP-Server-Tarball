@@ -21,7 +21,7 @@ CFLAGS="-I${BIN_DIR}/gnutls/include" \
 LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 EXT_LIBECAP_CFLAGS="-I${BIN_DIR}/libecap/include" \
 EXT_LIBECAP_LIBS="-L${BIN_DIR}/libecap/lib -lecap" \
-LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include" \
+LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
 LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2" \
 --disable-maintainer-mode \
 --disable-dependency-tracking \
