@@ -59,3 +59,6 @@ fi
 
 ## restart service
 ${ETC_DIR}/init.d/${APP_NAME} restart
+
+# auto start
+update-rc.d ${APP_NAME} defaults
