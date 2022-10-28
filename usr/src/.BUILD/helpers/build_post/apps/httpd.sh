@@ -22,3 +22,6 @@ chown ${USER}:${USER} /var/log/${APP_NAME};
 
 ## general init.d settings
 ../../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
+
+# auto start
+update-rc.d ${APP_NAME} defaults
