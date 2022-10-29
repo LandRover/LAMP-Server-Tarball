@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.3.3";
+VERSION="2.3.4";
 DIST_URL="https://ftp.gnu.org/gnu/libidn/libidn2-${VERSION}.tar.gz";
 APP_NAME="libidn2";
 
