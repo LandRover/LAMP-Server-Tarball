@@ -9,3 +9,6 @@ perl -pi -e "s|\/usr\/local\/bin|${BIN_DIR}\/${APP_NAME}\/bin|g" ${BIN_DIR}/${AP
 
 # add to global python3 require path
 ln -s ${BIN_DIR}/${APP_NAME}/lib/python/${APP_NAME} /usr/lib/python3/dist-packages/${APP_NAME};
+
+# auto start
+update-rc.d ${APP_NAME} defaults
