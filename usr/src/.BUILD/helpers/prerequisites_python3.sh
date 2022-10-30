@@ -9,5 +9,5 @@ build-essential;
 pip3 install --upgrade virtualenv;
 
 update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1;
-update-alternatives --install /usr/bin/python python /usr/bin/python3.11 2;
+update-alternatives --install /usr/bin/python python /opt/local/sbin/python/bin/python3.11 2;
 update-alternatives --config python;
