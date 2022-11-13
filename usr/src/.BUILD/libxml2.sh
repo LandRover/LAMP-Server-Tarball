@@ -4,8 +4,8 @@
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="2.9.12";
-DIST_URL="http://xmlsoft.org/sources/libxml2-${VERSION}.tar.gz";
+VERSION="2.10.3";
+DIST_URL="https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-${VERSION}.tar.xz";
 APP_NAME="libxml2";
 
 source ./helpers/build_pre/.pre-start.sh;
