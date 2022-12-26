@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="0.105.1";
-DIST_URL="https://www.clamav.net/downloads/production/clamav-${VERSION}.tar.gz";
+VERSION="1.0.0";
+DIST_URL="https://github.com/Cisco-Talos/clamav/releases/download/clamav-${VERSION}/clamav-${VERSION}.tar.gz";
 APP_NAME="clamav";
 USER="${APP_NAME}";
 
