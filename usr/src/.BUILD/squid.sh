@@ -48,7 +48,6 @@ LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2" \
 --enable-storeid-rewrite-helpers=file \
 --enable-url-rewrite-helpers=fake \
 --with-large-files \
---with-filedescriptors=65536 \
 --with-openssl=${BIN_DIR}/openssl \
 --with-gnutls=${BIN_DIR}/gnutls \
 --with-default-user=${USER} \
