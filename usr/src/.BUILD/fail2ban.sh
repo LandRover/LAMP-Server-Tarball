@@ -4,7 +4,7 @@
 apt-get -y install python3-setuptools 2to3;
 
 # build data
-VERSION="1.0.1";
+VERSION="1.0.2";
 DIST_URL="https://github.com/fail2ban/fail2ban/archive/${VERSION}.tar.gz";
 APP_NAME="fail2ban";
 USER="${APP_NAME}";
