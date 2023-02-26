@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl libidn2 nghttp2 zlib);
 
 # build data
-VERSION="7.87.0";
+VERSION="7.88.1";
 DIST_URL="https://curl.haxx.se/download/curl-${VERSION}.tar.gz";
 APP_NAME="curl";
 
