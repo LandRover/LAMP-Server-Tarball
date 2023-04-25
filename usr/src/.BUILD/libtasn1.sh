@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="4.18.0";
+VERSION="4.19.0";
 DIST_URL="https://ftp.gnu.org/gnu/libtasn1/libtasn1-${VERSION}.tar.gz";
 APP_NAME="libtasn1";
 
