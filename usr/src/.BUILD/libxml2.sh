@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="2.10.3";
+VERSION="2.10.4";
 DIST_URL="https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-${VERSION}.tar.xz";
 APP_NAME="libxml2";
 
