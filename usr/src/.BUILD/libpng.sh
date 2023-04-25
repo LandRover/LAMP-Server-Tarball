@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="1.6.38";
+VERSION="1.6.39";
 DIST_URL="https://netix.dl.sourceforge.net/project/libpng/libpng16/${VERSION}/libpng-${VERSION}.tar.gz";
 APP_NAME="libpng";
 
