@@ -10,7 +10,7 @@ libboost-thread-dev;
 DEPENDENCIES=(scons);
 
 # build data
-VERSION="r6.0.2";
+VERSION="r6.0.5";
 DIST_URL="https://fastdl.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
 APP_NAME="mongodb";
 
