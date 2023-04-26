@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="4.4.0";
+VERSION="4.5.2";
 DIST_URL="https://iweb.dl.sourceforge.net/project/scons/scons/${VERSION}/SCons-${VERSION}.tar.gz";
 APP_NAME="SCons";
 
