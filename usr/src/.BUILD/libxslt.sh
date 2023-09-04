@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(libxml2 libgcrypt);
 
 # build data
-VERSION="1.1.37";
+VERSION="1.1.38";
 DIST_URL="https://ftp.osuosl.org/pub/blfs/conglomeration/libxslt/libxslt-${VERSION}.tar.xz";
 APP_NAME="libxslt";
 
