@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl);
 
 # build data
-VERSION="3.26.3";
+VERSION="3.27.4";
 DIST_URL="https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}.tar.gz";
 APP_NAME="cmake";
 
