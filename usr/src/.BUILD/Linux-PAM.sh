@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl zlib);
 
 # build data
-VERSION="1.5.2";
+VERSION="1.5.3";
 DIST_URL="https://github.com/linux-pam/linux-pam/releases/download/v${VERSION}/Linux-PAM-${VERSION}.tar.xz";
 APP_NAME="Linux-PAM";
 
