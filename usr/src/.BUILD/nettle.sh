@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl gmp);
 
 # build data
-VERSION="3.8.1";
+VERSION="3.9";
 DIST_URL="https://ftp.gnu.org/gnu/nettle/nettle-${VERSION}.tar.gz";
 APP_NAME="nettle";
 
