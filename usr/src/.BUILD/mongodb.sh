@@ -6,11 +6,11 @@ libboost-program-options-dev \
 libboost-system-dev \
 libboost-thread-dev;
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(scons);
 
 # build data
-VERSION="r6.0.5";
+VERSION="r7.0.0";
 DIST_URL="https://fastdl.mongodb.org/src/mongodb-src-${VERSION}.tar.gz";
 APP_NAME="mongodb";
 
