@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl libidn2 nghttp2 zlib);
 
 # build data
-VERSION="8.1.0";
+VERSION="8.2.1";
 DIST_URL="https://curl.haxx.se/download/curl-${VERSION}.tar.gz";
 APP_NAME="curl";
 
