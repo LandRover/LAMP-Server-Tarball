@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle p11-kit);
 
 # build data
-VERSION="3.7.8";
+VERSION="3.7.10";
 DIST_URL="https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-${VERSION}.tar.xz";
 APP_NAME="gnutls";
 
