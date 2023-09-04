@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="1.9.2";
+VERSION="1.10.1";
 DIST_URL="https://libzip.org/download/libzip-${VERSION}.tar.gz";
 APP_NAME="libzip";
 
