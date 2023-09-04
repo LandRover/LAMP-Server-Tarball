@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(python);
 
 # build data
-VERSION="2023.03-1";
+VERSION="2023.07-2";
 DIST_URL="https://repo.anaconda.com/archive/Anaconda3-${VERSION}-Linux-x86_64.sh";
 APP_NAME="Anaconda3";
 
