@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="1.6.39";
-DIST_URL="https://netix.dl.sourceforge.net/project/libpng/libpng16/${VERSION}/libpng-${VERSION}.tar.gz";
+VERSION="1.6.40";
+DIST_URL="https://github.com/glennrp/libpng/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="libpng";
 
 source ./helpers/build_pre/.pre-start.sh;
