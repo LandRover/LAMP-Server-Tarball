@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(libgpg-error);
 
 # build data
-VERSION="1.10.1";
+VERSION="1.10.2";
 DIST_URL="https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-${VERSION}.tar.gz";
 APP_NAME="libgcrypt";
 
