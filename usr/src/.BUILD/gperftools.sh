@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.10";
+VERSION="2.12";
 DIST_URL="https://github.com/gperftools/gperftools/releases/download/gperftools-${VERSION}/gperftools-${VERSION}.tar.gz";
 APP_NAME="gperftools";
 
