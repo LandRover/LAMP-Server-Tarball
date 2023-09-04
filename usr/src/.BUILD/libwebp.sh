@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(libpng jpeg);
 
 # build data
-VERSION="1.3.0";
-DIST_URL="http://downloads.webmproject.org/releases/webp/libwebp-${VERSION}.tar.gz";
+VERSION="1.3.1";
+DIST_URL="https://github.com/webmproject/libwebp/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="libwebp";
 
 source ./helpers/build_pre/.pre-start.sh;
