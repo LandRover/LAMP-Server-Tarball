@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl pcre libxml2 libxslt libgd GeoIP gperftools);
 
 # build data
-VERSION="1.24.0";
+VERSION="1.25.2";
 DIST_URL="https://nginx.org/download/nginx-${VERSION}.tar.gz";
 APP_NAME="nginx";
 USER="${APP_NAME}";
