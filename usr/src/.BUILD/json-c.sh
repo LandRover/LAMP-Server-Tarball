@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="0.16-20220414";
+VERSION="0.17-20230812";
 DIST_URL="https://github.com/json-c/json-c/archive/refs/tags/json-c-${VERSION}.tar.gz";
 APP_NAME="json-c";
 
