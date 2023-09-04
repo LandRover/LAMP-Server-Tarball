@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="4.10.2";
+VERSION="4.14.0";
 DIST_URL="https://github.com/go-acme/lego/releases/download/v${VERSION}/lego_v${VERSION}_linux_amd64.tar.gz";
 APP_NAME="lego";
 
