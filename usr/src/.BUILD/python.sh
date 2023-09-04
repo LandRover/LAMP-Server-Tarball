@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl);
 
 # build data
-VERSION="3.12.0";
+VERSION="3.11.5";
 DIST_URL="https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz";
 APP_NAME="python";
 
