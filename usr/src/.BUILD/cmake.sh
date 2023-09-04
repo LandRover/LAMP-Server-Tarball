@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl);
 
 # build data
