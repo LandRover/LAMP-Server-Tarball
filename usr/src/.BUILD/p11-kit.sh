@@ -4,7 +4,7 @@
 DEPENDENCIES=(libtasn1);
 
 # build data
-VERSION="0.24.1";
+VERSION="0.25.0";
 DIST_URL="https://github.com/p11-glue/p11-kit/releases/download/${VERSION}/p11-kit-${VERSION}.tar.xz";
 APP_NAME="p11-kit";
 
