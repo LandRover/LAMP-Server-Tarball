@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Dependencies which must exist prior to current build. If not found, will try to install
+# Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl curl);
 
 apt-get -y install patchelf;
 
 # build data
-VERSION="8.0.33";
+VERSION="8.1.0";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
