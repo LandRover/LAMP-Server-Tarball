@@ -4,7 +4,7 @@
 DEPENDENCIES=(libxml2 libgcrypt);
 
 # build data
-VERSION="1.1.38";
+VERSION="1.1.41";
 DIST_URL="https://ftp.osuosl.org/pub/blfs/conglomeration/libxslt/libxslt-${VERSION}.tar.xz";
 APP_NAME="libxslt";
 
