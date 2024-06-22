@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.1";
+VERSION="1.2";
 DIST_URL="https://ftp.gnu.org/gnu/libunistring/libunistring-${VERSION}.tar.gz";
 APP_NAME="libunistring";
 
