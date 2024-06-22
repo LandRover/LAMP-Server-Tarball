@@ -4,7 +4,7 @@
 DEPENDENCIES=(apr);
 
 # build data
-VERSION="1.6.3";
+VERSION="1.7.4";
 DIST_URL="https://dlcdn.apache.org/apr/apr-util-${VERSION}.tar.gz";
 APP_NAME="apr-util";
 
