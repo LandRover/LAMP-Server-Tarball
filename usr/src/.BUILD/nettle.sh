@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl gmp);
 
 # build data
-VERSION="3.9";
+VERSION="3.10";
 DIST_URL="https://ftp.gnu.org/gnu/nettle/nettle-${VERSION}.tar.gz";
 APP_NAME="nettle";
 
