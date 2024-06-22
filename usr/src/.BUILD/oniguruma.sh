@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="6.9.8";
+VERSION="6.9.9";
 DIST_URL="https://github.com/kkos/oniguruma/releases/download/v${VERSION}/onig-${VERSION}.tar.gz";
 APP_NAME="oniguruma";
 
