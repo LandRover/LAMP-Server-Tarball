@@ -4,7 +4,7 @@
 DEPENDENCIES=(libpng jpeg);
 
 # build data
-VERSION="1.3.1";
+VERSION="1.4.0";
 DIST_URL="https://github.com/webmproject/libwebp/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="libwebp";
 
