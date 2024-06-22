@@ -4,7 +4,7 @@
 DEPENDENCIES=(python);
 
 # build data
-VERSION="2023.07-2";
+VERSION="2024.02-1";
 DIST_URL="https://repo.anaconda.com/archive/Anaconda3-${VERSION}-Linux-x86_64.sh";
 APP_NAME="Anaconda3";
 
