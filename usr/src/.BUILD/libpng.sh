@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib);
 
 # build data
-VERSION="1.6.40";
+VERSION="1.6.43";
 DIST_URL="https://github.com/glennrp/libpng/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="libpng";
 
