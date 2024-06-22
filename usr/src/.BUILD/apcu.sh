@@ -5,7 +5,7 @@ apt-get -y install libpcre3-dev;
 # Dependencies which must exist prior to current build. If not found, will try to install
 DEPENDENCIES=(php);
 
-VERSION="5.1.22";
+VERSION="5.1.23";
 DIST_URL="https://pecl.php.net/get/apcu-${VERSION}.tgz";
 APP_NAME="apcu";
 
