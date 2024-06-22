@@ -6,7 +6,7 @@ DEPENDENCIES=(openssl curl);
 apt-get -y install patchelf;
 
 # build data
-VERSION="8.1.0";
+VERSION="8.4.0";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
