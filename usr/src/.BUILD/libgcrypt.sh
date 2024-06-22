@@ -4,7 +4,7 @@
 DEPENDENCIES=(libgpg-error);
 
 # build data
-VERSION="1.10.2";
+VERSION="1.11.0";
 DIST_URL="https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-${VERSION}.tar.gz";
 APP_NAME="libgcrypt";
 
