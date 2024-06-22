@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl gnutls libecap libxml2);
 
 # build data
-VERSION="6.3";
+VERSION="6.10";
 DIST_URL="http://www.squid-cache.org/Versions/v6/squid-${VERSION}.tar.gz";
 APP_NAME="squid";
 USER="${APP_NAME}";
