@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl zlib);
 
 # build data
-VERSION="1.5.3";
+VERSION="1.6.1";
 DIST_URL="https://github.com/linux-pam/linux-pam/releases/download/v${VERSION}/Linux-PAM-${VERSION}.tar.xz";
 APP_NAME="Linux-PAM";
 
