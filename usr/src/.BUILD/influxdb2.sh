@@ -2,7 +2,7 @@
 
 # build data
 VERSION="2.7.6";
-DIST_URL="https://dl.influxdata.com/influxdb/releases/influxdb2-${VERSION}-linux-amd64.tar.gz";
+DIST_URL="https://dl.influxdata.com/influxdb/releases/influxdb2-${VERSION}_linux_amd64.tar.gz";
 APP_NAME="influxdb2";
 USER="${APP_NAME}";
 GROUP="${APP_NAME}";
