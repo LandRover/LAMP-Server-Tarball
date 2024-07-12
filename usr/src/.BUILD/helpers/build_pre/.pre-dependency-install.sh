@@ -12,8 +12,6 @@ for DEP in "${DEPENDENCIES[@]}"; do
   if [ ! -e "${BIN_DIR}/${DEP}" ]; then
     echo "Error: Dependency '${DEP}' not found in ${BIN_DIR}.";
     any_dependencies_found=true;
-  else
-    echo "${DEP} found in ${BIN_DIR}.";
   fi
 done
 
