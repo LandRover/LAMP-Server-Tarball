@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl);
 
 # build data
-VERSION="v20.15.0";
+VERSION="v20.15.1";
 DIST_URL="https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz";
 APP_NAME="node";
 
