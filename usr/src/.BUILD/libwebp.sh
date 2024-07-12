@@ -10,6 +10,8 @@ APP_NAME="libwebp";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+./autogen.sh;
+
 ./configure \
 --prefix=${DESTINATION} \
 --enable-libwebpmux \
