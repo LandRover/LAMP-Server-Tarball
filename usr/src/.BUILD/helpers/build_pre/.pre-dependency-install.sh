@@ -5,19 +5,19 @@
 # Unpacks source packages at /usr/src
 # file is loaded via SOURCE and must NOT BE executed directly.
 
-any_dependencies_found=true
+any_dependencies_found=false;
 
 # Check each dependency
 for DEP in "${DEPENDENCIES[@]}"; do
-  if [ ! -f "${BIN_DIR}/${DEP}" ]; then
-    echo "Error: Dependency '${DEP}' not found in ${BIN_DIR}."
-    any_dependencies_found=false
+  if [ ! -e "${BIN_DIR}/${DEP}" ]; then
+    echo "Error: Dependency '${DEP}' not found in ${BIN_DIR}.";
+    any_dependencies_found=true;
   else
-    echo "$DEP found in $BIN_DIR."
+    echo "${DEP} found in ${BIN_DIR}.";
   fi
 done
 
 # Exit with status 1 if any dependency is missing
-if [ "${any_dependencies_found}" = false ]; then
+if [ "${any_dependencies_found}" = true ]; then
   exit 1
 fi
