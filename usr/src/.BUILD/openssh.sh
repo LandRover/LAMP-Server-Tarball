@@ -10,18 +10,23 @@ APP_NAME="openssh";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CFLAGS="-I${BIN_DIR}/zlib/include";
-#export CFLAGS="-I${BIN_DIR}/openssl/include";
-#export LDFLAGS="-L${BIN_DIR}/openssl/lib64";
-
 ./configure \
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
---with-cflags="-I${BIN_DIR}/Linux-PAM/include" \
---with-ldflags="-L${BIN_DIR}/Linux-PAM/lib" \
+--with-cflags="-I${BIN_DIR}/Linux-PAM/include -I${BIN_DIR}/libedit/include -I${BIN_DIR}/zlib/include" \
+--with-ldflags="-L${BIN_DIR}/Linux-PAM/lib -L${BIN_DIR}/libedit/lib" \
+--with-4in6 \
+--with-systemd \
 --with-pam \
+--with-md5-passwords \
+--with-tcp-wrappers \
+--with-selinux \
+--with-privsep-path=/run/sshd \
 --with-pid-dir=/var/run/ \
+--with-pid-dir=/run \
 --with-lastlog=/var/log/ \
+--with-xauth=/usr/bin/xauth \
+--with-libedit \
 --with-ssl-dir=${BIN_DIR}/openssl \
 --with-zlib=${BIN_DIR}/zlib/lib \
 || die 0 "[${APP_NAME}] Configure failed";
