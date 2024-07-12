@@ -2,7 +2,7 @@
 
 # build data
 VERSION="1.2.10";
-DIST_URL="https://www.libspf2.org/spf/libspf2-${VERSION}.tar.gz";
+DIST_URL="https://www.libspf2.net/spf/libspf2-${VERSION}.tar.gz";
 APP_NAME="libspf2";
 
 source ./helpers/build_pre/.pre-start.sh;
