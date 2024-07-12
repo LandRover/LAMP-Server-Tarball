@@ -16,6 +16,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --includedir="${DESTINATION}/include/security" \
 --enable-securedir=${DESTINATION}/security \
 --enable-selinux \
+--disable-nis \
+--with-systemdunitdir=/usr/lib/systemd/system \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
