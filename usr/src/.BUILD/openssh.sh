@@ -10,6 +10,7 @@ APP_NAME="openssh";
 
 source ./helpers/build_pre/.pre-start.sh;
 
+export CFLAGS="-I${BIN_DIR}/zlib/include";
 #export CFLAGS="-I${BIN_DIR}/openssl/include";
 #export LDFLAGS="-L${BIN_DIR}/openssl/lib64";
 
