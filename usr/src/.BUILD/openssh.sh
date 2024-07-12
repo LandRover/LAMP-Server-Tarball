@@ -4,7 +4,7 @@
 DEPENDENCIES=(Linux-PAM openssl zlib);
 
 # build data
-VERSION="9.4p1";
+VERSION="9.8p1";
 DIST_URL="https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-${VERSION}.tar.gz";
 APP_NAME="openssh";
 
