@@ -17,9 +17,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --disable-prelude \
 --disable-nis \
 --enable-nls \
---enable-loadable-modules \
---enable-systemd \
---enable-configs-dir=${ETC_DIR}/${APP_NAME} \
 --enable-securedir=${DESTINATION}/security \
 --enable-selinux \
 --with-systemdunitdir=/usr/lib/systemd/system \
