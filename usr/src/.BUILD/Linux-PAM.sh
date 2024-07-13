@@ -14,6 +14,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 --includedir="${DESTINATION}/include/security" \
+--enable-loadable-modules \
+--enable-configs-dir=${ETC_DIR}/${APP_NAME} \
 --enable-securedir=${DESTINATION}/security \
 --enable-selinux \
 --disable-nis \
