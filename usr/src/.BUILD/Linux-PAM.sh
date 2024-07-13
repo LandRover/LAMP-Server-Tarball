@@ -14,11 +14,13 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 --includedir="${DESTINATION}/include/security" \
+--disable-prelude \
+--disable-nis \
+--enable-nls \
 --enable-loadable-modules \
 --enable-configs-dir=${ETC_DIR}/${APP_NAME} \
 --enable-securedir=${DESTINATION}/security \
 --enable-selinux \
---disable-nis \
 --with-systemdunitdir=/usr/lib/systemd/system \
 || die 0 "[${APP_NAME}] Configure failed";
 
