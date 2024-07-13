@@ -19,7 +19,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-nls \
 --enable-loadable-modules \
 --enable-configs-dir=${ETC_DIR}/${APP_NAME} \
---enable-securedir=${ETC_DIR}/security \
+--enable-securedir=${DESTINATION}/security \
 --enable-selinux \
 --with-systemdunitdir=/usr/lib/systemd/system \
 || die 0 "[${APP_NAME}] Configure failed";
