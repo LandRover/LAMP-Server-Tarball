@@ -15,6 +15,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 --with-cflags="-I${BIN_DIR}/Linux-PAM/include -I${BIN_DIR}/libedit/include -I${BIN_DIR}/zlib/include" \
 --with-ldflags="-L${BIN_DIR}/Linux-PAM/lib -L${BIN_DIR}/libedit/lib" \
+--disable-etc-default-login \
 --with-4in6 \
 --with-systemd \
 --with-pam \
