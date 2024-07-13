@@ -16,6 +16,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-threaded-resolver \
 --enable-ipv6 \
 --enable-cookies \
+--enable-versioned-symbols \
 --with-random=/dev/urandom \
 --with-ssl=${BIN_DIR}/openssl \
 --with-ca-path=/etc/ssl/certs \
