@@ -14,6 +14,7 @@ psmisc \
 apg \
 git \
 screen \
+figlet \
 htop \
 rcconf \
 gtk-doc-tools \

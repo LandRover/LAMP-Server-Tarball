@@ -7,5 +7,7 @@ mkswap /large_swap_file
 
  # add to /etc/fstb:
  # /swapfile swap swap defaults 0 0
- 
+
 swapon -s
+
+swapon --show
