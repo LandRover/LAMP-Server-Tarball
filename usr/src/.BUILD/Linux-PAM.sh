@@ -12,7 +12,7 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
---sysconfdir=/etc/pam.d \
+--sysconfdir=${ETC_DIR}/${APP_NAME} \
 --includedir="${DESTINATION}/include/security" \
 --enable-securedir=${DESTINATION}/security \
 --enable-selinux \
