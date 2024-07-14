@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get -y install libsystemd-dev;
+apt-get -y install libsystemd-dev libselinux1;
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
 DEPENDENCIES=(openssl zlib);
