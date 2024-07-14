@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(Linux-PAM openssl zlib);
+DEPENDENCIES=(libedit Linux-PAM openssl zlib);
 
 # build data
 VERSION="9.8p1";
