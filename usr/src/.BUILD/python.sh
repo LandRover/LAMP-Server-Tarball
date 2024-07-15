@@ -22,6 +22,7 @@ LIBEXPAT_CFLAGS="-I${BIN_DIR}/libexpat/include" \
 LIBEXPAT_LDFLAGS="-L${BIN_DIR}/libexpat/lib" \
 LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
 LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
+--disable-test-modules \
 --enable-ipv6 \
 --enable-shared \
 --enable-optimizations \
@@ -30,7 +31,6 @@ LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
 --with-dbmliborder=bdb:gdbm \
 --with-openssl="${BIN_DIR}/openssl" \
 --with-openssl-rpath=auto \
---with-system-libmpdec \
 --with-lto \
 --with-ensurepip=install \
 || die 0 "[${APP_NAME}] Configure failed";

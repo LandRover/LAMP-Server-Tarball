@@ -22,6 +22,7 @@ build-essential \
 pkg-config \
 logrotate \
 libncurses5-dev \
+rsyslog \
 cmake \
 make \
 gtk-doc-tools \
