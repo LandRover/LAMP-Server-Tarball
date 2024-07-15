@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(openssl);
+DEPENDENCIES=(openssl mpdecimal);
 
 # build data
 VERSION="3.12.4";
@@ -9,6 +9,10 @@ DIST_URL="https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz";
 APP_NAME="python";
 
 source ./helpers/build_pre/.pre-start.sh;
+
+
+export CFLAGS="-I${BIN_DIR}/mpdecimal/include";
+export LDFLAGS="-L${BIN_DIR}/mpdecimal/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
