@@ -10,16 +10,21 @@ APP_NAME="git";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-autoconf;
+export CFLAGS="-I${BIN_DIR}/openssl/include";
+export LDFLAGS="-L${BIN_DIR}/openssl/lib";
+
+make configure;
 
 ./configure \
 --prefix=${DESTINATION} \
 CURL_LDFLAGS="-L${BIN_DIR}/curl" \
 ZLIB_PATH="${BIN_DIR}/zlib" \
+OPENSSLDIR="${BIN_DIR}/openssl" \
+LIBPCREDIR="${BIN_DIR}/pcre2" \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
---with-openssl=${BIN_DIR}/openssl \
---with-libpcre2=${BIN_DIR}/pcre2 \
---with-zlib=${BIN_DIR}/zlib \
+--with-openssl \
+--with-libpcre2 \
+--with-zlib="${BIN_DIR}/zlib" \
 --with-curl \
 --with-expat \
 || die 0 "[${APP_NAME}] Configure failed";
