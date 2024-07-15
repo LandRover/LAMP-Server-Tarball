@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(openssl gmp libffi);
+DEPENDENCIES=(openssl gmp);
 
 # build data
 VERSION="3.10";
@@ -14,8 +14,8 @@ CFLAGS="-m64" \
 OPENSSL_LIBFLAGS="${BIN_DIR}/openssl/lib64" \
 ./configure \
 --prefix=${DESTINATION} \
---with-include-path="${BIN_DIR}/openssl/include:${BIN_DIR}/gmp/include:${BIN_DIR}/libffi/include" \
---with-lib-path="${BIN_DIR}/openssl/lib64:${BIN_DIR}/gmp/lib:${BIN_DIR}/libffi/lib" \
+--with-include-path="${BIN_DIR}/openssl/include:${BIN_DIR}/gmp/include" \
+--with-lib-path="${BIN_DIR}/openssl/lib64:${BIN_DIR}/gmp/lib" \
 --disable-static \
 --enable-shared \
 --enable-openssl \

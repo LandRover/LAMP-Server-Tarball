@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(libtasn1);
+DEPENDENCIES=(libtasn1 libffi);
 
 # build data
 VERSION="0.25.3";
@@ -12,8 +12,11 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+CFLAGS="-I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/libffi/include" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
+LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
+LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
 --with-trust-paths=/etc/pki/anchors \
 || die 0 "[${APP_NAME}] Configure failed";
 

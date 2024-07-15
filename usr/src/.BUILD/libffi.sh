@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="3.4.5";
+VERSION="3.4.6";
 DIST_URL="https://github.com/libffi/libffi/releases/download/v${VERSION}/libffi-${VERSION}.tar.gz";
 APP_NAME="libffi";
 
@@ -9,6 +9,7 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+--enable-purify-safety \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
