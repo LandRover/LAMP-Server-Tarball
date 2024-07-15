@@ -4,11 +4,14 @@
 DEPENDENCIES=(libtasn1 libffi);
 
 # build data
-VERSION="0.25.3";
+VERSION="0.25.5";
 DIST_URL="https://github.com/p11-glue/p11-kit/releases/download/${VERSION}/p11-kit-${VERSION}.tar.xz";
 APP_NAME="p11-kit";
 
 source ./helpers/build_pre/.pre-start.sh;
+
+export CFLAGS="-I${BIN_DIR}/libffi/include";
+export LDFLAGS="-L${BIN_DIR}/libffi/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
@@ -17,7 +20,8 @@ LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
 LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
 LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
---with-trust-paths=/etc/pki/anchors \
+--without-libffi \
+--with-trust-paths="${ETC_DIR}/pki/anchors" \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
