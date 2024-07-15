@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(openssl mpdecimal);
+DEPENDENCIES=(openssl mpdecimal libexpat libffi);
 
 # build data
 VERSION="3.12.4";
@@ -18,6 +18,10 @@ export LDFLAGS="-L${BIN_DIR}/mpdecimal/lib";
 --prefix=${DESTINATION} \
 LDFLAGS="-L${BIN_DIR}/openssl/lib64" \
 INCLUDES="-I${BIN_DIR}/openssl/include" \
+LIBEXPAT_CFLAGS="-I${BIN_DIR}/libexpat/include" \
+LIBEXPAT_LDFLAGS="-L${BIN_DIR}/libexpat/lib" \
+LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
+LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
 --enable-ipv6 \
 --enable-shared \
 --enable-optimizations \
@@ -26,11 +30,9 @@ INCLUDES="-I${BIN_DIR}/openssl/include" \
 --with-dbmliborder=bdb:gdbm \
 --with-openssl="${BIN_DIR}/openssl" \
 --with-openssl-rpath=auto \
---with-system-expat \
---with-system-ffi \
 --with-system-libmpdec \
 --with-lto \
---without-ensurepip \
+--with-ensurepip=install \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
