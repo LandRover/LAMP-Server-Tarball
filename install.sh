@@ -23,4 +23,4 @@ else
     sudo git pull
 fi
 
-${CPWD}/usr/src/.BUILD/helpers/initialize.sh;
+bash ${CPWD}/usr/src/.BUILD/helpers/initialize.sh;
