@@ -39,7 +39,7 @@ if [ -f /etc/os-release ]; then
     . /etc/os-release
     if [ "${ID}" = "debian" ]; then
         echo "[INFO] Install debian dependencies";
-        ./prerequisites_debian.sh;
+        ${CPWD}/prerequisites_debian.sh;
     else
         echo "Current operating system is not Debian."
     fi
