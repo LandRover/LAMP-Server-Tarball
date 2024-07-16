@@ -2,7 +2,7 @@
 
 # build data
 VERSION="8.45";
-DIST_URL="https://netix.dl.sourceforge.net/project/pcre/pcre/${VERSION}/pcre-${VERSION}.tar.gz";
+DIST_URL="https://yer.dl.sourceforge.net/project/pcre/pcre/${VERSION}/pcre-${VERSION}.tar.gz";
 APP_NAME="pcre";
 
 source ./helpers/build_pre/.pre-start.sh;

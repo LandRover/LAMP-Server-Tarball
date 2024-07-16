@@ -5,7 +5,7 @@ DEPENDENCIES=(milter-manager);
 
 # build data
 VERSION="1.3.2";
-DIST_URL="https://netix.dl.sourceforge.net/project/opendmarc/opendmarc-${VERSION}.tar.gz";
+DIST_URL="https://yer.dl.sourceforge.net/project/opendmarc/opendmarc-${VERSION}.tar.gz";
 APP_NAME="opendmarc";
 
 source ./helpers/build_pre/.pre-start.sh;

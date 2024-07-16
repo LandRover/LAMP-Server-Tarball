@@ -5,7 +5,7 @@ DEPENDENCIES=(python);
 
 # build data
 VERSION="4.7.0";
-DIST_URL="https://netix.dl.sourceforge.net/project/scons/scons/${VERSION}/SCons-${VERSION}.tar.gz";
+DIST_URL="https://yer.dl.sourceforge.net/project/scons/scons/${VERSION}/SCons-${VERSION}.tar.gz";
 APP_NAME="SCons";
 
 source ./helpers/build_pre/.pre-start.sh;
