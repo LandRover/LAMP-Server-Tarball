@@ -24,3 +24,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - SRS exim route not working
   - Proftpd
   - SSH Trap
+
+INSTALL CMD:
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LandRover/LAMP-Server-Tarball/HEAD/install.sh)"
+
