@@ -2,7 +2,7 @@
 
 # build data
 VERSION="1.94.5";
-DIST_URL="http://old.greatcircle.com/majordomo/${VERSION}/majordomo-${VERSION}.tar.gz";
+DIST_URL="https://github.com/Distrotech/majordomo/archive/refs/tags/distrotech-majordomo-${VERSION}.tar.gz";
 APP_NAME="majordomo";
 USER="${APP_NAME}";
 
