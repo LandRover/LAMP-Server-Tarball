@@ -21,3 +21,5 @@ else
     cd "${LOCAL_DIR}";
     sudo git pull
 fi
+
+${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh;
