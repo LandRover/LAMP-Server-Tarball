@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(openssl curl);
+DEPENDENCIES=(cmake openssl curl);
 
 apt-get -y install patchelf;
 

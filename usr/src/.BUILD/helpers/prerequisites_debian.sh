@@ -12,7 +12,6 @@ mc \
 vim \
 psmisc \
 apg \
-git \
 screen \
 figlet \
 htop \
@@ -23,7 +22,6 @@ pkg-config \
 logrotate \
 libncurses5-dev \
 rsyslog \
-cmake \
 make \
 gtk-doc-tools \
 autoconf \

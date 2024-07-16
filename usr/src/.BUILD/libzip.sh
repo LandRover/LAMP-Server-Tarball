@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(zlib);
+DEPENDENCIES=(cmake zlib);
 
 # build data
 VERSION="1.10.1";

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies that must exist prior to the current build. If not found, will try to install
+DEPENDENCIES=(cmake);
+
 # build data
 VERSION="0.17-20230812";
 DIST_URL="https://github.com/json-c/json-c/archive/refs/tags/json-c-${VERSION}.tar.gz";

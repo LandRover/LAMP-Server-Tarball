@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies that must exist prior to the current build. If not found, will try to install
+DEPENDENCIES=(cmake);
+
 # build data
 VERSION="2.3.4";
 DIST_URL="https://github.com/librsync/librsync/releases/download/v${VERSION}/librsync-${VERSION}.tar.gz";

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies that must exist prior to the current build. If not found, will try to install
+DEPENDENCIES=(cmake);
+
 # build data
 VERSION="0.15.2";
 DIST_URL="https://github.com/libcheck/check/archive/refs/tags/${VERSION}.tar.gz";
