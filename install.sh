@@ -1,6 +1,5 @@
 #!/bin/bash
 
-CPWD="`dirname ${BASH_SOURCE}`";
 REPO_URL="git@github.com:LandRover/LAMP-Server-Tarball.git";
 LOCAL_DIR="/LAMP-Server-Tarball";
 
@@ -23,4 +22,4 @@ else
     sudo git pull
 fi
 
-bash ${CPWD}/usr/src/.BUILD/helpers/initialize.sh;
+bash ${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh;
