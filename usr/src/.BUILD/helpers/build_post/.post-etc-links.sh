@@ -3,9 +3,24 @@
 #[ ["$0" = "${BASH_SOURCE}"] || ["$1" = "${BASH_SOURCE}"] ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
 
 echo "[INFO] Add app to profile.d";
-if [ -d "/opt/local/sbin/${APP_NAME}/bin" ]; then
+if [ -d "/opt/local/sbin/${APP_NAME}/bin" ] || [ -d "/opt/local/sbin/${APP_NAME}/sbin" ]; then
     echo "[INFO] Generating profile.d for ${APP_NAME}";
-    echo -e "export PATH=\$PATH:/opt/local/sbin/${APP_NAME}/bin" > "/etc/profile.d/${APP_NAME}.sh";
+
+    # Start with the base export statement
+    export_statement="export PATH=\$PATH"
+
+    # Check if /bin directory exists and add it to PATH
+    if [ -d "/opt/local/sbin/${APP_NAME}/bin" ]; then
+        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/bin"
+    fi
+
+    # Check if /sbin directory exists and add it to PATH
+    if [ -d "/opt/local/sbin/${APP_NAME}/sbin" ]; then
+        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/sbin"
+    fi
+
+    # Write the export statement to the profile.d file
+    echo -e "${export_statement}" > "/etc/profile.d/${APP_NAME}.sh";
 fi
 
 echo "[INFO] Checking tmpfiles.d ln to etc";
