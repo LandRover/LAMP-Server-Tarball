@@ -16,6 +16,8 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 --includedir="${DESTINATION}/include/security" \
+--sbindir=/usr/sbin \
+-libdir=/usr/lib \
 --disable-prelude \
 --disable-nis \
 --enable-nls \
