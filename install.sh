@@ -22,4 +22,4 @@ else
     sudo git pull
 fi
 
-bash ${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh;
+/bin/bash ${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh;
