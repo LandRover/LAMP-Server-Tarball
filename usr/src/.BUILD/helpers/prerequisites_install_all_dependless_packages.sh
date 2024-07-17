@@ -5,6 +5,10 @@ INSTALL_SCRIPTS_DIR=`realpath ${CPWD}/../`;
 BUILD_PATH="/usr/src/.BUILD";
 DST_PATH="/opt/local/sbin";
 
+# Define color codes
+BOLD_GREEN='\033[1;32m'
+NC='\033[0m' # No Color
+
 # Function to find and categorize files
 find_install_scripts_with_dependencies() {
     local SEARCH_DIR="${1}"
@@ -33,7 +37,7 @@ for SCRIPT_NAME in "${SCRIPTS_LIST[@]}"; do
 
         PROGRESS=$((COMPLETED_COUNT * 100 / TOTAL_SCRIPTS));
 
-        echo "[INFO] [${PROGRESS}%] Installed ${PACKAGE_NAME} successfully.";
+        echo -e "[INFO] [${BOLD_GREEN}${PROGRESS}%${NC}] Installed ${PACKAGE_NAME} successfully.";
     else
         echo "[INFO] Skipping '${PACKAGE_NAME}' as it already installed."
     fi

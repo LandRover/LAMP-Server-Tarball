@@ -25,7 +25,7 @@ chown -R ${USER}:${USER} ${HOME_DIR}/logs; # Change logs permission
 # wont be triggered during rebuilds
 if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ## Copy template of .my.cnf to ~
-    cp -Lf ../../helpers/templates/mysql/.my.cnf ~/.my.cnf
+    cp -Lf ../../helpers/templates/mysql/.my.cnf ~/.my.cnf;
     cp -Lf ../../helpers/templates/mysql/.init-file ${TMP_INIT_FILE};
 
     ## bash must be in dir before running mysql_install_db since ./bin/my_print_defaults is called relatively, blah.
@@ -35,8 +35,6 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
     ${BIN_DIR}/${APP_NAME}/bin/mysqld \
         --user=${USER} \
         --initialize;
-
-    ${BIN_DIR}/${APP_NAME}/bin/mysql_ssl_rsa_setup;
 
     chown -R ${USER}:${USER} ${BIN_DIR}/${APP_NAME};
     chown -R ${USER}:${USER} ${APP_DIR};
@@ -51,7 +49,7 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         sed -i "s/\$PASSWORD/${PASSWORD}/g" ~/.my.cnf;
         sed -i "s/\$PASSWORD/${PASSWORD}/g" ${TMP_INIT_FILE};
 
-        ${BIN_DIR}/${APP_NAME}/bin/mysqld --defaults-file=${ETC_DIR}/mysql/my.cnf --init-file=${TMP_INIT_FILE} &
+        ${BIN_DIR}/${APP_NAME}/bin/mysqld --defaults-file=${ETC_DIR}/${APP_NAME}/my.cnf --init-file=${TMP_INIT_FILE} &
         sleep 3;
         rm -rf ${TMP_INIT_FILE};
     fi
