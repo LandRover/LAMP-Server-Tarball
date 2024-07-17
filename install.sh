@@ -1,7 +1,11 @@
 #!/bin/bash
 
-REPO_URL="git@github.com:LandRover/LAMP-Server-Tarball.git";
+REPO_URL="https://github.com/LandRover/LAMP-Server-Tarball.git";
 LOCAL_DIR="/LAMP-Server-Tarball";
+INIT_FILE="${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh";
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
 # Check if git is installed
 if ! command -v git &> /dev/null; then
@@ -22,4 +26,8 @@ else
     sudo git pull
 fi
 
-/bin/bash ${LOCAL_DIR}/usr/src/.BUILD/helpers/initialize.sh;
+if [ -f "${INIT_FILE}" ]; then
+  /bin/bash "${INIT_FILE}";
+else
+  echo -e "[${RED}ERROR${NC}]  Init file doesn't exist (${INIT_FILE}), Please make sure git checkout was successful from repo: ${REPO_URL} and try again."
+fi
