@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(cmake openssl curl);
+DEPENDENCIES=(cmake openssl curl zlib);
 
 apt-get -y install patchelf;
 
@@ -14,12 +14,10 @@ DATA_DIR="db_data";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-##add to startup @ redhat:
-##chkconfig --add mysqld
+rm -rf CMakeCache.txt build; # Previous build cleanup
+mkdir build && cd build; # Builds here
 
-rm -rf CMakeCache.txt;
-
-cmake \
+cmake .. \
 -DCMAKE_INSTALL_PREFIX=${DESTINATION} \
 -DDEFAULT_CHARSET=utf8mb4 \
 -DDEFAULT_COLLATION=utf8mb4_unicode_ci \
@@ -29,7 +27,6 @@ cmake \
 -DMYSQL_USER=${USER} \
 -DMYSQL_TCP_PORT=3306 \
 -DENABLED_LOCAL_INFILE=1 \
--DFORCE_INSOURCE_BUILD=1 \
 -DFEATURE_SET=community \
 -DWITH_EMBEDDED_SERVER=OFF \
 -DWITH_READLINE=1 \
@@ -50,5 +47,7 @@ make || die 0 "[${APP_NAME}] Make failed";
 
 make install || die 0 "[${APP_NAME}] Make install failed";
 echo "Done ${APP_NAME}.";
+
+cd ..; ## Since we built in ./build, it is required to step up to continue.
 
 cd ${BUILD}/helpers/build_post && /bin/bash ./.post-start.sh $0 ${BIN_DIR} ${ETC_DIR} ${APP_NAME} ${VERSION} ${USER} ${DATA_DIR};
