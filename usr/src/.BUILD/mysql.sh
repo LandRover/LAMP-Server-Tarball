@@ -34,9 +34,7 @@ cmake .. \
 -DWITH_BOOST=.. \
 -DWITH_CURL=${BIN_DIR}/curl \
 -DWITH_SSL=${BIN_DIR}/openssl \
--DWITH_ZLIB="system" \
--DZLIB_LIBRARY=${BIN_DIR}/zlib \
--DZLIB_INCLUDE_DIR=${BIN_DIR}/zlib/include \
+-DWITH_ZLIB="bundled" \
 -DOPENSSL_EXECUTABLE=${BIN_DIR}/openssl/bin/openssl \
 -DWITH_INNOBASE_STORAGE_ENGINE=1 \
 -DWITH_PARTITION_STORAGE_ENGINE=1 \
