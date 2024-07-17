@@ -25,4 +25,4 @@ function usage {
 }
 
 [[ -z "${BIN_DIR}" || -z "${APP_NAME}" || -z "${VERSION}" ]] && usage;
-[ ! -d "${BIN_DIR}/${APP_NAME}-${VERSION}" ] && usage "[error] [SHARED] ${BIN_DIR}/${APP_NAME}-${VERSION} dir, not found. Build could have failed.";
+[ ! -d "${BIN_DIR}/${APP_NAME}-${VERSION}" ] && usage "[ERROR] Application installation failed, dir '${BIN_DIR}/${APP_NAME}-${VERSION}' is missing.";
