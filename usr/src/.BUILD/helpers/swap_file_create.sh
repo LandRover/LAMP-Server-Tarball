@@ -1,13 +1,14 @@
 #!/bin/bash
 
+SWAP_FILE="/large_swap_file";
+
 # create swap file
-fallocate -l 1512M /large_swap_file
-chmod 600 /large_swap_file
-mkswap /large_swap_file
+fallocate -l 1512M ${SWAP_FILE};
+chmod 600 ${SWAP_FILE}
+mkswap ${SWAP_FILE}
 
- # add to /etc/fstb:
- # /large_swap_file swap swap defaults 0 0
+sudo ./bin/append_once.sh "/etc/fstab" "${SWAP_FILE} swap swap defaults 0 0" "SWAP Drive added.";
 
-swapon -s
+swapon -s;
 
-swapon --show
+swapon --show;
