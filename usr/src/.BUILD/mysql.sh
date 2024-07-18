@@ -24,7 +24,6 @@ cmake .. \
 -DMYSQL_DATADIR=/home/${USER}/${DATA_DIR} \
 -DMYSQL_UNIX_ADDR=/var/run/${APP_NAME}/mysql.sock \
 -DSYSCONFDIR=${ETC_DIR}/${APP_NAME} \
--DMYSQL_TCP_PORT=3306 \
 -DENABLED_LOCAL_INFILE=1 \
 -DWITH_CURL=${BIN_DIR}/curl \
 -DWITH_SSL=${BIN_DIR}/openssl \
