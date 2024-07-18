@@ -31,4 +31,6 @@ function usage {
 [ ! -d "${SRC_DIR}/${SERVICE}" ] && usage "[error] [ETC_LN] ${SRC_DIR}/${SERVICE} service dir, not found.";
 [ ! -e "${SRC_DIR}/${SERVICE}/${FILE_NAME}" ] && usage "[error] [ETC_LN] ${SRC_DIR}/${SERVICE}/${FILE_NAME} path, not found.";
 
+chmod +x ${SRC_DIR}/${SERVICE}/${FILE_NAME};
+
 ${CPWD}/bin/ln.sh ${SRC_DIR}/${SERVICE}/${FILE_NAME} ${DST_DIR}/${SERVICE}/${FILE_NAME};
