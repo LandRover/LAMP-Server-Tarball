@@ -10,7 +10,6 @@ APP_NAME="python";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-
 export CFLAGS="-I${BIN_DIR}/mpdecimal/include";
 export LDFLAGS="-L${BIN_DIR}/mpdecimal/lib";
 
@@ -22,6 +21,8 @@ LIBEXPAT_CFLAGS="-I${BIN_DIR}/libexpat/include" \
 LIBEXPAT_LDFLAGS="-L${BIN_DIR}/libexpat/lib" \
 LIBFFI_CFLAGS="-I${BIN_DIR}/libffi/include" \
 LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
+ZLIB_CFLAGS="-I${BIN_DIR}/zlib/include" \
+ZLIB_LIBS="-L${BIN_DIR}/zlib/lib" \
 --disable-test-modules \
 --enable-ipv6 \
 --enable-shared \
@@ -32,12 +33,12 @@ LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
 --with-computed-gotos \
 --with-dbmliborder=bdb:gdbm \
 --with-system-expat \
---with-zlib=${BIN_DIR}/zlib \
 --with-openssl=${BIN_DIR}/openssl \
 --with-openssl-rpath=auto \
 --with-ssl-default-suites=openssl \
 --with-lto \
 --with-ensurepip=upgrade \
+--with-fpectl=no \
 --with-pydebug=no \
 || die 0 "[${APP_NAME}] Configure failed";
 
