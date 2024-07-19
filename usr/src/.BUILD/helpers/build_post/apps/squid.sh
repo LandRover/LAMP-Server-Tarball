@@ -10,9 +10,9 @@ LOG_PATH="/var/log/${APP_NAME}";
 [ ! -d "${LOG_PATH}" ] && mkdir ${LOG_PATH} && chown ${USER}:${USER} ${LOG_PATH};
 
 ## create and own certs
-[ ! -d "${CERT_PATH}" ] && mkdir -p ${CERT_PATH} && chown ${USER}:${USER} ${CERT_PATH}
+[ ! -d "${CERT_PATH}" ] && mkdir -p ${CERT_PATH} && chown ${USER}:${USER} ${CERT_PATH};
 
-${BIN_DIR}/openssl/bin/openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout ${CERT_PATH}/squid-ca-key.pem -out ${CERT_PATH}/squid-ca-cert.pem
+${BIN_DIR}/openssl/bin/openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout ${CERT_PATH}/squid-ca-key.pem -out ${CERT_PATH}/squid-ca-cert.pem;
 
-cat ${CERT_PATH}/squid-ca-cert.pem ${CERT_PATH}/squid-ca-key.pem >> ${CERT_PATH}/squid-ca-cert-key.pem
-chown ${USER}:${USER} -R ${CERT_PATH}
+cat ${CERT_PATH}/squid-ca-cert.pem ${CERT_PATH}/squid-ca-key.pem >> ${CERT_PATH}/squid-ca-cert-key.pem;
+chown ${USER}:${USER} -R ${CERT_PATH};
