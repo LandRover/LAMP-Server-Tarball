@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(jpeg libpng libwebp libgd freetype libxml2 pcre openssl zlib mysql libzip curl);
+DEPENDENCIES=(zlib openssl libxml2 libxslt pcre libzip curl jpeg libpng freetype libwebp libgd);
 
 # build data
 VERSION="8.3.9";
@@ -48,11 +48,12 @@ source ./helpers/build_pre/.pre-start.sh;
 --with-libxml \
 --with-mysql-sock=/var/run/mysql/mysql.sock \
 --with-mysqli=mysqlnd \
---with-openssl \
 --with-pdo-mysql=mysqlnd \
 --with-webp \
 --with-xsl \
 --with-zlib \
+--with-openssl \
+--with-zlib-dir=${BIN_DIR}/zlib \
 || die 0 "[${APP_NAME}] Configure failed";
 
 #--with-zip
