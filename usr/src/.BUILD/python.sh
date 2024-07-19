@@ -32,7 +32,8 @@ LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
 --with-computed-gotos \
 --with-dbmliborder=bdb:gdbm \
 --with-system-expat \
---with-openssl="${BIN_DIR}/openssl" \
+--with-zlib=${BIN_DIR}/zlib \
+--with-openssl=${BIN_DIR}/openssl \
 --with-openssl-rpath=auto \
 --with-ssl-default-suites=openssl \
 --with-lto \
