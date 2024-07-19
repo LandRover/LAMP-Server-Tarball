@@ -5,7 +5,7 @@
 echo "[INFO] Checking Link lib64 to lib if doesnt exist";
 if [ -d "${BIN_DIR}/${APP_NAME}/lib64" ] || [ ! -d "${BIN_DIR}/${APP_NAME}/lib" ]; then
     echo "[INFO] lib folder is missing while lib64 exists, linking...";
-    ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/lib64 ${BIN_DIR}/${APP_NAME}/lib;;
+    ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/lib64 ${BIN_DIR}/${APP_NAME}/lib;
 fi
 
 echo "[INFO] Add app to profile.d";
