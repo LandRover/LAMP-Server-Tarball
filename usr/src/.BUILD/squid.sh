@@ -18,7 +18,7 @@ source ./helpers/build_pre/.pre-start.sh;
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
 CPPFLAGS="-I${BIN_DIR}/gnutls/include -I${BIN_DIR}/nettle/include" \
-LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls -L${BIN_DIR}/nettle/lib -lnettle" \
+LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 EXT_LIBECAP_CFLAGS="-I${BIN_DIR}/libecap/include" \
 EXT_LIBECAP_LIBS="-L${BIN_DIR}/libecap/lib -lecap" \
 LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
