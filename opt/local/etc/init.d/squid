@@ -21,7 +21,7 @@ NAME=squid
 DESC="Squid HTTP Proxy"
 DAEMON=/opt/local/sbin/squid/sbin/squid
 PIDFILE=/var/run/$NAME.pid
-CONFIG=/etc/squid/squid.conf
+CONFIG=/opt/local/etc/squid/squid.conf
 SQUID_ARGS="-YC -f $CONFIG"
 
 [ ! -f /etc/default/squid ] || . /etc/default/squid
