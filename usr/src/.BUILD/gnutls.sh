@@ -4,7 +4,7 @@
 DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle p11-kit);
 
 # build data
-VERSION="3.7.11";
+VERSION="3.8.6";
 DIST_URL="https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-${VERSION}.tar.xz";
 APP_NAME="gnutls";
 
