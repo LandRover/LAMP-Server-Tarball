@@ -16,6 +16,3 @@ ${BIN_DIR}/openssl/bin/openssl req -new -newkey rsa:2048 -sha256 -days 365 -node
 
 cat ${CERT_PATH}/squid-ca-cert.pem ${CERT_PATH}/squid-ca-key.pem >> ${CERT_PATH}/squid-ca-cert-key.pem
 chown ${USER}:${USER} -R ${CERT_PATH}
-
-# auto start
-update-rc.d ${APP_NAME} defaults
