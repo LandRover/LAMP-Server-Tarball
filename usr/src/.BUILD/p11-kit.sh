@@ -15,6 +15,7 @@ export LDFLAGS="-L${BIN_DIR}/libffi/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
+--with-system-config=${ETC_DIR}/pkcs11 \
 CFLAGS="-I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/libffi/include" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
