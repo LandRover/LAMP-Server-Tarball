@@ -17,8 +17,7 @@ source ./helpers/build_pre/.pre-start.sh;
 ./configure \
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
-CPPFLAGS="-I${BIN_DIR}/gnutls/include -I${BIN_DIR}/nettle/include" \
-LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
+CPPFLAGS="-I${BIN_DIR}/gnutls/include -I${BIN_DIR}/nettle/include -I${BIN_DIR}/openssl/include" \
 EXT_LIBECAP_CFLAGS="-I${BIN_DIR}/libecap/include" \
 EXT_LIBECAP_LIBS="-L${BIN_DIR}/libecap/lib -lecap" \
 LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
@@ -26,7 +25,7 @@ LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2" \
 LIBGNUTLS_CFLAGS="-I${BIN_DIR}/gnutls/include" \
 LIBGNUTLS_LIBS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
 LIBNETTLE_CFLAGS="-I${BIN_DIR}/nettle/include" \
-LIBNETTLE_LIBS="-L${BIN_DIR}/nettle/lib -lnettle" \
+LIBNETTLE_LIBS="-L${BIN_DIR}/nettle/lib64 -lnettle" \
 --disable-maintainer-mode \
 --disable-dependency-tracking \
 --disable-silent-rules \
@@ -52,13 +51,14 @@ LIBNETTLE_LIBS="-L${BIN_DIR}/nettle/lib -lnettle" \
 --enable-storeid-rewrite-helpers=file \
 --enable-url-rewrite-helpers=fake \
 --with-large-files \
+--with-nettle=${BIN_DIR}/nettle \
 --with-openssl=${BIN_DIR}/openssl \
 --with-gnutls=${BIN_DIR}/gnutls \
 --with-default-user=${USER} \
 --with-swapdir=/dev/null \
 --with-pidfile=/var/run/${APP_NAME}.pid \
 --with-logdir=/var/log/${APP_NAME} \
-|| die 0 "[${APP_NAME}] Configure failed"
+|| die 0 "[${APP_NAME}] Configure failed";
 
 # --with-swapdir=/dev/null \
 # --with-swapdir=/var/spool/squid \
