@@ -16,12 +16,12 @@ export LDFLAGS="-L${BIN_DIR}/mpdecimal/lib";
 
 ./configure \
 --prefix=${DESTINATION} \
-LDFLAGS="-L${BIN_DIR}/openssl/lib64" \
 INCLUDES="-I${BIN_DIR}/openssl/include" \
+LDFLAGS="-L${BIN_DIR}/openssl/lib64" \
 LIBEXPAT_CFLAGS="-I${BIN_DIR}/libexpat/include" \
 LIBEXPAT_LDFLAGS="-L${BIN_DIR}/libexpat/lib" \
-LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
-LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
+LIBFFI_CFLAGS="-I${BIN_DIR}/libffi/include" \
+LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
 --disable-test-modules \
 --enable-ipv6 \
 --enable-shared \
