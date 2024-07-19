@@ -32,13 +32,11 @@ LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
 --with-computed-gotos \
 --with-dbmliborder=bdb:gdbm \
 --with-system-expat \
---with-system-ffi \
 --with-openssl="${BIN_DIR}/openssl" \
 --with-openssl-rpath=auto \
 --with-ssl-default-suites=openssl \
 --with-lto \
 --with-ensurepip=upgrade \
---with-fpectl=no \
 --with-pydebug=no \
 || die 0 "[${APP_NAME}] Configure failed";
 
