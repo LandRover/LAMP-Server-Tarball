@@ -1,17 +1,21 @@
 #!/bin/bash
 
 USER="${PARAM1}";
+CERT_PATH="${ETC_DIR}/${APP_NAME}/certs";
+LOG_PATH="/var/log/${APP_NAME}";
+
 [ -z "${USER}" ] && usage "[error] User was not set. Halt. As squid setup requires a user.";
 
 ## create and own logs
-[ ! -d "/var/log/${APP_NAME}" ] && mkdir /var/log/${APP_NAME} && chown ${USER}:${USER} /var/log/${APP_NAME};
+[ ! -d "${LOG_PATH}" ] && mkdir ${LOG_PATH} && chown ${USER}:${USER} ${LOG_PATH};
 
 ## create and own certs
-[ ! -d "/etc/${APP_NAME}/certs" ] && mkdir /etc/${APP_NAME}/certs && chown ${USER}:${USER} /etc/${APP_NAME}/certs
+[ ! -d "${CERT_PATH}" ] && mkdir -p ${CERT_PATH} && chown ${USER}:${USER} ${CERT_PATH}
 
-openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout /etc/${APP_NAME}/certs/squid-ca-key.pem -out /etc/${APP_NAME}/certs/squid-ca-cert.pem
-cat /etc/${APP_NAME}/certs/squid-ca-cert.pem /etc/${APP_NAME}/certs/squid-ca-key.pem >> /etc/${APP_NAME}/certs/squid-ca-cert-key.pem
-chown ${USER}:${USER} -R /etc/${APP_NAME}/certs
+${BIN_DIR}/openssl/bin/openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout ${CERT_PATH}/squid-ca-key.pem -out ${CERT_PATH}/squid-ca-cert.pem
+
+cat ${CERT_PATH}/squid-ca-cert.pem ${CERT_PATH}/squid-ca-key.pem >> ${CERT_PATH}/squid-ca-cert-key.pem
+chown ${USER}:${USER} -R ${CERT_PATH}
 
 # auto start
 update-rc.d ${APP_NAME} defaults
