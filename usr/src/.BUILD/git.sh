@@ -11,7 +11,7 @@ APP_NAME="git";
 source ./helpers/build_pre/.pre-start.sh;
 
 export CFLAGS="-I${BIN_DIR}/openssl/include";
-export LDFLAGS="-L${BIN_DIR}/openssl/lib";
+export LDFLAGS="-L${BIN_DIR}/openssl/lib64";
 
 make configure;
 
