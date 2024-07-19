@@ -2,21 +2,27 @@
 
 #[ ["$0" = "${BASH_SOURCE}"] || ["$1" = "${BASH_SOURCE}"] ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
 
+echo "[INFO] Checking Link lib64 to lib if doesnt exist";
+if [ -d "${BIN_DIR}/${APP_NAME}/lib64" ] || [ ! -d "${BIN_DIR}/${APP_NAME}/lib" ]; then
+    echo "[INFO] lib folder is missing while lib64 exists, linking...";
+    ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/lib64 ${BIN_DIR}/${APP_NAME}/lib;;
+fi
+
 echo "[INFO] Add app to profile.d";
-if [ -d "/opt/local/sbin/${APP_NAME}/bin" ] || [ -d "/opt/local/sbin/${APP_NAME}/sbin" ]; then
+if [ -d "${BIN_DIR}/${APP_NAME}/bin" ] || [ -d "${BIN_DIR}/${APP_NAME}/sbin" ]; then
     echo "[INFO] Generating profile.d for ${APP_NAME}";
 
     # Start with the base export statement
     export_statement="export PATH=\$PATH";
 
     # Check if /bin directory exists and add it to PATH
-    if [ -d "/opt/local/sbin/${APP_NAME}/bin" ]; then
-        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/bin";
+    if [ -d "${BIN_DIR}/${APP_NAME}/bin" ]; then
+        export_statement="${export_statement}:${BIN_DIR}/${APP_NAME}/bin";
     fi
 
     # Check if /sbin directory exists and add it to PATH
-    if [ -d "/opt/local/sbin/${APP_NAME}/sbin" ]; then
-        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/sbin";
+    if [ -d "${BIN_DIR}/${APP_NAME}/sbin" ]; then
+        export_statement="${export_statement}:${BIN_DIR}/${APP_NAME}/sbin";
     fi
 
     # Write the export statement to the profile.d file
