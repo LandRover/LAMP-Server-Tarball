@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(openssl gnutls libecap libxml2);
+DEPENDENCIES=(openssl libecap libxml2 nettle gnutls);
 
 # build data
 VERSION="6.10";
