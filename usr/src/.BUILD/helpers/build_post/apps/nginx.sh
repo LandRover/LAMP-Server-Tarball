@@ -7,9 +7,6 @@ USER="${PARAM1}";
 #../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/nginx ${ETC_DIR}/init.d/${APP_NAME};
 #../helpers/post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
 
-## system stop/start on boot
-#update-rc.d ${APP_NAME} defaults
-
 ## I like getting there faster..
 #../helpers/bin/ln.sh ${APP_DIR}/htdocs /var/www;
 
@@ -30,6 +27,3 @@ USER="${PARAM1}";
 #chmod o+x ${APP_DIR} ${APP_DIR}/htdocs ${APP_DIR}/cgi-bin;
 #chmod -R o+r ${APP_DIR}/htdocs;
 #chmod -R u+w ${APP_DIR}/logs;
-
-## restart service
-#/etc/init.d/${APP_NAME} restart
