@@ -24,12 +24,14 @@ NETTLE_CFLAGS="-I${BIN_DIR}/nettle/include" \
 NETTLE_LIBS="-L${BIN_DIR}/nettle/lib64 -lnettle" \
 HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
 HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
-P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
+P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 LIBZSTD_CFLAGS="-I${BIN_DIR}/zstd/include" \
 LIBZSTD_LIBS="-L${BIN_DIR}/zstd/lib -lzstd" \
 --with-libz-prefix="${BIN_DIR}/zlib" \
+--with-p11-kit \
 --disable-guile \
+--disable-tests \
 --disable-shared \
 --enable-static \
 || die 0 "[${APP_NAME}] Configure failed";
