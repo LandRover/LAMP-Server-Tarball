@@ -7,16 +7,16 @@ if [ -d "/opt/local/sbin/${APP_NAME}/bin" ] || [ -d "/opt/local/sbin/${APP_NAME}
     echo "[INFO] Generating profile.d for ${APP_NAME}";
 
     # Start with the base export statement
-    export_statement="export PATH=\$PATH"
+    export_statement="export PATH=\$PATH";
 
     # Check if /bin directory exists and add it to PATH
     if [ -d "/opt/local/sbin/${APP_NAME}/bin" ]; then
-        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/bin"
+        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/bin";
     fi
 
     # Check if /sbin directory exists and add it to PATH
     if [ -d "/opt/local/sbin/${APP_NAME}/sbin" ]; then
-        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/sbin"
+        export_statement="${export_statement}:/opt/local/sbin/${APP_NAME}/sbin";
     fi
 
     # Write the export statement to the profile.d file
@@ -26,14 +26,14 @@ fi
 echo "[INFO] Checking tmpfiles.d ln to etc";
 APP_TMPFILES="${ETC_DIR}/tmpfiles.d/${APP_NAME}.conf";
 if [ -f "${APP_TMPFILES}" ]; then
-    echo "[INFO] Found ${APP_TMPFILES}, creating ln";
+    echo "[INFO] Found ${APP_TMPFILES}, creating link";
     ../post_etc_ln.sh "${ETC_DIR}" "tmpfiles.d" "${APP_NAME}.conf";
 fi
 
 echo "[INFO] Checking logrotate.d ln to etc";
 APP_LOGROTATE="${ETC_DIR}/logrotate.d/${APP_NAME}";
 if [ -f "${APP_LOGROTATE}" ]; then
-    echo "[INFO] Found ${APP_LOGROTATE}, creating ln";
+    echo "[INFO] Found ${APP_LOGROTATE}, creating link ${APP_NAME}/etc/logrotate.d to /etc/logrotate.d/${APP_NAME}";
     ../post_etc_ln.sh "${ETC_DIR}" "logrotate.d" "${APP_NAME}";
 fi
 
@@ -56,25 +56,24 @@ fi
 echo "[INFO] Checking include";
 APP_INCLUDE="${BIN_DIR}/${APP_NAME}/include";
 if [ -d "${APP_INCLUDE}" ]; then
-    echo "[INFO] Found ${APP_INCLUDE}, creating ln";
+    echo "[INFO] Found ${APP_INCLUDE}, creating link from ${APP_NAME}/include to /usr/include/${APP_NAME}";
     ../bin/ln.sh ${APP_INCLUDE} /usr/include/${APP_NAME};
 fi
 
 echo "[INFO] Checking etc";
 APP_ETC="${ETC_DIR}/${APP_NAME}";
 if [ -d "${APP_ETC}" ]; then
-    echo "[INFO] Found ${APP_ETC}, creating ln";
+    echo "[INFO] Found ${APP_ETC}, creating link ${APP_NAME}/etc to /etc/${APP_NAME}";
     ../bin/ln.sh "${APP_ETC}" "/etc/${APP_NAME}";
 fi
 
 echo "[INFO] Checking init.d ln to etc";
 APP_INIT="${ETC_DIR}/init.d/${APP_NAME}";
 if [ -f "${APP_INIT}" ]; then
-    echo "[INFO] Found ${APP_INIT}, creating ln";
+    echo "[INFO] Found ${APP_INIT}, creating link from ${APP_NAME}/etc/init.d to /etc/init.d";
     ../post_etc_ln.sh "${ETC_DIR}" "init.d" "${APP_NAME}";
 
-    ## system stop/start on boot
-    echo "[INFO] Adding ${APP_NAME} to startup";
+    echo "[INFO] Adding ${APP_NAME} to system startup";
     update-rc.d ${APP_NAME} defaults
 
     echo "[INFO] Retarting service ${APP_NAME}";
