@@ -26,6 +26,9 @@ HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
 HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
 P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
+LIBZSTD_CFLAGS="-I${BIN_DIR}/zlib/include" \
+LIBZSTD_LIBS="-L${BIN_DIR}/zlib/lib -lzlib" \
+--with-libz-prefix="${BIN_DIR}/zlib" \
 --disable-guile \
 --disable-shared \
 --enable-static \
