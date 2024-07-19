@@ -17,14 +17,16 @@ source ./helpers/build_pre/.pre-start.sh;
 ./configure \
 --prefix=${DESTINATION} \
 --sysconfdir=${ETC_DIR}/${APP_NAME} \
-CPPFLAGS="-I${BIN_DIR}/gnutls/include" \
-LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
+CPPFLAGS="-I${BIN_DIR}/gnutls/include -I${BIN_DIR}/nettle/include" \
+LDFLAGS="-L${BIN_DIR}/gnutls/lib -lgnutls -L${BIN_DIR}/nettle/lib -lnettle" \
 EXT_LIBECAP_CFLAGS="-I${BIN_DIR}/libecap/include" \
 EXT_LIBECAP_LIBS="-L${BIN_DIR}/libecap/lib -lecap" \
 LIBXML2_CFLAGS="-I${BIN_DIR}/libxml2/include/libxml2" \
 LIBXML2_LIBS="-L${BIN_DIR}/libxml2/lib -lxml2" \
 LIBGNUTLS_CFLAGS="-I${BIN_DIR}/gnutls/include" \
 LIBGNUTLS_LIBS="-L${BIN_DIR}/gnutls/lib -lgnutls" \
+LIBNETTLE_CFLAGS="-I${BIN_DIR}/nettle/include" \
+LIBNETTLE_LIBS="-L${BIN_DIR}/nettle/lib -lnettle" \
 --disable-maintainer-mode \
 --disable-dependency-tracking \
 --disable-silent-rules \
