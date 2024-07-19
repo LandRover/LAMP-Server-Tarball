@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle p11-kit);
+DEPENDENCIES=(libidn2 libtasn1 libunistring gmp nettle p11-kit zstd zlib);
 
 # build data
 VERSION="3.8.6";
@@ -26,8 +26,8 @@ HOGWEED_CFLAGS="-I${BIN_DIR}/nettle/include" \
 HOGWEED_LIBS="-L${BIN_DIR}/nettle/lib64 -lhogweed" \
 P11_KIT_LIBS="-L${BIN_DIR}/p11-kit/lib -lp11-kit" \
 P11_KIT_CFLAGS="-I${BIN_DIR}/p11-kit/include/p11-kit-1" \
-LIBZSTD_CFLAGS="-I${BIN_DIR}/zlib/include" \
-LIBZSTD_LIBS="-L${BIN_DIR}/zlib/lib -lzlib" \
+LIBZSTD_CFLAGS="-I${BIN_DIR}/zstd/include" \
+LIBZSTD_LIBS="-L${BIN_DIR}/zstd/lib -lzstd" \
 --with-libz-prefix="${BIN_DIR}/zlib" \
 --disable-guile \
 --disable-shared \
