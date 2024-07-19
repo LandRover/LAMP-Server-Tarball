@@ -2,9 +2,10 @@
 
 CPWD="`dirname ${BASH_SOURCE}`";
 ROOT_PATH=`realpath ${CPWD}/../../../../`;
-ETC_SOURCE_DIR="${ROOT_PATH}/opt/local/etc"
-ETC_DEST_DIR="/opt/local/etc"
-echo $ROOT_PATH
+ETC_SOURCE_DIR="${ROOT_PATH}/opt/local/etc";
+ETC_DEST_DIR="/opt/local/etc";
+BASHRC_PATH="`realpath ~/.bashrc`";
+
 echo "[INFO] Verifiying ${ETC_DEST_DIR} etc folder";
 
 # Check if DEST_DIR doesn't exist
@@ -48,6 +49,12 @@ else
 fi
 
 ${CPWD}/bin/ln.sh ${ROOT_PATH}/usr/src /usr/src;
+
+# Adds PKG_CONFIG_PATH to startup
+${CPWD}/bin/append_once.sh "${BASHRC_PATH}" "export PKG_CONFIG_PATH=\`/usr/src/.BUILD/helpers/find_libs.sh PKG_CONFIG_PATH /usr/lib/pkgconfig/ /lib/pkgconfig/\`" "pkg-config global path. Example command to check libs pkg-config --libs libffi";
+
+# Adds LD_LIBRARY_PATH to startup
+${CPWD}/bin/append_once.sh "${BASHRC_PATH}" "export LD_LIBRARY_PATH=\`/usr/src/.BUILD/helpers/find_libs.sh LD_LIBRARY_PATH /usr/lib/ /lib/\`" "LD_LIBRARY_PATH Global var, libs shared path";
 
 echo "[INFO] initialize completed";
 
