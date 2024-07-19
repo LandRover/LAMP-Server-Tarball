@@ -54,6 +54,3 @@ if [ ! -d "${HOME_DIR}/${DATA_DIR}" ]; then
         rm -rf ${TMP_INIT_FILE};
     fi
 fi
-
-## Restart service
-${ETC_DIR}/init.d/${APP_NAME} restart
