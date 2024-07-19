@@ -27,12 +27,17 @@ LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib" \
 --enable-shared \
 --enable-optimizations \
 --enable-loadable-sqlite-extensions \
+--enable-big-digits=30 \
+--enable-profiling \
 --with-computed-gotos \
 --with-dbmliborder=bdb:gdbm \
 --with-openssl="${BIN_DIR}/openssl" \
 --with-openssl-rpath=auto \
+--with-ssl-default-suites=openssl \
 --with-lto \
---with-ensurepip=install \
+--with-ensurepip=upgrade \
+--with-fpectl=no \
+--with-pydebug=no \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
