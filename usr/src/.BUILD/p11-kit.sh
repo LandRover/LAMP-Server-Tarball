@@ -10,18 +10,15 @@ APP_NAME="p11-kit";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CFLAGS="-I${BIN_DIR}/libffi/include";
-export LDFLAGS="-L${BIN_DIR}/libffi/lib";
-
 ./configure \
 --prefix=${DESTINATION} \
 --with-system-config=${ETC_DIR}/pkcs11 \
 CFLAGS="-I${BIN_DIR}/libtasn1/include -I${BIN_DIR}/libffi/include" \
 LIBTASN1_CFLAGS="-I${BIN_DIR}/libtasn1/include" \
 LIBTASN1_LIBS="-L${BIN_DIR}/libtasn1/lib -ltasn1" \
-LIBFFI_LIBS="-I${BIN_DIR}/libffi/include" \
-LIBFFI_CFLAGS="-L${BIN_DIR}/libffi/lib" \
---without-libffi \
+LIBFFI_CFLAGS="-I${BIN_DIR}/libffi/include" \
+LIBFFI_LIBS="-L${BIN_DIR}/libffi/lib -lffi" \
+--with-libffi \
 --with-trust-paths="${ETC_DIR}/pki/anchors" \
 || die 0 "[${APP_NAME}] Configure failed";
 
