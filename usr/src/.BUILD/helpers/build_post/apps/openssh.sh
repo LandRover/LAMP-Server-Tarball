@@ -3,6 +3,7 @@
 ../bin/ln.sh "${ETC_DIR}/${APP_NAME}" "/etc/ssh";
 
 # Cleanup original configs of ssh, causes issues to autostart if present.
+rm -rf /etc/init.d/ssh*;
 rm -rf /lib/systemd/system/ssh*;
 rm -rf /etc/systemd/system/ssh*;
 
