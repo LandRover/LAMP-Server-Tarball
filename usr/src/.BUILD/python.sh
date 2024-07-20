@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies that must exist prior to the current build. If not found, will try to install
-DEPENDENCIES=(openssl mpdecimal libexpat libffi);
+DEPENDENCIES=(zlib mpdecimal libexpat libffi openssl);
 
 # build data
 VERSION="3.12.4";
@@ -10,13 +10,10 @@ APP_NAME="python";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-export CFLAGS="-I${BIN_DIR}/mpdecimal/include";
-export LDFLAGS="-L${BIN_DIR}/mpdecimal/lib";
-
 ./configure \
 --prefix=${DESTINATION} \
-INCLUDES="-I${BIN_DIR}/openssl/include" \
-LDFLAGS="-L${BIN_DIR}/openssl/lib64" \
+CFLAGS="-I${BIN_DIR}/openssl/include -I${BIN_DIR}/mpdecimal/include" \
+LDFLAGS="-L${BIN_DIR}/openssl/lib64 -L${BIN_DIR}/mpdecimal/lib" \
 LIBEXPAT_CFLAGS="-I${BIN_DIR}/libexpat/include" \
 LIBEXPAT_LDFLAGS="-L${BIN_DIR}/libexpat/lib" \
 LIBFFI_CFLAGS="-I${BIN_DIR}/libffi/include" \
@@ -30,16 +27,18 @@ ZLIB_LIBS="-L${BIN_DIR}/zlib/lib" \
 --enable-loadable-sqlite-extensions \
 --enable-big-digits=30 \
 --enable-profiling \
+--with-lto \
 --with-computed-gotos \
---with-dbmliborder=bdb:gdbm \
+--with-system-ffi \
 --with-system-expat \
---with-openssl=${BIN_DIR}/openssl \
+--with-system-libmpdec \
+--with-dbmliborder=bdb:gdbm \
 --with-openssl-rpath=auto \
 --with-ssl-default-suites=openssl \
---with-lto \
---with-ensurepip=upgrade \
+--with-openssl=${BIN_DIR}/openssl \
 --with-fpectl=no \
 --with-pydebug=no \
+--with-ensurepip=upgrade \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
