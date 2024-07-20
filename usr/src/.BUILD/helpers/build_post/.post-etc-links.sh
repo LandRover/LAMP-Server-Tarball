@@ -3,7 +3,7 @@
 #[ ["$0" = "${BASH_SOURCE}"] || ["$1" = "${BASH_SOURCE}"] ] && echo "FILE CAN ONLY BE SOURCED, DIRECT EXECUTION IS NOT ALLOWED!" && exit 0;
 
 echo "[INFO] Checking Link lib64 to lib if doesnt exist";
-if [ -d "${BIN_DIR}/${APP_NAME}/lib64" ] || [ ! -d "${BIN_DIR}/${APP_NAME}/lib" ]; then
+if [ -d "${BIN_DIR}/${APP_NAME}/lib64" ] && [ ! -d "${BIN_DIR}/${APP_NAME}/lib" ]; then
     echo "[INFO] lib folder is missing while lib64 exists, linking...";
     ../bin/ln.sh ${BIN_DIR}/${APP_NAME}/lib64 ${BIN_DIR}/${APP_NAME}/lib;
 fi
