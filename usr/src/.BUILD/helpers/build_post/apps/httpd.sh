@@ -19,6 +19,3 @@ chown ${USER}:${USER} /var/log/${APP_NAME};
 
 ## I like getting there faster..
 ../../helpers/bin/ln.sh ${HOME_DIR}/public_html /var/www;
-
-## general init.d settings
-../../helpers/bin/ln.sh ${BIN_DIR}/${APP_NAME}/bin/apachectl ${ETC_DIR}/init.d/${APP_NAME};
