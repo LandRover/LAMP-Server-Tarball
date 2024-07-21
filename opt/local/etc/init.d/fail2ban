@@ -27,7 +27,7 @@ NAME=fail2ban
 BIN_PATH="/opt/local/sbin/${NAME}/bin";
 ETC_PATH="/opt/local/etc/${NAME}";
 DAEMON=${BIN_PATH}/$NAME-client
-SCRIPTNAME=/etc/init.d/$NAME
+SCRIPTNAME=/opt/local/etc/init.d/${NAME}
 
 # Ad-hoc way to parse out socket file name
 SOCKFILE=`grep -h '^[^#]*socket *=' ${ETC_PATH}/$NAME.conf ${ETC_PATH}/$NAME.local 2>/dev/null \
