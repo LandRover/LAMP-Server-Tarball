@@ -9,7 +9,7 @@ any_dependencies_found=false;
 
 # Check each dependency
 for DEP in "${DEPENDENCIES[@]}"; do
-  if [ ! -e "${BIN_DIR}/${DEP}" ]; then
+  if [ ! -d "${BIN_DIR}/${DEP}" ]; then
     echo "Error: Dependency '${DEP}' not found in ${BIN_DIR}.";
     any_dependencies_found=true;
   fi
