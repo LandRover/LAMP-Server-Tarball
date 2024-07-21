@@ -14,23 +14,24 @@
 DESC="httpd web server"
 NAME=httpd
 BIN_PATH="/opt/local/sbin/httpd/bin"
+ETC_PATH="/opt/local/etc/apache";
 DAEMON=${BIN_PATH}/${NAME}
 
 
 SCRIPTNAME="${0##*/}"
 SCRIPTNAME="${SCRIPTNAME##[KS][0-9][0-9]}"
 if [ -n "$APACHE_CONFDIR" ] ; then
-        if [ "${APACHE_CONFDIR##/opt/local/etc/apache-}" != "${APACHE_CONFDIR}" ] ; then
-                DIR_SUFFIX="${APACHE_CONFDIR##/opt/local/etc/apache-}"
+        if [ "${APACHE_CONFDIR##${ETC_PATH}-}" != "${APACHE_CONFDIR}" ] ; then
+                DIR_SUFFIX="${APACHE_CONFDIR##${ETC_PATH}-}"
         else
                 DIR_SUFFIX=
         fi
 elif [ "${SCRIPTNAME##httpd-}" != "$SCRIPTNAME" ] ; then
         DIR_SUFFIX="-${SCRIPTNAME##httpd-}"
-        APACHE_CONFDIR=/opt/local/etc/apache$DIR_SUFFIX
+        APACHE_CONFDIR=${ETC_PATH}$DIR_SUFFIX
 else
         DIR_SUFFIX=
-        APACHE_CONFDIR=/opt/local/etc/apache
+        APACHE_CONFDIR=${ETC_PATH}
 fi
 if [ -z "$APACHE_ENVVARS" ] ; then
         APACHE_ENVVARS=$APACHE_CONFDIR/envvars
@@ -38,7 +39,7 @@ fi
 export APACHE_CONFDIR APACHE_ENVVARS
 
 ENV="env -i LANG=C PATH=${BIN_PATH}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-if [ "$APACHE_CONFDIR" != /opt/local/etc/apache ] ; then
+if [ "$APACHE_CONFDIR" != ${ETC_PATH} ] ; then
         ENV="$ENV APACHE_CONFDIR=$APACHE_CONFDIR"
 fi
 if [ "$APACHE_ENVVARS" != "$APACHE_CONFDIR/envvars" ] ; then
