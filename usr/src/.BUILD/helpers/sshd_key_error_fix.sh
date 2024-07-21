@@ -1,17 +1,19 @@
 #!/bin/bash
 
-echo "[info] Removing old keys";
-rm -r /etc/ssh/ssh*key;
+OPENSSH_PATH="/opt/local/etc/openssh";
 
-echo "[info] Generating new keys";
+echo "[INFO] Removing old keys";
+rm -r ${OPENSSH_PATH}/ssh*key;
 
-ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key;
-ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key;
-ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key;
+echo "[INFO] Generating new keys";
 
-echo "[info] All keys generated.";
+ssh-keygen -t rsa -f ${OPENSSH_PATH}/ssh_host_rsa_key;
+ssh-keygen -t dsa -f ${OPENSSH_PATH}/ssh_host_dsa_key;
+ssh-keygen -t ecdsa -f ${OPENSSH_PATH}/ssh_host_ecdsa_key;
 
-ls -al /etc/ssh/ssh*key;
+echo "[INFO] All keys generated.";
 
-echo "[info] Restarting SSH service";
-/etc/init.d/ssh restart;
+ls -al ${OPENSSH_PATH}/ssh*key;
+
+echo "[INFO] Restarting SSH service";
+/etc/init.d/openssh restart;
