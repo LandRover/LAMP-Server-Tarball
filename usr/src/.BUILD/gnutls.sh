@@ -30,7 +30,6 @@ LIBZSTD_CFLAGS="-I${BIN_DIR}/zstd/include" \
 LIBZSTD_LIBS="-L${BIN_DIR}/zstd/lib -lzstd" \
 --with-libz-prefix="${BIN_DIR}/zlib" \
 --with-p11-kit \
---disable-guile \
 --disable-tests \
 --disable-shared \
 --enable-static \
