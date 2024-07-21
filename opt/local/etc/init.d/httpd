@@ -13,8 +13,8 @@
 
 DESC="httpd web server"
 NAME=httpd
-BIN_PATH="/opt/local/sbin/httpd/bin"
-ETC_PATH="/opt/local/etc/apache";
+BIN_PATH="/opt/local/sbin/${NAME}/bin"
+ETC_PATH="/opt/local/etc/${NAME}";
 DAEMON=${BIN_PATH}/${NAME}
 
 

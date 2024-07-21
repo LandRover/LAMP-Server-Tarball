@@ -4,8 +4,8 @@
 unset HOME
 
 # for supporting multiple httpd instances
-if [ "${APACHE_CONFDIR##/opt/local/etc/apache-}" != "${APACHE_CONFDIR}" ] ; then
-        SUFFIX="-${APACHE_CONFDIR##/opt/local/etc/apache-}"
+if [ "${APACHE_CONFDIR##/opt/local/etc/httpd-}" != "${APACHE_CONFDIR}" ] ; then
+        SUFFIX="-${APACHE_CONFDIR##/opt/local/etc/httpd-}"
 else
         SUFFIX=
 fi

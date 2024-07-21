@@ -13,9 +13,7 @@
 # dirs
 opt/local/sbin
 opt/local/etc/openssl
-opt/local/etc/apache/extra
-opt/local/etc/apache/original
-opt/local/etc/apache/vhosts/*.conf
+opt/local/etc/httpd/extra
+opt/local/etc/httpd/original
+opt/local/etc/httpd/vhosts/*.conf
 opt/local/etc/php/fpm.d/*.conf
-
-
