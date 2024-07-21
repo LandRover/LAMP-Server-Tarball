@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(arp arp-util pcre openssl php);
+DEPENDENCIES=(apr apr-util pcre openssl php);
 
 # build data
 VERSION="2.4.62";
