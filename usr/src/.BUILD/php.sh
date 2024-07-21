@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(zlib openssl curl pcre libxml2 libzip libxslt jpeg libpng freetype libwebp libgd);
+DEPENDENCIES=(zlib openssl curl pcre libxml2 libzip libxslt jpeg libpng freetype libwebp libgd mysql);
 
 # build data
 VERSION="8.3.9";
