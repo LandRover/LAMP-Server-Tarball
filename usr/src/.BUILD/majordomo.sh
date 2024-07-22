@@ -8,7 +8,9 @@ USER="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-make DESTDIR="${DESTINATION}" install || die 0 "[${APP_NAME}] Make install failed";
+make \
+DESTDIR="${DESTINATION}" \
+install || die 0 "[${APP_NAME}] Make install failed";
 
 # Move all to upper path
 mv ${DESTINATION}/opt/majordomo/* ${DESTINATION} && rm -rf ${DESTINATION}/opt/majordomo;
