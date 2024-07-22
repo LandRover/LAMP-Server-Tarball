@@ -6,8 +6,8 @@ DEPENDENCIES=(pcre gdbm libspf2 opendmarc openssl majordomo);
 apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 
 # build data
-VERSION="4.97.1";
-DIST_URL="https://ftp.exim.org/pub/exim/exim4/exim-${VERSION}.tar.gz";
+VERSION="4.98";
+DIST_URL="https://downloads.exim.org/exim4/exim-${VERSION}.tar.gz";
 APP_NAME="exim";
 USER="mail";
 
