@@ -73,8 +73,8 @@ DBMLIB=-L/opt/local/sbin/gdbm/lib -lgdbm
 PCRE_CONFIG=/opt/local/sbin/pcre2/bin/pcre2-config
 PCRE_LIBS=-lpcre2-8 -L/opt/local/sbin/pcre2/lib
 
-CFLAGS += -DSPF -I/opt/local/sbin/opendmarc/include -I/opt/local/sbin/libspf2/include -I/opt/local/sbin/libsrs_alt/include -I/opt/local/sbin/pcre2/include -I/opt/local/sbin/gdbm/include
-LDFLAGS += -L/opt/local/sbin/opendmarc/lib -L/opt/local/sbin/libspf2/lib -L/opt/local/sbin/libsrs_alt/lib -lspf2 -lopendmarc -lsrs_alt -fstack-protector-strong
+CFLAGS += -DSPF -I/opt/local/sbin/opendmarc/include -I/opt/local/sbin/libspf2/include -I/opt/local/sbin/libsrs2/include -I/opt/local/sbin/libsrs_alt/include -I/opt/local/sbin/pcre2/include -I/opt/local/sbin/gdbm/include
+LDFLAGS += -L/opt/local/sbin/opendmarc/lib -L/opt/local/sbin/libspf2/lib -L/opt/local/sbin/libsrs2/lib -L/opt/local/sbin/libsrs_alt/lib -lspf2 -lsrs2 -lopendmarc -lsrs_alt -fstack-protector-strong
 
 USE_OPENSSL=yes
 USE_OPENSSL_PC=openssl
