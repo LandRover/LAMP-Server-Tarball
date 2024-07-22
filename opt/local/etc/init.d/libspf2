@@ -7,7 +7,6 @@ SOCK=/var/run/spfd.sock
 PID=/var/run/spfd.pid
 
 SPFD=/opt/local/sbin/libspf2/bin/spfd
-#SPFD=/usr/sbin/spfd
 DESC="SPF Daemon"
 
 ARGS="--socket=${SOCK} --socket-user ${USER} --socket-group ${GROUP} --set-user=${USER} --set-group=${GROUP}"
@@ -31,13 +30,13 @@ case "$1" in
         ;;
 
     restart|force-reload)
-        /etc/init.d/spfd stop
-        /etc/init.d/spfd start
+        /etc/init.d/libspf2 stop
+        /etc/init.d/libspf2 start
         ;;
 
     *)
-        N=/etc/init.d/$NAME
-        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        N=/etc/init.d/${NAME}
+        echo "Usage: ${NAME} {start|stop|restart|force-reload}" >&2
         exit 1
         ;;
 esac
