@@ -2,6 +2,9 @@
 
 apt-get -y install ruby-gnome-dev libglib2.0-dev;
 
+# Dependencies that must exist prior to the current build. If not found, will try to install
+DEPENDENCIES=(libev);
+
 # build data
 VERSION="2.2.7";
 DIST_URL="https://github.com/milter-manager/milter-manager/archive/refs/tags/${VERSION}.tar.gz";
@@ -15,6 +18,7 @@ source ./helpers/build_pre/.pre-start.sh;
 
 ./configure \
 --prefix=${DESTINATION} \
+--with-libev=${BIN_DIR}/libev \
 || die 0 "[${APP_NAME}] Configure failed";
 
 echo "Done. Making ${APP_NAME}-${VERSION}...";
