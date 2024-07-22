@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies which must exist prior to current build. If not found, will try to install
-DEPENDENCIES=(pcre gdbm libspf2 opendmarc openssl majordomo);
+DEPENDENCIES=(libsrs_alt openssl pcre gdbm libspf2 opendmarc majordomo);
 
 apt-get -y install libperl-dev libxaw7-dev libxt-dev;
 
