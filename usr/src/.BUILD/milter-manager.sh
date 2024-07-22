@@ -3,7 +3,7 @@
 apt-get -y install ruby-gnome-dev
 
 # build data
-VERSION="2.1.5";
+VERSION="2.2.7";
 DIST_URL="https://github.com/milter-manager/milter-manager/archive/refs/tags/${VERSION}.tar.gz";
 APP_NAME="milter-manager";
 
