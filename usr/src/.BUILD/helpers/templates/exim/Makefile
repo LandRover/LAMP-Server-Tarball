@@ -32,7 +32,7 @@ SUPPORT_SPF=yes
 SUPPORT_SRS=yes
 SUPPORT_DMARC=yes
 DMARC_TLD_FILE=/usr/share/publicsuffix/effective_tld_names.dat
-DMARC_API=100400
+DMARC_API=100300
 
 USE_GDBM=yes
 LOOKUP_CDB=no
