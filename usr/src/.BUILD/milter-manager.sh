@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get -y install ruby-gnome-dev
+apt-get -y install ruby-gnome-dev libglib2.0-dev;
 
 # build data
 VERSION="2.2.7";
