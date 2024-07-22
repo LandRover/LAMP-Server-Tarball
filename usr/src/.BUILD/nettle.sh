@@ -10,10 +10,10 @@ APP_NAME="nettle";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-CFLAGS="-m64" \
-OPENSSL_LIBFLAGS="${BIN_DIR}/openssl/lib64" \
 ./configure \
 --prefix=${DESTINATION} \
+CFLAGS="-m64" \
+OPENSSL_LIBFLAGS="${BIN_DIR}/openssl/lib64" \
 --with-include-path="${BIN_DIR}/openssl/include:${BIN_DIR}/gmp/include" \
 --with-lib-path="${BIN_DIR}/openssl/lib64:${BIN_DIR}/gmp/lib" \
 --disable-static \
