@@ -16,10 +16,10 @@ fi
 export HTTPD_RUN_USER=apache
 export HTTPD_RUN_GROUP=apache
 # temporary state file location. This might be changed to /run in Wheezy+1
-export HTTPD_PID_FILE=/var/run/httpd$SUFFIX/httpd.pid
-export HTTPD_RUN_DIR=/var/run/httpd$SUFFIX
+export HTTPD_PID_FILE=/var/run/httpd$SUFFIX.pid
+export HTTPD_RUN_DIR=/var/run
 export HTTPD_LOCK_DIR=/var/lock/httpd$SUFFIX
-# Only /var/log/httpd is handled by /etc/logrotate.d/httpd.
+# Only /var/log/httpd is handled by /opt/local/etc/logrotate.d/httpd.
 export HTTPD_LOG_DIR=/var/log/httpd$SUFFIX
 
 ## The locale used by some modules like mod_dav
@@ -31,15 +31,15 @@ export LANG
 
 ## The command to get the status for 'apachectl status'.
 ## Some packages providing 'www-browser' need '--dump' instead of '-dump'.
-#export APACHE_LYNX='www-browser -dump'
+#export HTTPD_LYNX='www-browser -dump'
 
 ## If you need a higher file descriptor limit, uncomment and adjust the
 ## following line (default is 8192):
-#APACHE_ULIMIT_MAX_FILES='ulimit -n 65536'
+#HTTPD_ULIMIT_MAX_FILES='ulimit -n 65536'
 
 ## If you would like to pass arguments to the web server, add them below
-## to the APACHE_ARGUMENTS environment.
-#export APACHE_ARGUMENTS=''
+## to the HTTPD_ARGUMENTS environment.
+#export HTTPD_ARGUMENTS=''
 
 ## Enable the debug mode for maintainer scripts.
 ## This will produce a verbose output on package installations of web server modules and web application
