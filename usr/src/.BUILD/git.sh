@@ -17,7 +17,7 @@ make configure;
 
 ./configure \
 --prefix=${DESTINATION} \
-CURL_LDFLAGS="-L${BIN_DIR}/curl" \
+CURL_LDFLAGS="-L${BIN_DIR}/curl/lib" \
 ZLIB_PATH="${BIN_DIR}/zlib" \
 OPENSSLDIR="${BIN_DIR}/openssl" \
 LIBPCREDIR="${BIN_DIR}/pcre2" \
