@@ -11,42 +11,42 @@
 #  This script will start the httpd web server.
 ### END INIT INFO
 
-DESC="httpd web server"
+DESC="httpd web server";
 NAME=httpd
-BIN_PATH="/opt/local/sbin/${NAME}/bin"
-ETC_PATH="/opt/local/etc/${NAME}";
+BIN_PATH="/opt/local/sbin/${NAME}/bin";
+HTTPD_CONFDIR="/opt/local/etc/${NAME}";
+HTTPD_ENVVARS="${HTTPD_CONFDIR}/envvars";
 DAEMON=${BIN_PATH}/${NAME}
-
 
 SCRIPTNAME="${0##*/}"
 SCRIPTNAME="${SCRIPTNAME##[KS][0-9][0-9]}"
-if [ -n "$APACHE_CONFDIR" ] ; then
-        if [ "${APACHE_CONFDIR##${ETC_PATH}-}" != "${APACHE_CONFDIR}" ] ; then
-                DIR_SUFFIX="${APACHE_CONFDIR##${ETC_PATH}-}"
+if [ -n "${HTTPD_CONFDIR}" ] ; then
+        if [ "${HTTPD_CONFDIR##/opt/local/etc/${NAME}-}" != "${HTTPD_CONFDIR}" ] ; then
+                DIR_SUFFIX="${HTTPD_CONFDIR##/opt/local/etc/${NAME}-}"
         else
                 DIR_SUFFIX=
         fi
 elif [ "${SCRIPTNAME##httpd-}" != "$SCRIPTNAME" ] ; then
         DIR_SUFFIX="-${SCRIPTNAME##httpd-}"
-        APACHE_CONFDIR=${ETC_PATH}$DIR_SUFFIX
+        HTTPD_CONFDIR=/opt/local/etc/${NAME}$DIR_SUFFIX
 else
         DIR_SUFFIX=
-        APACHE_CONFDIR=${ETC_PATH}
+        HTTPD_CONFDIR=/opt/local/etc/${NAME}
 fi
-if [ -z "$APACHE_ENVVARS" ] ; then
-        APACHE_ENVVARS=$APACHE_CONFDIR/envvars
+if [ -z "$HTTPD_ENVVARS" ] ; then
+        HTTPD_ENVVARS=${HTTPD_CONFDIR}/envvars
 fi
-export APACHE_CONFDIR APACHE_ENVVARS
+export HTTPD_CONFDIR HTTPD_ENVVARS
 
 ENV="env -i LANG=C PATH=${BIN_PATH}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-if [ "$APACHE_CONFDIR" != ${ETC_PATH} ] ; then
-        ENV="$ENV APACHE_CONFDIR=$APACHE_CONFDIR"
+if [ "${HTTPD_CONFDIR}" != /opt/local/etc/${NAME} ] ; then
+        ENV="$ENV HTTPD_CONFDIR=${HTTPD_CONFDIR}"
 fi
-if [ "$APACHE_ENVVARS" != "$APACHE_CONFDIR/envvars" ] ; then
-        ENV="$ENV APACHE_ENVVARS=$APACHE_ENVVARS"
+if [ "$HTTPD_ENVVARS" != "${HTTPD_CONFDIR}/envvars" ] ; then
+        ENV="$ENV HTTPD_ENVVARS=$HTTPD_ENVVARS"
 fi
 
-PIDFILE=$(. $APACHE_ENVVARS && echo $APACHE_PID_FILE)
+PIDFILE=$(. $HTTPD_ENVVARS && echo $HTTPD_PID_FILE)
 
 VERBOSE=no
 if [ -f /etc/default/rcS ]; then
@@ -56,9 +56,9 @@ fi
 
 
 # Now, set defaults:
-APACHECTL="$ENV ${BIN_PATH}/apachectl"
-PIDFILE=$(. $APACHE_ENVVARS && echo $APACHE_PID_FILE)
-APACHE_INIT_MESSAGE=""
+APACHECTL="$ENV apachectl"
+PIDFILE=$(. $HTTPD_ENVVARS && echo $HTTPD_PID_FILE)
+HTTPD_INIT_MESSAGE=""
 
 CONFTEST_OUTFILE=
 cleanup() {
@@ -69,7 +69,7 @@ cleanup() {
 trap cleanup 0  # "0" means "EXIT", but "EXIT" is not portable
 
 
-apache_conftest() {
+httpd_conftest() {
         [ -z "$CONFTEST_OUTFILE" ] || rm -f "$CONFTEST_OUTFILE"
         CONFTEST_OUTFILE=$(mktemp)
         if ! $APACHECTL configtest > "$CONFTEST_OUTFILE" 2>&1 ; then
@@ -84,11 +84,11 @@ apache_conftest() {
 clear_error_msg() {
         [ -z "$CONFTEST_OUTFILE" ] || rm -f "$CONFTEST_OUTFILE"
         CONFTEST_OUTFILE=
-        APACHE_INIT_MESSAGE=
+        HTTPD_INIT_MESSAGE=
 }
 
 print_error_msg() {
-        [ -z "$APACHE_INIT_MESSAGE" ] || log_warning_msg "$APACHE_INIT_MESSAGE"
+        [ -z "$HTTPD_INIT_MESSAGE" ] || log_warning_msg "$HTTPD_INIT_MESSAGE"
         if [ -n "$CONFTEST_OUTFILE" ] ; then
                 echo "Output of config test was:" >&2
                 cat "$CONFTEST_OUTFILE" >&2
@@ -97,7 +97,7 @@ print_error_msg() {
         fi
 }
 
-apache_wait_start() {
+httpd_wait_start() {
         local STATUS=$1
         local i=0
 
@@ -111,7 +111,7 @@ apache_wait_start() {
                 fi
 
                 if [ $i = "20" ] ; then
-                        APACHE_INIT_MESSAGE="The apache$DIR_SUFFIX instance did not start within 20 seconds. Please read the log files to discover problems"
+                        HTTPD_INIT_MESSAGE="The httpd$DIR_SUFFIX instance did not start within 20 seconds. Please read the log files to discover problems"
                         return 2
                 fi
 
@@ -121,7 +121,7 @@ apache_wait_start() {
         done
 }
 
-apache_wait_stop() {
+httpd_wait_stop() {
         local STATUS=$1
         local METH=$2
 
@@ -168,12 +168,12 @@ do_start()
                 return 1
         fi
 
-        if apache_conftest ; then
+        if httpd_conftest ; then
                 $APACHECTL start
-                apache_wait_start $?
+                httpd_wait_start $?
                 return $?
         else
-                APACHE_INIT_MESSAGE="The apache$DIR_SUFFIX configtest failed."
+                HTTPD_INIT_MESSAGE="The httpd$DIR_SUFFIX configtest failed."
                 return 2
         fi
 }
@@ -213,17 +213,17 @@ do_stop()
                 return 1
         fi
 
-        if [ $AP_RET = 2 ] && apache_conftest ; then
-                apache_wait_stop $? $STOP
+        if [ $AP_RET = 2 ] && httpd_conftest ; then
+                httpd_wait_stop $? $STOP
                 return $?
         else
                 if [ $AP_RET = 2 ]; then
                                         clear_error_msg
-                        APACHE_INIT_MESSAGE="The apache$DIR_SUFFIX configtest failed, so we are trying to kill it manually. This is almost certainly suboptimal, so please make sure your system is working as you'd expect now!"
-                        apache_wait_stop $? "kill"
+                        HTTPD_INIT_MESSAGE="The httpd$DIR_SUFFIX configtest failed, so we are trying to kill it manually. This is almost certainly suboptimal, so please make sure your system is working as you'd expect now!"
+                        httpd_wait_stop $? "kill"
                         return $?
                 elif [ $AP_RET = 1 ] ; then
-                        APACHE_INIT_MESSAGE="There are processes named 'httpd' running which do not match your pid file which are left untouched in the name of safety, Please review the situation by hand".
+                        HTTPD_INIT_MESSAGE="There are processes named 'httpd' running which do not match your pid file which are left untouched in the name of safety, Please review the situation by hand".
                         return 2
                 fi
         fi
@@ -235,15 +235,15 @@ do_stop()
 # Function that sends a SIGHUP to the daemon/service
 #
 do_reload() {
-        if apache_conftest; then
+        if httpd_conftest; then
                 if ! pidofproc -p $PIDFILE "$DAEMON" > /dev/null 2>&1 ; then
-                        APACHE_INIT_MESSAGE="httpd is not running"
+                        HTTPD_INIT_MESSAGE="httpd is not running"
                         return 2
                 fi
                 $APACHECTL graceful > /dev/null 2>&1
                 return $?
         else
-                APACHE_INIT_MESSAGE="The apache$DIR_SUFFIX configtest failed. Not doing anything."
+                HTTPD_INIT_MESSAGE="The httpd$DIR_SUFFIX configtest failed. Not doing anything."
                 return 2
         fi
 }
@@ -253,12 +253,12 @@ do_reload() {
 [ -x $DAEMON ] || exit 0
 
 if [ ! -x $DAEMON ] ; then
-        echo "No apache-bin package installed"
+        echo "No httpd-bin package installed"
         exit 0
 fi
 
 if [ -z "$PIDFILE" ] ; then
-        echo ERROR: APACHE_PID_FILE needs to be defined in $APACHE_ENVVARS >&2
+        echo ERROR: HTTPD_PID_FILE needs to be defined in $HTTPD_ENVVARS >&2
         exit 2
 fi
 
