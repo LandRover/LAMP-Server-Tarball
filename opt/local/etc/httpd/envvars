@@ -13,8 +13,8 @@ fi
 # Since there is no sane way to get the parsed httpd config in scripts, some
 # settings are defined via environment variables and then used in apachectl,
 # /opt/local/etc/init.d/httpd, /etc/logrotate.d/httpd, etc.
-export APACHE_RUN_USER=apache
-export APACHE_RUN_GROUP=apache
+export HTTPD_RUN_USER=apache
+export HTTPD_RUN_GROUP=apache
 # temporary state file location. This might be changed to /run in Wheezy+1
 export HTTPD_PID_FILE=/var/run/httpd$SUFFIX/httpd.pid
 export HTTPD_RUN_DIR=/var/run/httpd$SUFFIX
