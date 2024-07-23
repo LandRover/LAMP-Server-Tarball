@@ -5,4 +5,4 @@ session    required   pam_limits.so
 
 auth include common-auth
 account include common-account
-session-noninteractive include common-session-noninteractive
+session include common-session-noninteractive
