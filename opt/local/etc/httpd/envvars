@@ -5,7 +5,7 @@ unset HOME
 
 # for supporting multiple httpd instances
 if [ "${HTTPD_CONFDIR##/opt/local/etc/httpd-}" != "${HTTPD_CONFDIR}" ] ; then
-        SUFFIX="-${HTTPD_CONFDIR##"/opt/local/etc/httpd-}"
+        SUFFIX="-${HTTPD_CONFDIR##/opt/local/etc/httpd-}"
 else
         SUFFIX=
 fi
