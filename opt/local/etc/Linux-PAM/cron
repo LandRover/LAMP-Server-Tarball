@@ -13,7 +13,7 @@ session       required   pam_env.so
 session       required   pam_env.so envfile=/etc/default/locale
 
 account include common-account
-session-noninteractive include common-session-noninteractive
+session include common-session-noninteractive
 
 # Sets up user limits, please define limits for cron tasks
 # through /etc/security/limits.conf
