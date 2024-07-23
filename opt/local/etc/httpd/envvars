@@ -12,7 +12,7 @@ fi
 
 # Since there is no sane way to get the parsed httpd config in scripts, some
 # settings are defined via environment variables and then used in apachectl,
-# /opt/local/etc/init.d/httpd, /etc/logrotate.d/httpd, etc.
+# /opt/local/etc/init.d/httpd, /opt/local/etc/logrotate.d/httpd, etc.
 export HTTPD_RUN_USER=apache
 export HTTPD_RUN_GROUP=apache
 # temporary state file location. This might be changed to /run in Wheezy+1
