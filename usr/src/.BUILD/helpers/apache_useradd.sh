@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ARGS=$@;
 USER="$1";
 DOMAIN="$2";
 PRIORITY="$3";
@@ -76,8 +77,8 @@ for i in ${VARLIST[@]}; do
 done
 
 # DEBUG - COMMAND LINE USED
-sed -i "s/\$COMMAND_LINE/$@/g" ${TARGET_PHPFPM_FILE};
-sed -i "s/\$COMMAND_LINE/$@/g" ${TARGET_APACHE_FILE};
+sed -i "s/\$COMMAND_LINE/${ARGS}/g" ${TARGET_PHPFPM_FILE};
+sed -i "s/\$COMMAND_LINE/${ARGS}/g" ${TARGET_APACHE_FILE};
 
 ## for localhost no need to add servername and alias.
 [ ${DOMAIN} == "localhost" ] && sed -i "s/ServerAlias localhost www\.localhost//g" ${TARGET_APACHE_FILE};
