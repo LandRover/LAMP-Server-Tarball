@@ -4,23 +4,23 @@
 unset HOME
 
 # for supporting multiple httpd instances
-if [ "${APACHE_CONFDIR##/opt/local/etc/httpd-}" != "${APACHE_CONFDIR}" ] ; then
-        SUFFIX="-${APACHE_CONFDIR##/opt/local/etc/httpd-}"
+if [ "${HTTPD_CONFDIR##/opt/local/etc/httpd-}" != "${HTTPD_CONFDIR}" ] ; then
+        SUFFIX="-${HTTPD_CONFDIR##"/opt/local/etc/httpd-}"
 else
         SUFFIX=
 fi
 
-# Since there is no sane way to get the parsed apache config in scripts, some
+# Since there is no sane way to get the parsed httpd config in scripts, some
 # settings are defined via environment variables and then used in apachectl,
-# /etc/init.d/httpd, /etc/logrotate.d/httpd, etc.
+# /opt/local/etc/init.d/httpd, /etc/logrotate.d/httpd, etc.
 export APACHE_RUN_USER=apache
 export APACHE_RUN_GROUP=apache
 # temporary state file location. This might be changed to /run in Wheezy+1
-export APACHE_PID_FILE=/var/run/httpd.pid
-export APACHE_RUN_DIR=/var/run/httpd$SUFFIX
-export APACHE_LOCK_DIR=/var/lock/httpd$SUFFIX
-# Only /var/log/apache is handled by /etc/logrotate.d/apache.
-export APACHE_LOG_DIR=/var/log/httpd$SUFFIX
+export HTTPD_PID_FILE=/var/run/httpd$SUFFIX/httpd.pid
+export HTTPD_RUN_DIR=/var/run/httpd$SUFFIX
+export HTTPD_LOCK_DIR=/var/lock/httpd$SUFFIX
+# Only /var/log/httpd is handled by /etc/logrotate.d/httpd.
+export HTTPD_LOG_DIR=/var/log/httpd$SUFFIX
 
 ## The locale used by some modules like mod_dav
 export LANG=C
@@ -44,4 +44,4 @@ export LANG
 ## Enable the debug mode for maintainer scripts.
 ## This will produce a verbose output on package installations of web server modules and web application
 ## installations which interact with Apache
-#export APACHE2_MAINTSCRIPT_DEBUG=1
+#export HTTPD_MAINTSCRIPT_DEBUG=1
