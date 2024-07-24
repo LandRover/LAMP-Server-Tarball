@@ -8,7 +8,7 @@ DEPENDENCIES=(Linux-PAM libcap zstd libgcrypt libgpg-error libidn2);
 # build data
 VERSION="256.2";
 DIST_URL="https://github.com/systemd/systemd/archive/refs/tags/v${VERSION}.tar.gz";
-APP_NAME="Linux-PAM-systemd";
+APP_NAME="systemd";
 
 source ./helpers/build_pre/.pre-start.sh;
 
