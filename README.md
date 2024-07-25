@@ -20,7 +20,7 @@ Optimized build scripts for custom install a Debian wheezy server LAMP based.
   - exim
     - custom route for each php-fpm user
   - Reinstall VM and test all scripts.
-  - add  curl --remote-name --time-cond cacert.pem https://curl.haxx.se/ca/cacert.pem to /opt/local/etc/openssl/certs during postinstall for openssl
+  - add  curl --remote-name --time-cond cacert.pem https://curl.haxx.se/ca/cacert.pem to /opt/local/etc/openssl/certs during postinstall for openssl (apt install --reinstall ca-certificates)
   - SRS exim route not working
   - Proftpd
   - SSH Trap
