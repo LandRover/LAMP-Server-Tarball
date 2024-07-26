@@ -70,8 +70,6 @@ ZCAT_COMMAND=/usr/bin/zcat
 COMPRESS_COMMAND=/usr/bin/gzip
 COMPRESS_SUFFIX=gz
 
-EXIM_PERL=perl.o
-
 # These scanners are claimed to be no longer existent.
 NO_SYMLINK=yes
 DISABLE_MAL_AVE=yes
