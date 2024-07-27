@@ -11,7 +11,7 @@ USER="${APP_NAME}";
 
 source ./helpers/build_pre/.pre-start.sh;
 
-## Create user for exim
+## Create user
 [ -z "$(getent passwd ${USER})" ] && echo "[info] User ${USER} not found, creating.." && useradd -M -s /bin/false -d /dev/null ${USER};
 
 ## SSL cert: https://support.plesk.com/hc/en-us/articles/115001833974-How-to-generate-custom-self-signed-SSL-certificates-and-apply-it-to-Dovecot-on-Plesk-for-Linux | https://wiki.dovecot.org/SSL/DovecotConfiguration
