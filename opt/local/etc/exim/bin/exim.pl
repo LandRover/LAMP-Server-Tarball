@@ -1,23 +1,23 @@
 #!/usr/bin/perl
 
-#VERSION=29
+#VERSION=31
 
 sub get_domain_owner
 {
 	my ($domain) = @_;
 	my $username="";
-	open(domain_owners,"/opt/local/etc/exim/virtual/domain_owners");
-	while (<domain_owners>)
+	open(DOMAINOWNERS,"/opt/local/etc/exim/virtual/domain_owners");
+	while (<DOMAINOWNERS>)
 	{
 		$_ =~ s/\n//;
 		my ($dmn,$usr) = split(/: /, $_);
 		if ($dmn eq $domain)
 		{
-			close(domain_owners);
+			close(DOMAINOWNERS);
 			return $usr;
 		}
 	}
-	close(domain_owners);
+	close(DOMAINOWNERS);
 
 	return -1;
 }
@@ -116,14 +116,14 @@ sub hit_limit_email
 	}
 	
 	my $user_email_limit = 0;
-	if (open (LIMIT, "/opt/local/etc/exim/virtual/domains/$domain/limit/$user"))
+	if (open (LIMIT, "/opt/local/etc/exim/virtual/limit_$user"))
 	{
 		$user_email_limit = int(<LIMIT>);
 		close(LIMIT);
 	}
 	else
 	{
-		if (open (LIMIT, "/opt/local/etc/exim/virtual/user_limit"))
+		if (open (LIMIT, "/opt/local/etc/exim/virtual/limit"))
 		{
 			$user_email_limit = int(<LIMIT>);
 			close(LIMIT);
@@ -133,7 +133,7 @@ sub hit_limit_email
 	if ($user_email_limit > 0)
 	{
 		my $count = 0;
-		$count = (stat("/opt/local/etc/exim/virtual/domains/$domain/usage/$user"))[7] + 1;
+		$count = (stat("/opt/local/etc/exim/virtual/usage/$user"))[7] + 1;
 		if ($count == $user_email_limit)
 		{
 			return 1;
@@ -183,7 +183,7 @@ sub die_if_over_limit
 #called by exim to verify if an smtp user is allowed to
 #send email through the server
 #possible success:
-# user is in /opt/local/etc/exim/virtual/domain.com/passwd and password matches
+# user is in /opt/local/etc/exim/virtual/<domain.com>/passwd and password matches
 # user is in /etc/passwd and password matches in /etc/shadow
 
 sub smtpauth
@@ -232,27 +232,54 @@ sub smtpauth
 
 	if ($unixuser == 1)
 	{
-		#the username passed doesn't have a domain, so its a system account
-		$homepath = (getpwnam($username))[7];
-		if ($homepath eq "") { return 0; }
-		open(PASSFILE, "< $homepath/.shadow") || return "no";
-		$crypted_pass = <PASSFILE>;
-		close PASSFILE;
+			#the username passed doesn't have a domain, so its a system account
+			$homepath = (getpwnam($username))[7];
+			if ($homepath eq "") { return 0; }
+			if (open(PASSFILE, "< $homepath/.shadow")) {
+					$crypted_pass = <PASSFILE>;
+					close PASSFILE;
 
-		if ($crypted_pass eq crypt($password, $crypted_pass))
-		{
-			if ($check_limits == 1)
-			{
-				my $limit_check = hit_limit_user($username);
-				if ($limit_check > 1)
-				{
-					die("The email send limit for $username has been reached\n");
-				}
+					if ($crypted_pass eq crypt($password, $crypted_pass))
+					{
+							if ($check_limits == 1)
+							{
+									my $limit_check = hit_limit_user($username);
+									if ($limit_check > 1)
+									{
+											die("The email send limit for $username has been reached\n");
+									}
+							}
+
+							return "yes";
+					}
 			}
 
-			return "yes";
-		}
-		else { return "no"; }
+			#jailed shell auth
+			if (open(USERVARIABLES,"/opt/local/etc/exim/configs/exim.jail/$username.conf"))
+			{
+					while ($line = <USERVARIABLES>)
+					{
+							if ($line =~ m/^password /)
+							{
+									my $jail_password = (split / /, $line)[1];
+									$jail_password =~ s/\n//;
+									if ($jail_password eq $password) {
+											if ($check_limits == 1)
+											{
+													my $limit_check = hit_limit_user($username);
+													if ($limit_check > 1)
+													{
+															die("The email send limit for $username has been reached\n");
+													}
+											}
+											close(USERVARIABLES);
+											return "yes";
+									}
+							}
+					}
+					close(USERVARIABLES);
+			}
+
 	}
 	else
 	{
@@ -808,7 +835,7 @@ sub get_spam_high_score_drop
 {
 	my $domain = Exim::expand_string('$acl_m_spam_domain');
 
-	#/opt/local/etc/exim/virtual/domains/domain.com/filter.conf
+	#/opt/local/etc/exim/virtual/<domain.com>/filter.conf
 	#high_score=7
 	#high_score_block=yes
 
@@ -931,6 +958,6 @@ sub log_str
 	close(LOG);
 }
 
-if ( -e "/etc/exim.custom.pl" ) {
-	do '/etc/exim.custom.pl';
+if ( -e "/opt/local/etc/exim/bin/exim.custom.pl" ) {
+	do '/opt/local/etc/exim/bin/exim.custom.pl';
 }
