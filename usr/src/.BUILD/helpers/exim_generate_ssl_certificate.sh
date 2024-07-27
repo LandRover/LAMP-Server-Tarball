@@ -3,6 +3,8 @@
 ## DKIM Generation
 # /opt/local/sbin/openssl/bin/openssl genrsa -out /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.key 2048
 # /opt/local/sbin/openssl/bin/openssl rsa -in /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.key -out /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.pub -pubout
+# chown mail:mail /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.*
+# chmod 600 /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.*
 #
 # Add new DNS record to the domain TXT type:
 # dkim_signature_id._domainkey.<DOMAIN_NAME> v=DKIM1; p=<FILE CONTANT OF /opt/local/etc/exim/virtual/domains/<DOMAIN_NAME>/ssl/dkim/dkim.pub>
