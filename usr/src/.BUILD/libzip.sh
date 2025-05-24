@@ -4,7 +4,7 @@
 DEPENDENCIES=(cmake zlib);
 
 # build data
-VERSION="1.10.1";
+VERSION="1.11.4";
 DIST_URL="https://libzip.org/download/libzip-${VERSION}.tar.gz";
 APP_NAME="libzip";
 
