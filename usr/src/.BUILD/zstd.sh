@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.5.6";
+VERSION="1.5.7";
 DIST_URL="https://github.com/facebook/zstd/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="zstd";
 
