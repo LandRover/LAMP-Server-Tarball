@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.48.0";
+VERSION="1.51.0";
 DIST_URL="https://github.com/libuv/libuv/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="libuv";
 
