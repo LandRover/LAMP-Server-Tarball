@@ -4,7 +4,7 @@
 DEPENDENCIES=(apr apr-util pcre openssl php);
 
 # build data
-VERSION="2.4.62";
+VERSION="2.4.63";
 DIST_URL="https://dlcdn.apache.org/httpd/httpd-${VERSION}.tar.gz";
 APP_NAME="httpd";
 USER="apache";
