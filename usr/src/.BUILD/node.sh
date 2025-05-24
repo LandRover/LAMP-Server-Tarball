@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib libuv openssl nghttp2);
 
 # build data
-VERSION="v20.15.1";
+VERSION="v22.16.0";
 DIST_URL="https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz";
 APP_NAME="node";
 
