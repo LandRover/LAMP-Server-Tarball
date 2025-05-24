@@ -4,7 +4,7 @@
 DEPENDENCIES=(libedit Linux-PAM openssl zlib);
 
 # build data
-VERSION="9.8p1";
+VERSION="10.0";
 DIST_URL="https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-${VERSION}.tar.gz";
 APP_NAME="openssh";
 
