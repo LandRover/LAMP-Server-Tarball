@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib mpdecimal libexpat libffi openssl);
 
 # build data
-VERSION="3.12.4";
+VERSION="3.13.3";
 DIST_URL="https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz";
 APP_NAME="python";
 
