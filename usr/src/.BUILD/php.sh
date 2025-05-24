@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib openssl curl pcre libxml2 libzip libxslt jpeg libpng freetype libwebp libgd mysql);
 
 # build data
-VERSION="8.3.9";
+VERSION="8.3.21";
 DIST_URL="http://cz1.php.net/distributions/php-${VERSION}.tar.gz";
 APP_NAME="php";
 
