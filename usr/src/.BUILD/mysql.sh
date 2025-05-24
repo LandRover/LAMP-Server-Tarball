@@ -6,7 +6,7 @@ DEPENDENCIES=(cmake openssl curl);
 apt-get -y install patchelf;
 
 # build data
-VERSION="8.4.1";
+VERSION="8.4.5";
 DIST_URL="https://cdn.mysql.com//Downloads/MySQL-8.4/mysql-${VERSION}.tar.gz";
 APP_NAME="mysql";
 USER="mysql";
