@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="2.6.2";
-DIST_URL="https://github.com/libexpat/libexpat/releases/download/R_2_6_2/expat-${VERSION}.tar.gz";
+VERSION="2.9.0";
+DIST_URL="https://github.com/libexpat/libexpat/releases/download/R_${VERSION//./_}/expat-${VERSION}.tar.gz";
 APP_NAME="libexpat";
 
 source ./helpers/build_pre/.pre-start.sh;

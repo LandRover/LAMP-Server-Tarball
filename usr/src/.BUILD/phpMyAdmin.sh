@@ -4,7 +4,7 @@
 DEPENDENCIES=(httpd php);
 
 # build data
-VERSION="5.2.1";
+VERSION="5.2.3";
 DIST_URL="https://files.phpmyadmin.net/phpMyAdmin/${VERSION}/phpMyAdmin-${VERSION}-english.tar.gz";
 APP_NAME="phpMyAdmin";
 USER="apache";

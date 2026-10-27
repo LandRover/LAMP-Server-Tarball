@@ -4,7 +4,7 @@
 DEPENDENCIES=(libtasn1 libffi);
 
 # build data
-VERSION="0.25.5";
+VERSION="0.26.5";
 DIST_URL="https://github.com/p11-glue/p11-kit/releases/download/${VERSION}/p11-kit-${VERSION}.tar.xz";
 APP_NAME="p11-kit";
 

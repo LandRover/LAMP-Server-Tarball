@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.7.5";
+VERSION="2.8.0";
 DIST_URL="https://dl.influxdata.com/influxdb/releases/influxdb2-client-${VERSION}-linux-amd64.tar.gz";
 APP_NAME="influxdb2-client";
 

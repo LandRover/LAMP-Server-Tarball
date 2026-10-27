@@ -6,7 +6,7 @@ apt-get -y install ruby-gnome-dev libglib2.0-dev;
 DEPENDENCIES=(libev);
 
 # build data
-VERSION="2.2.7";
+VERSION="2.3.1";
 DIST_URL="https://github.com/milter-manager/milter-manager/archive/refs/tags/${VERSION}.tar.gz";
 APP_NAME="milter-manager";
 

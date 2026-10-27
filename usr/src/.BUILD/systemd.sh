@@ -6,7 +6,7 @@ apt-get -y install libsystemd-dev meson ninja-build;
 DEPENDENCIES=(Linux-PAM libcap zstd libgcrypt libgpg-error libidn2);
 
 # build data
-VERSION="256.2";
+VERSION="262.1";
 DIST_URL="https://github.com/systemd/systemd/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="systemd";
 

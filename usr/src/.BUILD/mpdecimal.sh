@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="4.0.0";
+VERSION="4.0.1";
 DIST_URL="https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-${VERSION}.tar.gz";
 APP_NAME="mpdecimal";
 

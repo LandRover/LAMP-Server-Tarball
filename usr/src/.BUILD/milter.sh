@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="8.18.1";
+VERSION="8.18.2";
 DIST_URL="https://ftp.sendmail.org/sendmail.${VERSION}.tar.gz";
 APP_NAME="milter";
 

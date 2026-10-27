@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.50";
+VERSION="1.61";
 DIST_URL="https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-${VERSION}.tar.gz";
 APP_NAME="libgpg-error";
 

@@ -4,7 +4,7 @@
 DEPENDENCIES=(openssl zlib curl pcre2 libexpat);
 
 # build data
-VERSION="2.45.2";
+VERSION="2.56.0";
 DIST_URL="https://github.com/git/git/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="git";
 

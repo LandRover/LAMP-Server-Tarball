@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="2.70";
+VERSION="2.78";
 DIST_URL="https://mirrors.edge.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-${VERSION}.tar.gz";
 APP_NAME="libcap";
 

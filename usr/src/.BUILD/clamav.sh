@@ -4,7 +4,7 @@
 DEPENDENCIES=(cmake rust cargo);
 
 # build data
-VERSION="1.3.1";
+VERSION="1.5.4";
 DIST_URL="https://github.com/Cisco-Talos/clamav/releases/download/clamav-${VERSION}/clamav-${VERSION}.tar.gz";
 APP_NAME="clamav";
 USER="${APP_NAME}";

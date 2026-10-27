@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="3.4.6";
+VERSION="3.8.0";
 DIST_URL="https://github.com/libffi/libffi/releases/download/v${VERSION}/libffi-${VERSION}.tar.gz";
 APP_NAME="libffi";
 

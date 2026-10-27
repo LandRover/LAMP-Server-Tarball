@@ -4,8 +4,8 @@
 DEPENDENCIES=(openssl libidn2 nghttp2 zlib);
 
 # build data
-VERSION="1.24.3";
-DIST_URL="https://storage.googleapis.com/golang/go${VERSION}.linux-amd64.tar.gz";
+VERSION="1.27.3";
+DIST_URL="https://go.dev/dl/go${VERSION}.linux-amd64.tar.gz";
 APP_NAME="go";
 
 source ./helpers/build_pre/.pre-start.sh;

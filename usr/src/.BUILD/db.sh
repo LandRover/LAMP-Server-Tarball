@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # build data
-VERSION="6.2.38";
-DIST_URL="http://distfiles.gentoo.org/distfiles/db-${VERSION}.tar.gz";
+VERSION="2026.10.7.1";
+DIST_URL="https://github.com/berkeleydb/libdb/archive/refs/tags/v${VERSION}.tar.gz";
 APP_NAME="db";
 
 source ./helpers/build_pre/.pre-start.sh;

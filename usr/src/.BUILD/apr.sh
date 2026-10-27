@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="1.7.4";
+VERSION="1.7.6";
 DIST_URL="https://dlcdn.apache.org/apr/apr-${VERSION}.tar.gz";
 APP_NAME="apr";
 

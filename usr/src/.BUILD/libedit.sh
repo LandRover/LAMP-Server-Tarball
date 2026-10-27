@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build data
-VERSION="20240517-3.1";
+VERSION="20260512-3.1";
 DIST_URL="https://www.thrysoee.dk/editline/libedit-${VERSION}.tar.gz";
 APP_NAME="libedit";
 

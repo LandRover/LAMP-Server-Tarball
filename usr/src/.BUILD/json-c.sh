@@ -4,7 +4,7 @@
 DEPENDENCIES=(cmake);
 
 # build data
-VERSION="0.17-20230812";
+VERSION="0.19-20260627";
 DIST_URL="https://github.com/json-c/json-c/archive/refs/tags/json-c-${VERSION}.tar.gz";
 APP_NAME="json-c";
 

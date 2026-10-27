@@ -4,8 +4,8 @@
 DEPENDENCIES=(python);
 
 # build data
-VERSION="4.7.0";
-DIST_URL="https://yer.dl.sourceforge.net/project/scons/scons/${VERSION}/SCons-${VERSION}.tar.gz";
+VERSION="4.11.1";
+DIST_URL="https://github.com/SCons/scons/archive/refs/tags/${VERSION}.tar.gz";
 APP_NAME="SCons";
 
 source ./helpers/build_pre/.pre-start.sh;

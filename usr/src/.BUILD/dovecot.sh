@@ -4,8 +4,8 @@
 DEPENDENCIES=(openssl zlib exim);
 
 # build data
-VERSION="2.3.21";
-DIST_URL="https://dovecot.org/releases/2.3/dovecot-${VERSION}.tar.gz";
+VERSION="2.4.5";
+DIST_URL="https://dovecot.org/releases/2.4/dovecot-${VERSION}.tar.gz";
 APP_NAME="dovecot";
 USER="${APP_NAME}";
 
