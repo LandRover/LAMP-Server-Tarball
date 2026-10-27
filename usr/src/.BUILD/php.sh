@@ -4,7 +4,7 @@
 DEPENDENCIES=(zlib openssl curl pcre libxml2 libzip libxslt jpeg libpng freetype libwebp libgd mysql);
 
 # build data
-VERSION="8.3.21";
+VERSION="8.5.12";
 DIST_URL="http://cz1.php.net/distributions/php-${VERSION}.tar.gz";
 APP_NAME="php";
 
@@ -25,7 +25,6 @@ source ./helpers/build_pre/.pre-start.sh;
 --enable-ipv6 \
 --enable-mbstring \
 --enable-mysqlnd \
---enable-opcache \
 --enable-pcntl \
 --enable-pdo \
 --enable-phar \
